@@ -133,14 +133,14 @@ h1, h2, h3, h4, .logo-brand span {
 
 .hero-bg-logo {
     position: absolute;
-    top: 50%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    max-width: 90vw;
-    max-height: 90vw;
-    opacity: 0.12;
+    width: 420px;
+    height: 420px;
+    max-width: 80vw;
+    max-height: 80vw;
+    opacity: 0.18;
     z-index: 0;
     pointer-events: none;
     animation: pulseLogo 6s ease-in-out infinite alternate;
