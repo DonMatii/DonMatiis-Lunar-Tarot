@@ -43,40 +43,29 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Función para enmascarar el correo de forma estricta por privacidad
+// Función para enmascarar el correo de forma máxima (solo 2 primeras letras del usuario + dominio oculto con asteriscos + extensión)
 function maskEmail(email) {
-    if (!email || !email.includes('@')) return '***@***.com';
+    if (!email || !email.includes('@')) return '**@***.com';
     const parts = email.split('@');
     const user = parts[0];
     const domainPart = parts[1];
     
-    // Solo dejar las primeras 3 letras del usuario (o menos si es muy corto) y el resto asteriscos
+    // Solo las 2 primeras letras del usuario y el resto asteriscos
     let maskedUser = '';
-    if (user.length <= 3) {
+    if (user.length <= 2) {
         maskedUser = user.substring(0, 1) + '***';
     } else {
-        maskedUser = user.substring(0, 3) + '******';
+        maskedUser = user.substring(0, 2) + '****';
     }
 
-    // Separar el dominio de su extensión (ej: gmail . com o uc . cl)
+    // Extraer extensión (.com, .cl, etc.)
     const lastDotIndex = domainPart.lastIndexOf('.');
-    let domainName = domainPart;
-    let extension = '';
-
+    let extension = 'com';
     if (lastDotIndex !== -1) {
-        domainName = domainPart.substring(0, lastDotIndex);
         extension = domainPart.substring(lastDotIndex + 1);
     }
 
-    // Enmascarar el nombre del dominio dejando solo las primeras letras y asteriscos
-    let maskedDomain = '';
-    if (domainName.length <= 2) {
-        maskedDomain = domainName.substring(0, 1) + '***';
-    } else {
-        maskedDomain = domainName.substring(0, 2) + '****';
-    }
-
-    return `${maskedUser}@${maskedDomain}.${extension}`;
+    return `${maskedUser}@****.${extension}`;
 }
 const testimonialForm = document.getElementById('testimonial-form');
 const ratingInput = document.getElementById('rating-value');
