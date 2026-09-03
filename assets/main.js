@@ -37,7 +37,45 @@ function observeDynamicElements() {
 }
 observeDynamicElements();
 
-// Sistema de Testimonios Dinámicos
+// Función para validar formato de correo electrónico
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Función para enmascarar el correo (primeras 3 y últimas 3 visibles)
+function maskEmail(email) {
+    if (!email || !email.includes('@')) return '***@***.com';
+    const parts = email.split('@');
+    const user = parts[0];
+    const domainPart = parts[1];
+    
+    // Enmascarar usuario
+    let maskedUser = '';
+    if (user.length <= 6) {
+        maskedUser = user.substring(0, 1) + '***';
+    } else {
+        const start = user.substring(0, 3);
+        const end = user.substring(user.length - 3);
+        maskedUser = start + '***' + end;
+    }
+
+    // Enmascarar dominio
+    const domainParts = domainPart.split('.');
+    const domainName = domainParts[0];
+    const extension = domainParts.slice(1).join('.');
+
+    let maskedDomain = '';
+    if (domainName.length <= 4) {
+        maskedDomain = domainName.substring(0, 1) + '***';
+    } else {
+        const dStart = domainName.substring(0, 2);
+        const dEnd = domainName.substring(domainName.length - 2);
+        maskedDomain = dStart + '***' + dEnd;
+    }
+
+    return `${maskedUser}@${maskedDomain}.${extension}`;
+}
 const testimonialForm = document.getElementById('testimonial-form');
 const ratingInput = document.getElementById('rating-value');
 const starButtons = document.querySelectorAll('.star-btn');
@@ -134,7 +172,10 @@ function renderTestimonials() {
                 <span class="testimonial-date">${item.date}</span>
             </div>
             <p>"${escapeHtml(item.comment)}"</p>
-            <span class="client-name">— ${escapeHtml(item.name)}</span>
+            <div class="client-meta">
+                <span class="client-name">— ${escapeHtml(item.name)}</span>
+                <span class="client-email-masked" title="Correo enmascarado por privacidad"><i class="fa-solid fa-envelope-circle-check"></i> ${escapeHtml(maskEmail(item.email))}</span>
+            </div>
         `;
         testimonialsList.appendChild(card);
     });
@@ -163,6 +204,11 @@ if (testimonialForm) {
 
         if (!name || !email || !comment) {
             showFeedback('Por favor completa todos los campos requeridos.', 'error');
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            showFeedback('Por favor ingresa un correo electrónico válido (ejemplo: usuario@dominio.com).', 'error');
             return;
         }
 

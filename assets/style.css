@@ -678,10 +678,24 @@ section {
     line-height: 1.5;
 }
 
+.client-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
 .client-name {
     font-weight: 600;
     color: var(--accent-light);
-    font-size: 0.9rem;
+}
+
+.client-email-masked {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.8rem;
+    opacity: 0.85;
 }
 
 @media (max-width: 600px) {
