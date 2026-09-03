@@ -10,7 +10,7 @@ Página web mística y profesional para la promoción de lecturas espirituales d
   - Sección "Sobre Mí" con presentación personal y estadísticas.
   - Preguntas Frecuentes (FAQ) y Testimonios de clientes.
 - **Interactividad y Accesibilidad:**
-  - Botón flotante de WhatsApp directo (+56 9 8212 8604).
+  - Botón flotante de WhatsApp directo.
   - Enlace directo a TikTok (@donmatii8).
   - Animaciones fluidas al hacer scroll y diseño 100% responsivo para celulares y computadores.
 
