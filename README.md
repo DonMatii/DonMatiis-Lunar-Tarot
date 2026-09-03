@@ -7,9 +7,9 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **Secciones Integradas:**
   - **Portada (Hero):** Logo principal destacado, bienvenida cálida y botones de llamada a la acción (CTA).
   - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con enlace directo de contratación.
-  - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, con estadísticas de confianza.
-  - **Preguntas Frecuentes (FAQ):** Resolución de dudas comunes sobre modalidad, pagos y preparación.
-  - **Testimonios:** Reseñas reales de clientes satisfechos.
+  - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
+  - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
+  - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo y enmascaramiento seguro por privacidad.
 - **Interactividad y Canales de Contacto:**
   - **Botón Flotante de WhatsApp:** Acceso directo a chat personalizado (`+56 9 8212 8604`).
   - **Enlace a TikTok:** Conexión directa con la comunidad (`@donmatii8`).
