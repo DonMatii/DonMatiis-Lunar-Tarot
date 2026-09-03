@@ -1,6 +1,6 @@
 # DonMatii's Lunar Tarot
 
-Página web mística y profesional para la promoción de lecturas espirituales de **Tarot, Péndulo y Cartomancia** guiadas por Matías Suazo.
+Página web mística y profesional para la promoción de lecturas espirituales de **Tarot, Péndulo y Cartomancia** guiadas por mi.
 
 ## 🌙 Características
 - **Diseño Místico y Elegante:** Paleta de colores en tonos morados, lilas y acentos dorados inspirados en la energía lunar y los cristales.
