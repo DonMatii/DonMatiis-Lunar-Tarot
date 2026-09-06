@@ -23,15 +23,19 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .logo-brand span {
-    font-family: 'Cinzel', serif;
+h1,
+h2,
+h3,
+h4,
+.logo-brand span {
+    font-family: "Cinzel", serif;
 }
 
 .container {
@@ -103,7 +107,9 @@ h1, h2, h3, h4, .logo-brand span {
 }
 
 .btn-nav {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    background: linear-gradient(135deg,
+            var(--accent-purple),
+            var(--accent-light));
     color: var(--white) !important;
     padding: 8px 18px;
     border-radius: 20px;
@@ -197,7 +203,10 @@ h1, h2, h3, h4, .logo-brand span {
     font-weight: 600;
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    transition:
+        transform 0.3s,
+        background 0.3s,
+        box-shadow 0.3s;
 }
 
 .btn-primary:hover {
@@ -216,7 +225,10 @@ h1, h2, h3, h4, .logo-brand span {
     border-radius: 30px;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
 }
 
 .btn-secondary:hover {
@@ -263,7 +275,10 @@ section {
     border-radius: 20px;
     padding: 40px 30px;
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
+    transition:
+        transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        border-color 0.4s;
 }
 
 .service-card:hover {
@@ -281,7 +296,9 @@ section {
     position: absolute;
     top: -12px;
     right: 25px;
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    background: linear-gradient(135deg,
+            var(--accent-purple),
+            var(--accent-light));
     color: white;
     font-size: 0.75rem;
     font-weight: 600;
@@ -379,7 +396,10 @@ section {
     border-radius: 20px;
     padding: 40px 30px;
     position: relative;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
 }
 
 .step-card:hover {
@@ -392,7 +412,7 @@ section {
     position: absolute;
     top: 20px;
     right: 25px;
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 2rem;
     font-weight: 700;
     color: rgba(157, 78, 221, 0.25);
@@ -485,7 +505,7 @@ section {
 }
 
 .stat .number {
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--accent-light);
@@ -512,7 +532,9 @@ section {
     padding: 30px;
     border-radius: 16px;
     border: 1px solid rgba(157, 78, 221, 0.15);
-    transition: transform 0.3s, border-color 0.3s;
+    transition:
+        transform 0.3s,
+        border-color 0.3s;
 }
 
 .faq-item:hover {
@@ -599,7 +621,9 @@ section {
     color: var(--white);
     font-family: inherit;
     font-size: 0.95rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s;
 }
 
 .form-group input:focus,
@@ -633,7 +657,9 @@ section {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: color 0.2s, transform 0.2s;
+    transition:
+        color 0.2s,
+        transform 0.2s;
     padding: 0 2px;
 }
 
@@ -708,7 +734,9 @@ section {
     border-radius: 16px;
     border: 1px solid rgba(157, 78, 221, 0.2);
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 }
 
 .testimonial-card:hover {
@@ -856,6 +884,54 @@ section {
     font-size: 0.85rem;
 }
 
+/* Botón flotante de accesibilidad en la esquina inferior izquierda */
+.accessibility-float-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+    background: var(--bg-card, #1e1135);
+    border: 1px solid var(--accent-gold, #d4af37);
+    color: var(--text-color, #f3e8ff);
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.accessibility-float-btn:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Clases para agrandar los textos de toda la página cuando se active */
+body.large-text {
+    font-size: 1.15rem !important;
+}
+
+body.large-text h1 {
+    font-size: 2.8rem;
+}
+
+body.large-text h2 {
+    font-size: 2.2rem;
+}
+
+body.large-text h3 {
+    font-size: 1.7rem;
+}
+
+body.large-text p,
+body.large-text li,
+body.large-text a {
+    font-size: 1.15rem;
+}
+
 /* Contenedor y Tooltip del Botón Flotante de WhatsApp */
 .whatsapp-float-container {
     position: fixed;
@@ -879,10 +955,13 @@ section {
     opacity: 0;
     visibility: hidden;
     transform: translateX(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
     white-space: nowrap;
     pointer-events: none;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .whatsapp-float-container:hover .whatsapp-tooltip {

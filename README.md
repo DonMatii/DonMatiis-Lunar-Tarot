@@ -14,6 +14,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **Interactividad y Canales de Contacto:**
   - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas vía WhatsApp al instante.
   - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
+  - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande, con persistencia en almacenamiento local (`localStorage`).
   - **Enlace a TikTok:** Conexión directa con la comunidad.
   - **Optimización Social (Open Graph):** Metadatos configurados para generar tarjetas de previsualización profesionales, enriquecidas con imagen y descripción al compartir el enlace en WhatsApp y redes sociales.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
@@ -22,7 +23,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local y observadores de intersección)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto y observadores de intersección)
 - **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** para garantizar una carga ultrarrápida en entornos móviles.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 

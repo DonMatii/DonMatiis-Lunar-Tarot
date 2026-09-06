@@ -233,6 +233,7 @@ function showFeedback(msg, type) {
     if (!formFeedback) return;
     formFeedback.textContent = msg;
     formFeedback.className = `form-feedback ${type}`;
+    formFeedback.style.display = 'block'; // Aseguramos que se muestre en pantalla
     setTimeout(() => {
         formFeedback.style.display = 'none';
         formFeedback.className = 'form-feedback';
@@ -241,3 +242,34 @@ function showFeedback(msg, type) {
 
 // Carga inicial
 renderTestimonials();
+
+// ==========================================
+// MÓDULO DE ACCESIBILIDAD (Tamaño de Texto)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const accessibilityBtn = document.getElementById('accessibility-btn');
+    const accessibilityText = document.getElementById('accessibility-text');
+    const body = document.body;
+
+    // Verificar si el usuario ya tenía una preferencia guardada
+    const savedTextSize = localStorage.getItem('textSize');
+    if (savedTextSize === 'large') {
+        body.classList.add('large-text');
+        if (accessibilityText) accessibilityText.textContent = 'Texto: Grande';
+    }
+
+    // Evento de clic para alternar tamaño
+    if (accessibilityBtn) {
+        accessibilityBtn.addEventListener('click', () => {
+            body.classList.toggle('large-text');
+            
+            if (body.classList.contains('large-text')) {
+                localStorage.setItem('textSize', 'large');
+                if (accessibilityText) accessibilityText.textContent = 'Texto: Grande';
+            } else {
+                localStorage.setItem('textSize', 'normal');
+                if (accessibilityText) accessibilityText.textContent = 'Texto: Normal';
+            }
+        });
+    }
+});
