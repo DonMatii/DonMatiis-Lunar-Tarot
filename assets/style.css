@@ -61,12 +61,12 @@ h1, h2, h3, h4, .logo-brand span {
     align-items: center;
 }
 
-.logo-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--white);
+.logo-brand img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-light);
 }
 
 .logo-brand img {
