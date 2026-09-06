@@ -1,6 +1,11 @@
-# Dependencies and build outputs
-node_modules/
+# Archivos del sistema operativo
 .DS_Store
-*.log
+Thumbs.db
+desktop.ini
+
+# Editores de código
 .vscode/
 .idea/
+
+# Registros o temporales
+*.log

@@ -61,12 +61,12 @@ h1, h2, h3, h4, .logo-brand span {
     align-items: center;
 }
 
-.logo-brand img {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent-light);
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--white);
 }
 
 .logo-brand img {
@@ -87,14 +87,14 @@ h1, h2, h3, h4, .logo-brand span {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     transition: color 0.3s;
 }
 
@@ -352,9 +352,63 @@ section {
     box-shadow: 0 5px 15px var(--accent-glow);
 }
 
+/* Sección Cómo Funciona */
+.how-it-works {
+    background-color: var(--bg-main);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px var(--accent-glow);
+    border-color: var(--accent-light);
+}
+
+.step-number {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(157, 78, 221, 0.25);
+}
+
+.step-icon {
+    font-size: 2.2rem;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* Sobre Mí */
 .about {
-    background-color: var(--bg-main);
+    background-color: var(--bg-secondary);
 }
 
 .about-container {
@@ -434,7 +488,7 @@ section {
 
 /* FAQ */
 .faq {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-main);
 }
 
 .faq-grid {
@@ -477,7 +531,7 @@ section {
 
 /* Testimonios */
 .testimonials {
-    background-color: var(--bg-main);
+    background-color: var(--bg-secondary);
 }
 
 .testimonial-form-wrapper {
@@ -814,18 +868,6 @@ section {
 
 .whatsapp-float:hover {
     transform: scale(1.15) rotate(10deg);
-}
-
-/* Animaciones y dinamismo scroll */
-.fade-in-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Responsivo */

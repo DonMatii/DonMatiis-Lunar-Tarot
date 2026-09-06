@@ -7,6 +7,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **Secciones Integradas:**
   - **Portada (Hero):** Logo principal destacado, bienvenida cálida y botones de llamada a la acción (CTA).
   - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con enlace directo de contratación.
+  - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
   - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
   - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo y enmascaramiento seguro por privacidad.
@@ -19,7 +20,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil y observadores de intersección)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local y observadores de intersección)
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
 ---
