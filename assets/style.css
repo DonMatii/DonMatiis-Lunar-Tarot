@@ -279,7 +279,7 @@ h4,
 .oracle-card {
     background-color: transparent;
     width: 100%;
-    height: 420px;
+    height: 480px; /* Altura optimizada para dar espacio cómodo al texto completo */
     border-radius: 16px;
 }
 
@@ -308,7 +308,7 @@ h4,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 35px;
+    padding: 25px 30px;
     box-sizing: border-box;
     background: var(--bg-card);
     border-radius: 14px;
@@ -317,11 +317,11 @@ h4,
 
 .oracle-card-front h3, .oracle-card-back h3 {
     color: var(--white);
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-size: 1.25rem;
 }
 
-.oracle-card-front p, .oracle-card-back p {
+.oracle-card-front p {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 20px;
@@ -330,41 +330,79 @@ h4,
 .oracle-card-back {
     transform: rotateY(180deg);
     background: #160c28;
-}
-
-.oracle-logo-icon {
-    font-size: 3.5rem;
-    color: var(--gold);
-    margin-bottom: 20px;
+    justify-content: flex-start;
+    padding: 25px 30px; /* Padding equilibrado */
 }
 
 .oracle-icon-wrapper {
-    font-size: 3.5rem;
+    font-size: 2.2rem; /* Icono un poco más estilizado para ganar espacio */
     color: var(--gold);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+.oracle-card-back h3 {
+    color: var(--white);
+    margin-bottom: 4px;
+    font-size: 1.15rem;
 }
 
 .card-position-badge {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
 }
 
-.card-position-badge.upright {
-    background: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.4);
+/* Espacio número 1: Interpretación con altura y scroll interno si es muy larga */
+#card-meaning {
+    font-size: 0.82rem !important;
+    color: var(--text-main) !important;
+    line-height: 1.35;
+    margin-bottom: 10px !important;
+    max-height: 150px; /* Evita que desborde la tarjeta */
+    overflow-y: auto;  /* Permite deslizar si el texto es muy rico y profundo */
+    padding-right: 5px;
 }
 
-.card-position-badge.reversed {
-    background: rgba(231, 76, 60, 0.15);
-    color: #e74c3c;
-    border: 1px solid rgba(231, 76, 60, 0.4);
+/* Estilo estético para la barra de desplazamiento interna del significado */
+#card-meaning::-webkit-scrollbar {
+    width: 4px;
+}
+#card-meaning::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+}
+
+/* Espacio número 2: Bloque inferior reubicado donde marcaste el 1 */
+.oracle-limit-msg {
+    width: 100%;
+    margin-top: auto; /* Ocupa exactamente ese espacio vacío que señalaste */
+    padding-top: 10px;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+#typed-message {
+    font-size: 0.76rem !important;
+    color: var(--text-muted) !important;
+    font-style: italic;
+    line-height: 1.3;
+    margin-bottom: 0 !important;
+    min-height: 30px;
+}
+
+.oracle-whatsapp-link {
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.oracle-whatsapp-link:hover {
+    opacity: 0.8;
 }
 
 .cta-button {

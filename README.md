@@ -6,7 +6,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **Diseño Místico y Elegante:** Paleta de colores en tonos morados, lilas profundos y acentos dorados inspirados en la energía lunar y la claridad espiritual.
 - **Secciones Integradas:**
   - **Portada (Hero):** Logo principal destacado, bienvenida cálida, enlace gancho interactivo hacia los arcanos y botones de llamada a la acción (CTA).
-  - **Mini-Oráculo Diario:** Baraja completa de los 78 arcanos (Mayores y Menores) con animación 3D de volteo, selección aleatoria de carta al derecho o invertida y descripciones místicas profundas.
+  - **Mini-Oráculo Diario:** Baraja completa de los 78 arcanos (Mayores y Menores) con animación 3D de volteo, selección aleatoria de carta al derecho o invertida, descripciones místicas profundas de alto nivel profesional y un mensaje de cierre interactivo con efecto de máquina de escribir (*typewriter*) que invita a volver al día siguiente o agendar una lectura.
   - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con enlace directo de contratación, complementados con sutiles invitaciones empáticas.
   - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
   - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
@@ -23,8 +23,8 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
-- **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto, baraja completa de 78 arcanos y observadores de intersección)
+- **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado y transiciones suaves)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto, baraja completa de 78 arcanos con significados detallados, efecto de tipeo progresivo y observadores de intersección)
 - **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** para garantizar una carga ultrarrápida en entornos móviles.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
