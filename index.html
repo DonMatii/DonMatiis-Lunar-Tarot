@@ -78,8 +78,48 @@
                 Tarot, el Péndulo y la Cartomancia. Respuestas sinceras para guiar tu
                 camino.
             </p>
+            
+            <!-- Mensaje gancho del oráculo antes del botón Ver Lecturas -->
+            <div class="hero-oracle-teaser animate-fade">
+                <p class="oracle-teaser-text">✨ Los arcanos tienen un mensaje para ti... para resolver tus dudas pincha <a href="#oraculo" class="oracle-teaser-link">aquí</a></p>
+            </div>
+
             <div class="hero-buttons animate-fade">
                 <a href="#lecturas" class="btn-secondary"> Ver Lecturas </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Mini-Oráculo Diario -->
+    <section id="oraculo" class="oraculo-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Oráculo Diario</h2>
+                <p>Permite que los arcanos guíen tu energía en este momento</p>
+            </div>
+            
+            <div class="oraculo-card-container">
+                <div id="oracle-card" class="oracle-card">
+                    <div class="oracle-card-inner">
+                        <!-- Frente de la carta (Estado inicial / Reverso) -->
+                        <div class="oracle-card-front">
+                            <i class="fa-solid fa-moon-astral oracle-logo-icon"></i>
+                            <h3>Tu Carta del Día</h3>
+                            <p>Haz clic para revelar el mensaje de los arcanos</p>
+                            <button id="draw-card-btn" class="cta-button">Revelar Carta</button>
+                        </div>
+                        <!-- Dorso de la carta (Resultado revelado) -->
+                        <div class="oracle-card-back" id="oracle-result">
+                            <div class="oracle-icon-wrapper">
+                                <i id="card-icon" class="fa-solid fa-sun"></i>
+                            </div>
+                            <h3 id="card-name">El Sol</h3>
+                            <span id="card-position" class="card-position-badge">Al Derecho</span>
+                            <p id="card-meaning">La claridad, el éxito y la vitalidad iluminan tu camino hoy.</p>
+                            <button id="reset-card-btn" class="secondary-button">Consultar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
