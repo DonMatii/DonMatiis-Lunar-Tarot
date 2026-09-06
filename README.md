@@ -23,6 +23,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox y transiciones suaves)
 - **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local y observadores de intersección)
+- **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** para garantizar una carga ultrarrápida en entornos móviles.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
 ---
