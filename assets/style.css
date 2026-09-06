@@ -846,11 +846,42 @@ section {
     font-size: 0.85rem;
 }
 
-/* Botón flotante de WhatsApp */
-.whatsapp-float {
+/* Contenedor y Tooltip del Botón Flotante de WhatsApp */
+.whatsapp-float-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.whatsapp-tooltip {
+    background: var(--bg-card);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    box-shadow: 0 5px 20px var(--accent-glow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.whatsapp-float-container:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.whatsapp-float {
     background-color: #25d366;
     color: white;
     width: 60px;
@@ -861,7 +892,6 @@ section {
     justify-content: center;
     font-size: 2rem;
     box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
 }

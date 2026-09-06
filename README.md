@@ -12,8 +12,9 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
   - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo y enmascaramiento seguro por privacidad.
 - **Interactividad y Canales de Contacto:**
-  - **Botón Flotante de WhatsApp:** Acceso directo a chat personalizado (`+56 9 8212 8604`).
-  - **Enlace a TikTok:** Conexión directa con la comunidad (`@donmatii8`).
+  - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas vía WhatsApp al instante.
+  - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
+  - **Enlace a TikTok:** Conexión directa con la comunidad.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
   - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos con JavaScript modular.
 
