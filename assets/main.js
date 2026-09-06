@@ -813,3 +813,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// MÓDULO DE MODAL DE AGENDAMIENTO WHATSAPP
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const modalOverlay = document.getElementById('booking-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const bookingForm = document.getElementById('booking-form');
+    const serviceSelect = document.getElementById('service-type');
+    
+    const bookingTriggers = document.querySelectorAll('a[href*="wa.me"]');
+
+    if (modalOverlay && bookingForm) {
+        bookingTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = trigger.getAttribute('href');
+                
+                if (href.includes('Tarot')) {
+                    serviceSelect.value = 'Tarot';
+                } else if (href.includes('Péndulo')) {
+                    serviceSelect.value = 'Péndulo';
+                } else if (href.includes('Cartomancia')) {
+                    serviceSelect.value = 'Cartomancia';
+                } else if (href.includes('oráculo')) {
+                    serviceSelect.value = 'Oráculo Diario';
+                }
+
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('client-name').value.trim();
+            const service = serviceSelect.value;
+            const query = document.getElementById('client-query').value.trim();
+
+            if (!name || !service || !query) return;
+
+            const message = `Hola Matías, mi nombre es *${name}*. Me interesa agendar una *${service}*. Mi inquietud principal es: "${query}". ¿Cómo coordinamos?`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/56982128604?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+            bookingForm.reset();
+        });
+    }
+});

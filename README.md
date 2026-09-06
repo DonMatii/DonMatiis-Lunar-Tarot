@@ -13,7 +13,8 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
   - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo y enmascaramiento seguro por privacidad.
 - **Interactividad y Canales de Contacto:**
-  - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas vía WhatsApp al instante.
+  - **Modal de Agendamiento Profesional:** Ventana emergente interactiva al solicitar una lectura, permitiendo ingresar nombre, tipo de servicio y temática para armar y enviar un mensaje formal estructurado directo a WhatsApp.
+  - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas al instante.
   - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
   - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande, con persistencia en almacenamiento local (`localStorage`).
   - **Enlace a TikTok:** Conexión directa con la comunidad.
@@ -23,8 +24,8 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
-- **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto, baraja completa de 78 arcanos con significados detallados, efecto de tipeo progresivo y observadores de intersección)
+- **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos y transiciones suaves)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto, baraja completa de 78 arcanos con significados detallados, efecto de tipeo progresivo, gestión del modal de agendamiento y observadores de intersección)
 - **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** para garantizar una carga ultrarrápida en entornos móviles.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 

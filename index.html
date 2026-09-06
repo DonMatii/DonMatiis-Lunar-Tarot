@@ -130,6 +130,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Sección de Lecturas -->
@@ -493,6 +494,41 @@
             target="_blank" class="whatsapp-float" title="Escríbeme por WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
+    </div>
+
+    <!-- Modal de Agendamiento Profesional para WhatsApp -->
+    <div id="booking-modal" class="booking-modal-overlay">
+        <div class="booking-modal-container">
+            <button id="close-modal-btn" class="close-modal-btn" aria-label="Cerrar ventana">&times;</button>
+            <div class="booking-modal-header">
+                <i class="fa-solid fa-moon-astral"></i>
+                <h3>Agendar Lectura Espiritual</h3>
+                <p>Completa tus datos para coordinar la sesión con Matías Suazo</p>
+            </div>
+            <form id="booking-form" class="booking-form">
+                <div class="form-group">
+                    <label for="client-name">Tu Nombre *</label>
+                    <input type="text" id="client-name" required placeholder="Ej: Marcela R." autocomplete="name" />
+                </div>
+                <div class="form-group">
+                    <label for="service-type">Tipo de Lectura *</label>
+                    <select id="service-type" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="Tarot">Lectura de Tarot</option>
+                        <option value="Péndulo">Lectura de Péndulo (Sí/No y Energías)</option>
+                        <option value="Cartomancia">Cartomancia Tradicional</option>
+                        <option value="Oráculo Diario">Orientación por Oráculo Diario</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="client-query">Tu Inquietud o Temática Principal *</label>
+                    <textarea id="client-query" rows="3" required placeholder="Cuéntame brevemente qué te inquieta o sobre qué área del amor, trabajo o vida necesitas claridad..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-submit-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Enviar y Coordinar por WhatsApp
+                </button>
+            </form>
+        </div>
     </div>
 
     <!-- Script de interactividad y animaciones -->
