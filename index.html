@@ -448,12 +448,23 @@
 
             <!-- Lista de Testimonios Reales -->
             <div class="testimonials-display">
-                <div class="testimonials-grid" id="testimonials-list">
-                    <!-- Los testimonios se cargarán dinámicamente aquí -->
+                <div class="testimonials-filter-container"
+                    style="flex-direction: column; align-items: center; gap: 10px;">
+                    <p class="filter-label"
+                        style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 2px;">✨
+                        Ordena los testimonios por valoración:</p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button type="button" class="filter-btn active" data-filter="all">Todas</button>
+                        <button type="button" class="filter-btn" data-filter="5">⭐⭐⭐⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="4">⭐⭐⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="3">⭐⭐⭐</button>
+                    </div>
                 </div>
-                <p id="no-testimonials-msg" class="no-testimonials-msg">
-                    Aún no hay testimonios publicados. ¡Sé el primero en compartir tu
-                    experiencia!
+
+                <div class="testimonials-grid" id="testimonials-list">
+                </div>
+                <p id="no-testimonials-msg" class="no-testimonials-msg" style="display: none;">
+                    Aún no hay testimonios publicados. ¡Sé el primero en compartir tu experiencia!
                 </p>
             </div>
         </div>
@@ -525,7 +536,8 @@
                 </div>
                 <div class="form-group">
                     <label for="client-query">Tu Inquietud o Temática Principal *</label>
-                    <textarea id="client-query" rows="3" required placeholder="Cuéntame brevemente qué te inquieta o sobre qué área del amor, trabajo o vida necesitas claridad..."></textarea>
+                    <textarea id="client-query" rows="3" required
+                        placeholder="Cuéntame brevemente qué te inquieta o sobre qué área del amor, trabajo o vida necesitas claridad..."></textarea>
                 </div>
                 <button type="submit" class="btn-primary btn-submit-booking">
                     <i class="fa-brands fa-whatsapp"></i> Enviar y Coordinar por WhatsApp

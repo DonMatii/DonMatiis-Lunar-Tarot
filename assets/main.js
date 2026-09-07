@@ -50,7 +50,6 @@ function maskEmail(email) {
     const user = parts[0];
     const domainPart = parts[1];
 
-    // Solo las 2 primeras letras del usuario y el resto asteriscos
     let maskedUser = '';
     if (user.length <= 2) {
         maskedUser = user.substring(0, 1) + '***';
@@ -58,7 +57,6 @@ function maskEmail(email) {
         maskedUser = user.substring(0, 2) + '****';
     }
 
-    // Extraer extensión (.com, .cl, etc.)
     const lastDotIndex = domainPart.lastIndexOf('.');
     let extension = 'com';
     if (lastDotIndex !== -1) {
@@ -67,6 +65,7 @@ function maskEmail(email) {
 
     return `${maskedUser}@****.${extension}`;
 }
+
 const testimonialForm = document.getElementById('testimonial-form');
 const ratingInput = document.getElementById('rating-value');
 const starButtons = document.querySelectorAll('.star-btn');
@@ -131,20 +130,34 @@ function saveTestimonial(item) {
     }
 }
 
-function renderTestimonials() {
+// Variable global para mantener el filtro activo de estrellas
+let currentStarFilter = 'all';
+
+function renderTestimonials(filter = 'all') {
     if (!testimonialsList) return;
 
     const testimonials = getStoredTestimonials();
     testimonialsList.innerHTML = '';
 
-    if (testimonials.length === 0) {
-        if (noTestimonialsMsg) noTestimonialsMsg.style.display = 'block';
+    // Filtrar según la estrella seleccionada
+    const filteredTestimonials = testimonials.filter(item => {
+        if (filter === 'all') return true;
+        return parseInt(item.rating) === parseInt(filter);
+    });
+
+    if (filteredTestimonials.length === 0) {
+        if (noTestimonialsMsg) {
+            noTestimonialsMsg.textContent = testimonials.length === 0 
+                ? 'Aún no hay testimonios publicados. ¡Sé el primero en compartir tu experiencia!' 
+                : 'No hay testimonios con esta valoración todavía.';
+            noTestimonialsMsg.style.display = 'block';
+        }
         return;
     }
 
     if (noTestimonialsMsg) noTestimonialsMsg.style.display = 'none';
 
-    testimonials.forEach(item => {
+    filteredTestimonials.forEach(item => {
         const card = document.createElement('div');
         card.className = 'testimonial-card fade-in-scroll visible';
 
@@ -218,7 +231,7 @@ if (testimonialForm) {
         };
 
         saveTestimonial(newReview);
-        renderTestimonials();
+        renderTestimonials(currentStarFilter); // Mantiene el filtro actual tras publicar
 
         testimonialForm.reset();
         ratingInput.value = '5';
@@ -233,15 +246,35 @@ function showFeedback(msg, type) {
     if (!formFeedback) return;
     formFeedback.textContent = msg;
     formFeedback.className = `form-feedback ${type}`;
-    formFeedback.style.display = 'block'; // Aseguramos que se muestre en pantalla
+    formFeedback.style.display = 'block'; 
     setTimeout(() => {
         formFeedback.style.display = 'none';
         formFeedback.className = 'form-feedback';
     }, 4000);
 }
 
+// Carga inicial de los botones de filtro por estrellas
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'var(--bg-card)';
+                });
+                btn.classList.add('active');
+                btn.style.background = 'var(--accent-purple)';
+
+                currentStarFilter = btn.getAttribute('data-filter');
+                renderTestimonials(currentStarFilter);
+            });
+        });
+    }
+});
+
 // Carga inicial
-renderTestimonials();
+renderTestimonials('all');
 
 // ==========================================
 // MÓDULO DE ACCESIBILIDAD (Tamaño de Texto)
@@ -251,14 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const accessibilityText = document.getElementById('accessibility-text');
     const body = document.body;
 
-    // Verificar si el usuario ya tenía una preferencia guardada
     const savedTextSize = localStorage.getItem('textSize');
     if (savedTextSize === 'large') {
         body.classList.add('large-text');
         if (accessibilityText) accessibilityText.textContent = 'Texto: Grande';
     }
 
-    // Evento de clic para alternar tamaño
     if (accessibilityBtn) {
         accessibilityBtn.addEventListener('click', () => {
             body.classList.toggle('large-text');
@@ -412,7 +443,7 @@ const tarotDeck = [
         reversed: "Los cierres de etapa se demoran más de lo previsto debido a cabos sueltos que te negaste a atar a tiempo. Experimentas una frustrante sensación de incompletitud, como si el rompecabezas de tu esfuerzo actual se negara a mostrar la imagen final por pequeños detalles pendientes."
     },
 
-    // --- ARCANOS MENORES (Palo de Bastos, Copas, Espadas y Oros con lecturas profundas) ---
+    // --- ARCANOS MENORES ---
     {
         name: "As de Bastos",
         icon: "fa-wand-sparkles",
@@ -423,7 +454,7 @@ const tarotDeck = [
         name: "2 de Bastos",
         icon: "fa-compass",
         upright: "Te hallas contemplando nuevos horizontes desde una posición de poder y planificación estratégica. Es el momento de trazar el mapa definitivo para tus próximas grandes decisiones, evaluando con inteligencia qué caminos expandirán tu destino.",
-        reversed: "El miedo paralizante a lo desconocido y la ausencia de una estrategia clara te condenan a la indecisión crónica. Tus planes se quedan en meras intenciones abstractas por temor a arriesgar tu aparente comodidad actual."
+        reversed: "El miedo paralizante a lo desconocido y la ausencia de una estrategia clara te condenan a la indecisión crónica. Tus plans se quedan en meras intenciones abstractas por temor a arriesgar tu aparente comodidad actual."
     },
     {
         name: "3 de Bastos",
@@ -497,261 +528,216 @@ const tarotDeck = [
         upright: "Tu capacidad para el emprendimiento visionario y el liderazgo honorable inspira a grandes equipos a conquistar metas ambiciosas con audacia.",
         reversed: "La soberbia, la impaciencia dictatorial y la propensión a imponer proyectos irrealistas arruinan tus alianzas profesionales."
     },
-
-    // --- ARCANOS MENORES: PALO DE COPAS ---
+    // Copas, Espadas y Oros
     {
-        name: "As de Copas",
-        icon: "fa-glass-water",
+        name: "As de Copas", icon: "fa-glass-water",
         upright: "El cáliz de tu corazón se desborda con un amor puro y renovado, abriendo portales hacia conexiones emocionales profundas y una paz espiritual inmensa.",
         reversed: "Un profundo bloqueo emocional, desamor o penas contenidas impiden que fluya la expresión sincera de tus sentimientos más íntimos."
     },
     {
-        name: "2 de Copas",
-        icon: "fa-handshake",
+        name: "2 de Copas", icon: "fa-handshake",
         upright: "Se sella una unión armónica y un pacto de absoluta sinceridad, ya sea en el terreno afectivo de pareja o en lucrativas asociaciones de almas.",
         reversed: "Los desencuentros, la ruptura repentina de acuerdos y el desequilibrio en la sintonía mutua erosionan la confianza del vínculo."
     },
     {
-        name: "3 de Copas",
-        icon: "fa-champagne-glasses",
+        name: "3 de Copas", icon: "fa-champagne-glasses",
         upright: "La alegría compartida, la celebración en comunidad y el apoyo incondicional de tus amistades iluminan una etapa muy feliz y colaborativa.",
         reversed: "Los excesos festivos, los chismes malintencionados o la sensación dolorosa de exclusión social empañan tu bienestar colectivo."
     },
     {
-        name: "4 de Copas",
-        icon: "fa-face-frown",
+        name: "4 de Copas", icon: "fa-face-frown",
         upright: "Te envuelve una apatía reflexiva y un hastío temporal que te lleva a rechazar nuevas oportunidades por puro desinterés interno.",
         reversed: "Despiertas de tu letargo emocional con una motivación renovada, aceptando con entusiasmo las oportunidades que antes ignorabas."
     },
     {
-        name: "5 de Copas",
-        icon: "fa-droplet",
+        name: "5 de Copas", icon: "fa-droplet",
         upright: "Te consumes lamentándote amargamente por lo que perdiste, ignorando las copas que aún permanecen de pie y listas para ti.",
         reversed: "Asimilas el duelo con madurez, perdonas el pasado, sanas tu interior y decides mirar al futuro con esperanza."
     },
     {
-        name: "6 de Copas",
-        icon: "fa-gifts",
+        name: "6 de Copas", icon: "fa-gifts",
         upright: "Una dulce nostalgia inunda tu alma a través de recuerdos entrañables de la infancia y reencuentros mágicos con personas de tu ayer.",
         reversed: "Vivir anclado en el pasado te impide madurar emocionalmente, idealizando tiempos pretéritos que ya no volverán."
     },
     {
-        name: "7 de Copas",
-        icon: "fa-cloud-moon",
+        name: "7 de Copas", icon: "fa-cloud-moon",
         upright: "Un abanico de ilusiones y fantasías desfila ante ti; debes afinar tu discernimiento para no caer en espejismos engañosos.",
         reversed: "Aterrizas bruscamente en la realidad, recuperando la claridad mental necesaria para tomar decisiones prácticas y firmes."
     },
     {
-        name: "8 de Copas",
-        icon: "fa-person-walking-arrow-right",
+        name: "8 de Copas", icon: "fa-person-walking-arrow-right",
         upright: "Tomas la valiente decisión de apartarte de aquello que ya no alimenta tu alma, emprendiendo una búsqueda espiritual más profunda.",
         reversed: "El miedo paralizante a la soledad te retiene en situaciones vacías e insatisfactorias por pura comodidad y cobardía."
     },
     {
-        name: "9 de Copas",
-        icon: "fa-face-smile-beam",
+        name: "9 de Copas", icon: "fa-face-smile-beam",
         upright: "La célebre carta de los deseos cumplidos: disfrutas de una profunda satisfacción personal, bienestar emocional y dicha cotidiana.",
         reversed: "La complacencia excesiva, el esnobismo material o la vanidad personal erosionan la verdadera felicidad de tus logros."
     },
     {
-        name: "10 de Copas",
-        icon: "fa-rainbow",
+        name: "10 de Copas", icon: "fa-rainbow",
         upright: "Se manifiesta la máxima expresión de felicidad familiar, paz en el hogar y un amor duradero bendecido por la armonía total.",
         reversed: "Disputas domésticas soterradas, hipocresía familiar o expectativas afectivas profundamente frustradas erosionan el hogar."
     },
     {
-        name: "Sota de Copas",
-        icon: "fa-fish",
+        name: "Sota de Copas", icon: "fa-fish",
         upright: "Recibes mensajes tiernos y sorpresivos que despiertan tu sensibilidad artística, tu intuición creativa y un afecto muy sincero.",
         reversed: "La inmadurez emocional, la hipersensibilidad crónica o la recepción de noticias afectivas decepcionantes perturban tu paz."
     },
     {
-        name: "Caballo de Copas",
-        icon: "fa-water",
+        name: "Caballo de Copas", icon: "fa-water",
         upright: "Propuestas románticas cautivadoras, invitaciones sinceras y la firme disposición de seguir los dictados nobles de tu corazón.",
         reversed: "Promesas vacías, fantasías irreales, celos enfermizos o una sutil manipulación emocional disfrazada de romanticismo."
     },
     {
-        name: "Reina de Copas",
-        icon: "fa-heart-circle-check",
+        name: "Reina de Copas", icon: "fa-heart-circle-check",
         upright: "Tu empatía desbordante, intuición sanadora y compasión sincera convierten tu presencia en un refugio de paz para los demás.",
         reversed: "La dependencia emocional patológica, el martirio y la absorción tóxica de dolores ajenos desequilibran tus sentimientos."
     },
     {
-        name: "Rey de Copas",
-        icon: "fa-user-gear",
+        name: "Rey de Copas", icon: "fa-user-gear",
         upright: "Dominas tus emociones con una sabiduría madura, ofreciendo consejo diplomático, calma, equilibrio y generosidad afectiva.",
         reversed: "La represión fría de sentimientos, el rencor oculto o la manipulación psicológica solapada empañan tu autoridad afectiva."
     },
-
-    // --- ARCANOS MENORES: PALO DE ESPADAS ---
+    // Espadas
     {
-        name: "As de Espadas",
-        icon: "fa-bolt-lightning",
+        name: "As de Espadas", icon: "fa-bolt-lightning",
         upright: "Una claridad mental fulminante corta de raíz toda confusión, trayendo la victoria de la verdad y decisiones sumamente justas.",
         reversed: "La confusión mental, los juicios gravemente erróneos o el uso destructivo de las palabras generan un daño innecesario."
     },
     {
-        name: "2 de Espadas",
-        icon: "fa-eye-slash",
+        name: "2 de Espadas", icon: "fa-eye-slash",
         upright: "Te encuentras paralizado en una encrucijada, negándote obstinadamente a ver una verdad evidente para evitar un conflicto inevitable.",
         reversed: "Ruptura de la parálisis: por fin aceptas la cruda realidad y tomas una decisión valiente que zanja la indefinición."
     },
     {
-        name: "3 de Espadas",
-        icon: "fa-heart-crack",
+        name: "3 de Espadas", icon: "fa-heart-crack",
         upright: "Un profundo dolor emocional, desamor o separación inevitable lacera temporalmente tu sensibilidad con palabras hirientes.",
         reversed: "Comienza el lento pero seguro proceso de sanación del trauma, perdonando las heridas del pasado y superando el dolor."
     },
     {
-        name: "4 de Espadas",
-        icon: "fa-bed",
+        name: "4 de Espadas", icon: "fa-bed",
         upright: "El cuerpo y la mente exigen un descanso absoluto; retírate temporalmente del mundanal ruido para recuperar fuerzas en silencio.",
         reversed: "El agotamiento se agrava por tu terca negativa a parar; el estrés acumulado te pasa la cuenta de forma estrepitosa."
     },
     {
-        name: "5 de Espadas",
-        icon: "fa-user-slash",
+        name: "5 de Espadas", icon: "fa-user-slash",
         upright: "Victorias mezquinas y egoístas que dejan a su paso un tendal de relaciones rotas, rencores y batallas carentes de ética.",
         reversed: "Intentos sinceros de reconciliación, disposición a dejar atrás discusiones absurdidades y aceptar derrotas con hidalguía."
     },
     {
-        name: "6 de Espadas",
-        icon: "fa-ferry",
+        name: "6 de Espadas", icon: "fa-ferry",
         upright: "Emprendes una transición pacífica hacia aguas mentales mucho más tranquilas, dejando atrás turbulencias y problemas complejos.",
         reversed: "El equipaje emocional pesado de tu pasado te persigue, obstaculizando tus intentos de mudanza o renovación vital."
     },
     {
-        name: "7 de Espadas",
-        icon: "fa-user-secret",
+        name: "7 de Espadas", icon: "fa-user-secret",
         upright: "Estrategias sutiles, actuar con astucia diplomática o, en su costado negativo, la presencia de engaños y ocultamientos.",
         reversed: "Se descubren mentiras ocultas, confesiones obligadas o planes tramados en secreto que se desmoronan estrepitosamente."
     },
     {
-        name: "8 de Espadas",
-        icon: "fa-lock",
+        name: "8 de Espadas", icon: "fa-lock",
         upright: "Sientes que estás atado de pies y manos por tus propios pensamientos negativos y limitaciones autoimpuestas.",
         reversed: "Rompes por fin las cadenas mentales que te aprisionaban, recuperando una autoconfianza y empoderamiento rotundos."
     },
     {
-        name: "9 de Espadas",
-        icon: "fa-face-rolling-eyes",
+        name: "9 de Espadas", icon: "fa-face-rolling-eyes",
         upright: "La ansiedad nocturna, los insomnios y las preocupaciones agobiantes te torturan con escenarios mentales catastróficos.",
         reversed: "Alivio anímico muy esperado al compartir tus temores con alguien de confianza, superando el insomnio y recuperando el optimismo."
     },
     {
-        name: "10 de Espadas",
-        icon: "fa-skull-crossbones",
+        name: "10 de Espadas", icon: "fa-skull-crossbones",
         upright: "Tocas fondo de manera implacable; una traición o colapso marca el final absoluto y doloroso de un ciclo insostenible.",
         reversed: "Milagrosa recuperación frente a los golpes bajos de la vida, aceptando con dignidad el fin de la crisis para renacer."
     },
     {
-        name: "Sota de Espadas",
-        icon: "fa-user-pen",
+        name: "Sota de Espadas", icon: "fa-user-pen",
         upright: "Una curiosidad intelectual insaciable y una vigilancia aguda te mantienen alerta ante cualquier información relevante.",
         reversed: "Chismes malintencionados, espionaje mezquino, tendencia a criticar destructivamente o promesas verbales vacías."
     },
     {
-        name: "Caballo de Espadas",
-        icon: "fa-wind",
+        name: "Caballo de Espadas", icon: "fa-wind",
         upright: "Te lanzas a toda velocidad hacia tus metas intelectuales o profesionales con una determinación feroz e imbatible.",
         reversed: "La agresividad verbal, la imprudencia mental y la pésima costumbre de actuar sin pensar generan caos a tu paso."
     },
     {
-        name: "Reina de Espadas",
-        icon: "fa-chess-queen",
+        name: "Reina de Espadas", icon: "fa-chess-queen",
         upright: "Tu objetividad impecable, discernimiento analítico y honestidad frontal te permiten dictar juicios certeros y justos.",
         reversed: "La frialdad emocional extrema, la amargura o el uso de un sarcasmo hiriente aíslan afectivamente tu entorno."
     },
     {
-        name: "Rey de Espadas",
-        icon: "fa-gavel",
+        name: "Rey de Espadas", icon: "fa-gavel",
         upright: "Un intelecto superior y una justicia rigurosa cimentada en la ética profesional guían tus decisiones con absoluta imparcialidad.",
         reversed: "El abuso de poder intelectual, la tiranía mental y la aplicación rígida de normas injustas dañan tus vínculos."
     },
-
-    // --- ARCANOS MENORES: PALO DE OROS ---
+    // Oros
     {
-        name: "As de Oros",
-        icon: "fa-coins",
+        name: "As de Oros", icon: "fa-coins",
         upright: "Se abre una puerta sumamente sólida hacia la prosperidad material, nuevas fuentes de ingresos estables y seguridad financiera.",
         reversed: "Oportunidades doradas de dinero que se esfuman por una mala gestión financiera, retrasos en pagos o escasez."
     },
     {
-        name: "2 de Oros",
-        icon: "fa-scale-unbalanced",
+        name: "2 de Oros", icon: "fa-scale-unbalanced",
         upright: "Haces malabares con habilidad para equilibrar tus finanzas, el trabajo y los tiempos personales en medio de cambios.",
         reversed: "La desorganización económica total y el estrés financiero te desbordan al no poder sostener tantas obligaciones."
     },
     {
-        name: "3 de Oros",
-        icon: "fa-hammer",
+        name: "3 de Oros", icon: "fa-hammer",
         upright: "El trabajo en equipo colaborativo rinde frutos excelentes, recibiendo el reconocimiento profesional por tu maestría.",
         reversed: "Desacuerdos graves en equipos de trabajo, falta de sintonía laboral o pésima calidad en proyectos conjuntos."
     },
     {
-        name: "4 de Oros",
-        icon: "fa-vault",
+        name: "4 de Oros", icon: "fa-vault",
         upright: "Consolidas un ahorro prudente y seguridad material, aunque con cierta tendencia excesiva al control y apego rígido.",
         reversed: "Gastos imprevistos dolorosos, pérdida abrupta de control económico o la necesidad forzada de soltar dinero."
     },
     {
-        name: "5 de Oros",
-        icon: "fa-person-walking-with-cane",
+        name: "5 de Oros", icon: "fa-person-walking-with-cane",
         upright: "Atraviesas una crisis económica temporal o una sensación punzante de aislamiento y falta de apoyo material.",
         reversed: "Comienza una recuperación financiera muy esperada, saliendo de la tormenta gracias a una ayuda inesperada."
     },
     {
-        name: "6 de Oros",
-        icon: "fa-hand-holding-dollar",
+        name: "6 de Oros", icon: "fa-hand-holding-dollar",
         upright: "La generosidad y el equilibrio financiero fluyen: das o recibes ayuda material de forma justa y equitativa.",
         reversed: "Deudas desatendidas, egoísmo económico lacerante o condiciones de ayuda abusivas que desequilibran el poder."
     },
     {
-        name: "7 de Oros",
-        icon: "fa-seedling",
+        name: "7 de Oros", icon: "fa-seedling",
         upright: "Practicas una paciencia infinita evaluando los frutos a largo plazo de tus inversiones y tu siembra laboral.",
         reversed: "Frustración acumulada por la baja rentabilidad de tus esfuerzos o el abandono prematuro de proyectos."
     },
     {
-        name: "8 de Oros",
-        icon: "fa-gears",
+        name: "8 de Oros", icon: "fa-gears",
         upright: "Dedicación artesanal y esfuerzo constante enfocado en pulir tus habilidades profesionales hasta alcanzar la excelencia.",
         reversed: "Descuidos imperdonables en los detalles, baja calidad laboral, perfeccionismo paralizante o aburrimiento crónico."
     },
     {
-        name: "9 de Oros",
-        icon: "fa-gem",
+        name: "9 de Oros", icon: "fa-gem",
         upright: "Disfrutas de una elegante independencia financiera y de los lujos merecidos fruto de tu autogestión y disciplina.",
         reversed: "Dependencia económica agobiante de terceros, gastos superficiales orientados a mantener apariencias vacías."
     },
     {
-        name: "10 de Oros",
-        icon: "fa-building-columns",
+        name: "10 de Oros", icon: "fa-building-columns",
         upright: "Riqueza familiar duradera, herencias, estabilidad económica generacional y un éxito material plenamente consolidado.",
         reversed: "Disputas familiares mezquinas por dinero, pérdida patrimonial o profunda inestabilidad financiera a futuro."
     },
     {
-        name: "Sota de Oros",
-        icon: "fa-seedling",
+        name: "Sota de Oros", icon: "fa-seedling",
         upright: "Nuevas oportunidades prometedoras de estudio, becas o propuestas financieras prácticas que impulsan tu futuro.",
         reversed: "Falta de ambición, pereza laboral extrema, retrasos burocráticos en contratos o pésima planificación."
     },
     {
-        name: "Caballo de Oros",
-        icon: "fa-tractor",
+        name: "Caballo de Oros", icon: "fa-tractor",
         upright: "Una constancia indestructible y una ética laboral impecable garantizan un avance lento pero sumamente seguro.",
         reversed: "Estancamiento laboral absoluto por culpa de rutinas grises, terquedad intransigente o total falta de iniciativa."
     },
     {
-        name: "Reina de Oros",
-        icon: "fa-basket-shopping",
+        name: "Reina de Oros", icon: "fa-basket-shopping",
         upright: "Pragmatismo, abundancia generosa, calidez en el hogar y una excelente administración de los recursos materiales.",
         reversed: "Descuido evidente del hogar u oficina, materialismo superficial obsesivo o aislamiento controlador."
     },
     {
-        name: "Rey de Oros",
-        icon: "fa-sack-dollar",
+        name: "Rey de Oros", icon: "fa-sack-dollar",
         upright: "Alcanzas un éxito empresarial rotundo y una seguridad financiera absoluta, liderando con solidez y provisión firme.",
         reversed: "Materialismo tóxico, avaricia desmedida, ruinosas inversiones por obstinación o control financiero tiránico."
     }
@@ -767,7 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardMeaning = document.getElementById('card-meaning');
     const typedMessage = document.getElementById('typed-message');
 
-    // Función para simular efecto de máquina de escribir
     function typeWriterEffect(text, element, speed = 20) {
         element.textContent = "";
         let i = 0;
@@ -783,13 +768,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (drawBtn && oracleCard) {
         drawBtn.addEventListener('click', () => {
-            // Seleccionar carta al azar de los 78 arcanos
             const randomCard = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
-            
-            // Determinar si es al derecho (true) o invertida (false) - 50/50
             const isUpright = Math.random() >= 0.5;
 
-            // Rellenar la tarjeta con los datos correspondientes
             cardIcon.className = `fa-solid ${randomCard.icon}`;
             cardName.textContent = randomCard.name;
 
@@ -803,7 +784,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 cardMeaning.textContent = randomCard.reversed;
             }
 
-            // Voltear la tarjeta con animación
             oracleCard.classList.add('flipped');
 
             const exactPhrase = "Regresa mañana para ver nuevamente tu Oráculo Diario!, mientras tanto, puedes agendar una lectura de Tarot, Péndulo o Cartomancia si necesitas más";
@@ -815,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// MÓDULO DE MODAL DE AGENDAMIENTO WHATSAPP (Validado en Orden Correcto)
+// MÓDULO DE MODAL DE AGENDAMIENTO WHATSAPP
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('booking-modal');
@@ -856,7 +836,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === modalOverlay) closeModal();
         });
 
-        // Función auxiliar para mostrar advertencias con el estilo de DonMatii
         const showBookingError = (msg) => {
             let errorDiv = document.getElementById('booking-error-msg');
             if (!errorDiv) {
@@ -882,7 +861,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = nameInput.value.trim();
             const query = queryInput.value.trim();
 
-            // 1. Validación estricta para el Nombre primero
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
             if (!nameRegex.test(name)) {
                 showBookingError('Por favor ingresa un nombre válido (solo letras, sin números ni símbolos, mínimo 2 caracteres).');
@@ -890,13 +868,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 2. Validación del Tipo de Lectura
             if (!service) {
                 showBookingError('Por favor selecciona un tipo de lectura disponible.');
                 return;
             }
 
-            // 3. Validación de la Inquietud al final (para que salte correctamente si es muy corta)
             if (query.length < 15 || query.length > 250) {
                 showBookingError('Tu inquietud o temática principal debe tener entre 15 y 250 caracteres para poder entender bien tu caso.');
                 queryInput.focus();
