@@ -1,0 +1,96 @@
+/* Sección Hero / Portada */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    padding: 100px 20px 60px;
+    background-color: var(--bg-main);
+}
+
+.hero-image-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 10px;
+    padding: 0 15px;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.hero-content {
+    max-width: 750px;
+    z-index: 2;
+    margin-top: 10px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(157, 78, 221, 0.15);
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent-light);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.hero-oracle-teaser {
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.oracle-teaser-text {
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.oracle-teaser-link {
+    color: var(--text-main);
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.oracle-teaser-link:hover {
+    color: var(--gold);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}

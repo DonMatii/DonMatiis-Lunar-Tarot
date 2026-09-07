@@ -21,12 +21,12 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Optimización Social (Open Graph):** Metadatos configurados con rutas absolutas limpias y estandarizadas en formato *kebab-case* para generar tarjetas de previsualización profesionales y veloces en WhatsApp y redes sociales.
   - **Capacidad PWA (Progressive Web App):** Integración completa con manifiesto (`manifest.json`) y Service Worker (`sw.js`) para permitir la instalación de la aplicación directamente en la pantalla de inicio de dispositivos móviles y asegurar funcionamiento offline.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
-  - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos con JavaScript modular.
+  - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos mediante ES Modules y observadores de intersección.
 
-## 🛠️ Tecnologías y Estructura
+## 🛠️ Tecnologías y Arquitectura Modular
 - **HTML5 Semántico**
-- **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos con avisos estilizados y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local persistente tanto para accesibilidad como para la restricción diaria del oráculo, registro y control de Service Worker, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas por escala completa de valoración y observadores de intersección)
+- **CSS3 Modular:** Arquitectura de estilos desacoplada y limpia organizada por dominios funcionales (*variables.css*, *base.css*, *animations.css*, *navigation.css*, *cards.css*, *modals.css*, *hero.css*, *oraculo.css*, *forms.css*, *footer.css*), empleando variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, modales interactivos y transiciones suaves.
+- **JavaScript Moderno (ES Modules):** Código desacoplado en componentes especializados (`main.js`, `tarotData.js`, `tarotLogic.js`, `testimonials.js`, `modalBooking.js`, `accessibility.js`, `pwa.js`) para el manejo eficiente del menú móvil, almacenamiento local persistente (accesibilidad y restricción diaria del oráculo), registro y control de Service Worker, baraja completa de 78 arcanos, efectos de sonido multimedia con control de mute, tipeo progresivo, validaciones estrictas y observadores de intersección.
 - **Arquitectura PWA:** `manifest.json` y `sw.js` (Service Worker) para gestión avanzada de caché y experiencia nativa en dispositivos móviles.
 - **Optimización de Rendimiento:** Estructura de activos estandarizada en nomenclatura **kebab-case** (guiones medios), imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).

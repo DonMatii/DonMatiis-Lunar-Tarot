@@ -1,0 +1,41 @@
+/* Estilos para Tarjetas de Servicios, Pasos, FAQs y Testimonios */
+
+.services-grid, .steps-grid, .faq-grid, .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+}
+
+.service-card, .step-card, .faq-item, .testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.service-card:hover, .step-card:hover, .faq-item:hover, .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px var(--accent-glow);
+    border-color: var(--accent-light);
+}
+
+.service-card.featured {
+    border-color: var(--accent-light);
+    background: linear-gradient(145deg, #22143b, #2c184c);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -12px;
+    right: 25px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

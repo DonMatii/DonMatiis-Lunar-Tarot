@@ -1,0 +1,291 @@
+/* Formularios, Testimonios, Filtros de Estrellas y Botones Globales de la Web */
+.testimonial-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.testimonial-form, .booking-form {
+    background: var(--bg-card);
+    border: 1px solid rgba(157, 78, 221, 0.25);
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.testimonial-form h3 {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.testimonial-form h3 i {
+    color: var(--accent-light);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    background: rgba(19, 11, 32, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.booking-form select option {
+    background: var(--bg-card);
+    color: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ==========================================
+   SISTEMA UNIFICADO DE BOTONES (PRIMARY, SECONDARY, CARDS, CTA)
+   ========================================== */
+.btn-primary, 
+.btn-secondary, 
+.btn-card, 
+.cta-button, 
+.btn-submit-review, 
+.btn-submit-booking {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    color: var(--white) !important;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+/* Ajuste específico para botones dentro de tarjetas de servicios para que no ocupen el 100% si no es necesario */
+.btn-card {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
+.cta-button {
+    width: auto;
+    margin-top: 15px;
+}
+
+.btn-secondary {
+    padding: 10px 22px;
+}
+
+.btn-primary:hover, 
+.btn-secondary:hover, 
+.btn-card:hover, 
+.cta-button:hover, 
+.btn-submit-review:hover, 
+.btn-submit-booking:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--accent-light);
+    opacity: 0.95;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    padding: 0 2px;
+}
+
+.star-btn.active,
+.star-btn.hover {
+    color: var(--gold);
+}
+
+.star-btn:hover {
+    transform: scale(1.15);
+}
+
+.rating-text {
+    margin-left: 12px;
+    font-size: 0.9rem;
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+.form-feedback {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    text-align: center;
+    display: none;
+}
+
+.form-feedback.success {
+    display: block;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    color: #4ade80;
+}
+
+.form-feedback.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
+.testimonials-display {
+    margin-top: 30px;
+}
+
+.no-testimonials-msg {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 20px;
+}
+
+.testimonial-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.testimonial-date {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.stars {
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.testimonial-card p {
+    color: var(--text-main);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.client-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+.client-name {
+    font-weight: 600;
+    color: var(--accent-light);
+}
+
+.client-email-masked {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+.testimonials-filter-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-light);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--accent-glow);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    color: var(--white);
+    border-color: var(--accent-light);
+    box-shadow: 0 4px 15px var(--accent-glow);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

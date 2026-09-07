@@ -15,8 +15,19 @@
         rel="stylesheet" />
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="assets/style.css" />
+    
+<!-- Estilos Modulares de DonMatii's Lunar Tarot -->
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/navigation.css" />
+    <link rel="stylesheet" href="./assets/css/cards.css" />
+    <link rel="stylesheet" href="./assets/css/modals.css" />
+    <link rel="stylesheet" href="./assets/css/hero.css" />
+    <link rel="stylesheet" href="./assets/css/oraculo.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+
     <!-- Favicon de página -->
     <link rel="icon" type="image/webp" href="./IMG/Logo-3.webp" />
 
@@ -35,7 +46,7 @@
         content="Encuentra claridad y orientación espiritual bajo la luz de los arcanos. Sesiones confidenciales y cercanas con Matías Suazo." />
     <meta property="og:image" content="https://donmatiis-lunar-tarot.vercel.app/IMG/Logo-3.webp" />
 
-    <!-- Twitter Card (Optimizado para tarjetas de enlace amplias en otras plataformas) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://donmatiis-lunar-tarot.vercel.app/" />
     <meta name="twitter:title" content="DonMatii's Lunar Tarot | Guía Mística y Espiritual" />
@@ -508,12 +519,12 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante de Accesibilidad (Esquina Inferior Izquierda) -->
+    <!-- Botón Flotante de Accesibilidad -->
     <button id="accessibility-btn" class="accessibility-float-btn" aria-label="Cambiar tamaño de texto">
         <i class="fas fa-text-height"></i> <span id="accessibility-text">Texto: Normal</span>
     </button>
 
-    <!-- Botón Flotante de WhatsApp con Tooltip interactivo -->
+    <!-- Botón Flotante de WhatsApp -->
     <div class="whatsapp-float-container">
         <div class="whatsapp-tooltip">¡Hablemos de tus arcanos! 🌙</div>
         <a href="https://wa.me/56982128604?text=Hola%20Matías,%20quiero%20consultar%20sobre%20tus%20lecturas"
@@ -532,7 +543,6 @@
                 <p>Completa tus datos para coordinar la sesión con Matías Suazo</p>
             </div>
             <form id="booking-form" class="booking-form">
-                <!-- Contenedor para alertas personalizadas -->
                 <div id="booking-error-msg" class="booking-error-msg" style="display: none;"></div>
 
                 <div class="form-group">
@@ -561,8 +571,8 @@
         </div>
     </div>
 
-    <!-- Script de interactividad y animaciones -->
-    <script src="assets/main.js"></script>
+    <!-- Script Principal como ES Module -->
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 
 </html>

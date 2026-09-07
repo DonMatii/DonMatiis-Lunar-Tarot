@@ -1,0 +1,13 @@
+/* Variables Globales de Color y Tipografía */
+:root {
+    --bg-main: #130b20;
+    --bg-secondary: #1a102e;
+    --bg-card: #22143b;
+    --accent-purple: #9d4edd;
+    --accent-light: #c77dff;
+    --accent-glow: rgba(199, 125, 255, 0.25);
+    --text-main: #f3e8ff;
+    --text-muted: #d8b4fe;
+    --white: #ffffff;
+    --gold: #ffd700;
+}
