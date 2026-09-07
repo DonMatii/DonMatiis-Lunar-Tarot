@@ -16,7 +16,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Modal de Agendamiento Profesional:** Ventana emergente interactiva al solicitar una lectura, equipada con validación estricta en tiempo real (nombres de 2 a 50 caracteres sin símbolos, selectores obligatorios e inquietudes estructuradas de 15 a 250 caracteres), alertas personalizadas al estilo de DonMatii y generación automática de mensajes formales listos para enviar a WhatsApp.
   - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas al instante.
   - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
-  - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande, con persistencia en almacenamiento local (`localStorage`).
+  - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande mejorado (escala optimizada para mayor legibilidad y confort visual), con persistencia en almacenamiento local (`localStorage`).
   - **Enlace a TikTok:** Conexión directa con la comunidad.
   - **Optimización Social (Open Graph):** Metadatos configurados para generar tarjetas de previsualización profesionales, enriquecidas con imagen y descripción al compartir el enlace en WhatsApp y redes sociales.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
@@ -25,7 +25,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos con avisos estilizados y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto, baraja completa de 78 arcanos con significados detallados, efecto de tipeo progresivo, validaciones estrictas de formularios, gestión del modal de agendamiento y observadores de intersección)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto ampliada, baraja completa de 78 arcanos con significados detallados, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento y observadores de intersección)
 - **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** para garantizar una carga ultrarrápida en entornos móviles.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
