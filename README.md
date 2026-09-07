@@ -11,7 +11,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
   - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
-  - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo, enmascaramiento seguro por privacidad y **filtro interactivo guiado por valoración de estrellas** para organizar las experiencias de los consultantes.
+  - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo, enmascaramiento seguro por privacidad y **filtro interactivo completo de 1 a 5 estrellas** para organizar y transparentar las experiencias de los consultantes.
 - **Interactividad y Canales de Contacto:**
   - **Modal de Agendamiento Profesional:** Ventana emergente interactiva al solicitar una lectura, equipada con validación estricta en tiempo real (nombres de 2 a 50 caracteres sin símbolos, selectores obligatorios e inquietudes estructuradas de 15 a 250 caracteres), alertas personalizadas al estilo de DonMatii y generación automática de mensajes formales listos para enviar a WhatsApp.
   - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas al instante.
@@ -26,7 +26,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos con avisos estilizados y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local persistente tanto para accesibilidad como para la restricción diaria del oráculo, registro y control de Service Worker, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas y observadores de intersección)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local persistente tanto para accesibilidad como para la restricción diaria del oráculo, registro y control de Service Worker, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas por escala completa de valoración y observadores de intersección)
 - **Arquitectura PWA:** `manifest.json` y `sw.js` (Service Worker) para gestión avanzada de caché y experiencia nativa en dispositivos móviles.
 - **Optimización de Rendimiento:** Estructura de activos estandarizada en nomenclatura **kebab-case** (guiones medios), imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
