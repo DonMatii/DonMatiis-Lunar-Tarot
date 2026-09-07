@@ -147,8 +147,8 @@ function renderTestimonials(filter = 'all') {
 
     if (filteredTestimonials.length === 0) {
         if (noTestimonialsMsg) {
-            noTestimonialsMsg.textContent = testimonials.length === 0 
-                ? 'Aún no hay testimonios publicados. ¡Sé el primero en compartir tu experiencia!' 
+            noTestimonialsMsg.textContent = testimonials.length === 0
+                ? 'Aún no hay testimonios publicados. ¡Sé el primero en compartir tu experiencia!'
                 : 'No hay testimonios con esta valoración todavía.';
             noTestimonialsMsg.style.display = 'block';
         }
@@ -246,7 +246,7 @@ function showFeedback(msg, type) {
     if (!formFeedback) return;
     formFeedback.textContent = msg;
     formFeedback.className = `form-feedback ${type}`;
-    formFeedback.style.display = 'block'; 
+    formFeedback.style.display = 'block';
     setTimeout(() => {
         formFeedback.style.display = 'none';
         formFeedback.className = 'form-feedback';
@@ -749,7 +749,7 @@ const tarotDeck = [
 document.addEventListener('DOMContentLoaded', () => {
     const oracleCard = document.getElementById('oracle-card');
     const drawBtn = document.getElementById('draw-card-btn');
-    
+
     const cardIcon = document.getElementById('card-icon');
     const cardName = document.getElementById('card-name');
     const cardPosition = document.getElementById('card-position');
@@ -794,10 +794,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (drawBtn && oracleCard) {
+        // Obtenemos la fecha actual en formato YYYY-MM-DD para que cambie al pasar el día
+        const today = new Date().toISOString().split('T')[0];
+        const lastDrawDate = localStorage.getItem('lunarTarot_lastDate');
+        const savedCardName = localStorage.getItem('lunarTarot_cardName');
+        const savedIsUpright = localStorage.getItem('lunarTarot_isUpright');
+        const savedMeaning = localStorage.getItem('lunarTarot_meaning');
+        const savedIcon = localStorage.getItem('lunarTarot_icon');
+
+        // Si ya tiró una carta hoy, la cargamos directamente sin dejarlo hacer otro tiraje
+        if (lastDrawDate === today && savedCardName) {
+            cardIcon.className = `fa-solid ${savedIcon}`;
+            cardName.textContent = savedCardName;
+
+            if (savedIsUpright === 'true') {
+                cardPosition.textContent = "Al Derecho";
+                cardPosition.className = "card-position-badge upright";
+            } else {
+                cardPosition.textContent = "Invertida";
+                cardPosition.className = "card-position-badge reversed";
+            }
+
+            cardMeaning.textContent = savedMeaning;
+            oracleCard.classList.add('flipped');
+
+            const exactPhrase = "Ya has consultado tu Oráculo de hoy. Regresa mañana para una nueva guía, mientras tanto, puedes agendar una lectura de Tarot, Péndulo o Cartomancia si necesitas más";
+            typedMessage.textContent = exactPhrase; // O puedes usar tu typeWriterEffect si prefieres
+
+            // Deshabilitamos el botón para que se note que ya cumplió su función del día
+            drawBtn.disabled = true;
+            drawBtn.style.opacity = '0.5';
+            drawBtn.style.cursor = 'not-allowed';
+            drawBtn.textContent = "Oráculo ya consultado hoy 🌙";
+        }
+
         drawBtn.addEventListener('click', () => {
+            // Validamos por seguridad que no se intente hacer trampa si el botón por alguna razón estuviera activo
+            const currentDate = new Date().toISOString().split('T')[0];
+            if (localStorage.getItem('lunarTarot_lastDate') === currentDate) return;
+
             // Reproducir el sonido de campanas si no está silenciado
             if (!isAudioMuted) {
-                misticAudio.currentTime = 0; // Reiniciar por si se revela otra vez
+                misticAudio.currentTime = 0;
                 misticAudio.play().catch(err => console.log("Audio play prevented:", err));
             }
 
@@ -807,15 +845,24 @@ document.addEventListener('DOMContentLoaded', () => {
             cardIcon.className = `fa-solid ${randomCard.icon}`;
             cardName.textContent = randomCard.name;
 
+            let meaningText = "";
             if (isUpright) {
                 cardPosition.textContent = "Al Derecho";
                 cardPosition.className = "card-position-badge upright";
-                cardMeaning.textContent = randomCard.upright;
+                meaningText = randomCard.upright;
             } else {
                 cardPosition.textContent = "Invertida";
                 cardPosition.className = "card-position-badge reversed";
-                cardMeaning.textContent = randomCard.reversed;
+                meaningText = randomCard.reversed;
             }
+            cardMeaning.textContent = meaningText;
+
+            // Guardamos en localStorage para bloquear futuros intentos hoy
+            localStorage.setItem('lunarTarot_lastDate', currentDate);
+            localStorage.setItem('lunarTarot_cardName', randomCard.name);
+            localStorage.setItem('lunarTarot_isUpright', isUpright);
+            localStorage.setItem('lunarTarot_meaning', meaningText);
+            localStorage.setItem('lunarTarot_icon', randomCard.icon);
 
             oracleCard.classList.add('flipped');
 
@@ -823,6 +870,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 typeWriterEffect(exactPhrase, typedMessage, 18);
             }, 500);
+
+            // Deshabilitar el botón tras el primer uso de hoy
+            drawBtn.disabled = true;
+            drawBtn.style.opacity = '0.5';
+            drawBtn.style.cursor = 'not-allowed';
+            drawBtn.textContent = "Oráculo ya consultado hoy 🌙";
         });
     }
 });
@@ -835,7 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('close-modal-btn');
     const bookingForm = document.getElementById('booking-form');
     const serviceSelect = document.getElementById('service-type');
-    
+
     const bookingTriggers = document.querySelectorAll('a[href*="wa.me"]');
 
     if (modalOverlay && bookingForm) {
@@ -843,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = trigger.getAttribute('href');
-                
+
                 if (href.includes('Tarot')) {
                     serviceSelect.value = 'Tarot';
                 } else if (href.includes('Péndulo')) {
