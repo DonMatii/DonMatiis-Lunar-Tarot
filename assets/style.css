@@ -1426,3 +1426,11 @@ body.large-text a {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
 }
+
+/* Soporte para pantallas con notch o barra inferior en modo PWA instalado */
+@media all and (display-mode: standalone) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

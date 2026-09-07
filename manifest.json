@@ -1,0 +1,21 @@
+{
+  "name": "DonMatii's Lunar Tarot",
+  "short_name": "Lunar Tarot",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#120822",
+  "theme_color": "#120822",
+  "description": "Encuentra claridad y orientación espiritual bajo la luz de los arcanos.",
+  "icons": [
+    {
+      "src": "IMG/Logo-3.webp",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "IMG/Logo-3.webp",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

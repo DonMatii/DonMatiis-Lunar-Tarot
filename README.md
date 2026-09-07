@@ -19,13 +19,15 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande mejorado (escala optimizada para mayor legibilidad y confort visual), con persistencia en almacenamiento local (`localStorage`).
   - **Enlace a TikTok:** Conexión directa con la comunidad.
   - **Optimización Social (Open Graph):** Metadatos configurados con rutas absolutas limpias y estandarizadas en formato *kebab-case* para generar tarjetas de previsualización profesionales y veloces en WhatsApp y redes sociales.
+  - **Capacidad PWA (Progressive Web App):** Integración completa con manifiesto (`manifest.json`) y Service Worker (`sw.js`) para permitir la instalación de la aplicación directamente en la pantalla de inicio de dispositivos móviles y asegurar funcionamiento offline.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
   - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos con JavaScript modular.
 
 ## 🛠️ Tecnologías y Estructura
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos con avisos estilizados y transiciones suaves)
-- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local persistente tanto para accesibilidad como para la restricción diaria del oráculo, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas y observadores de intersección)
+- **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local persistente tanto para accesibilidad como para la restricción diaria del oráculo, registro y control de Service Worker, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas y observadores de intersección)
+- **Arquitectura PWA:** `manifest.json` y `sw.js` (Service Worker) para gestión avanzada de caché y experiencia nativa en dispositivos móviles.
 - **Optimización de Rendimiento:** Estructura de activos estandarizada en nomenclatura **kebab-case** (guiones medios), imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
