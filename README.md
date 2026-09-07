@@ -5,7 +5,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 ## ✨ Características Principales
 - **Diseño Místico y Elegante:** Paleta de colores en tonos morados, lilas profundos y acentos dorados inspirados en la energía lunar y la claridad espiritual.
 - **Secciones Integradas:**
-  - **Portada (Hero):** Logo principal destacado, bienvenida cálida, enlace gancho interactivo hacia los arcanos y botones de llamada a la acción (CTA).
+  - **Portada (Hero):** Logo principal destacado en formato WebP de alta velocidad, bienvenida cálida, enlace gancho interactivo hacia los arcanos y botones de llamada a la acción (CTA).
   - **Mini-Oráculo Diario:** Baraja completa de los 78 arcanos (Mayores y Menores) con animación 3D de volteo, selección aleatoria de carta al derecho o invertida, descripciones místicas profundas de alto nivel profesional, **efecto de sonido ambiental de campanillas místicas al revelar la carta** (con su respectivo botón interactivo para silenciar/activar el sonido a gusto del usuario) y un mensaje de cierre interactivo con efecto de máquina de escribir (*typewriter*) que invita a volver al día siguiente o agendar una lectura.
   - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con enlace directo de contratación, complementados con sutiles invitaciones empáticas.
   - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
@@ -18,7 +18,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
   - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande mejorado (escala optimizada para mayor legibilidad y confort visual), con persistencia en almacenamiento local (`localStorage`).
   - **Enlace a TikTok:** Conexión directa con la comunidad.
-  - **Optimización Social (Open Graph):** Metadatos configurados para generar tarjetas de previsualización profesionales, enriquecidas con imagen y descripción al compartir el enlace en WhatsApp y redes sociales.
+  - **Optimización Social (Open Graph):** Metadatos configurados con rutas absolutas limpias y estandarizadas en formato *kebab-case* para generar tarjetas de previsualización profesionales y veloces en WhatsApp y redes sociales.
   - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
   - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos con JavaScript modular.
 
@@ -26,7 +26,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **HTML5 Semántico**
 - **CSS3** (Variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, diseño de modales interactivos con avisos estilizados y transiciones suaves)
 - **JavaScript Moderno** (`assets/main.js` para manejo del menú móvil, almacenamiento local, accesibilidad de texto ampliada, baraja completa de 78 arcanos con significados detallados, efectos de sonido multimedia integrados con control de mute, efecto de tipeo progresivo, validaciones estrictas de formularios ordenadas secuencialmente, gestión del modal de agendamiento, filtrado dinámico de reseñas y observadores de intersección)
-- **Optimización de Rendimiento:** Imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
+- **Optimización de Rendimiento:** Estructura de activos estandarizada en nomenclatura **kebab-case** (guiones medios), imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
 - **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
 
 ---
