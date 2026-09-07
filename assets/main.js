@@ -743,6 +743,9 @@ const tarotDeck = [
     }
 ];
 
+// ==========================================
+// MÓDULO DE MINI-ORÁCULO DIARIO (Con Audio Místico)
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const oracleCard = document.getElementById('oracle-card');
     const drawBtn = document.getElementById('draw-card-btn');
@@ -752,6 +755,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardPosition = document.getElementById('card-position');
     const cardMeaning = document.getElementById('card-meaning');
     const typedMessage = document.getElementById('typed-message');
+
+    // Inicializar el objeto de audio con el archivo que subiste
+    const misticAudio = new Audio('assets/audio/Bell.mp3');
+    misticAudio.volume = 0.6; // Volumen equilibrado y agradable
+
+    const audioToggleBtn = document.getElementById('audio-toggle-btn');
+    const audioIcon = document.getElementById('audio-icon');
+    const audioStatus = document.getElementById('audio-status');
+    let isAudioMuted = false;
+
+    if (audioToggleBtn) {
+        audioToggleBtn.addEventListener('click', () => {
+            isAudioMuted = !isAudioMuted;
+            if (isAudioMuted) {
+                audioIcon.className = 'fa-solid fa-volume-xmark';
+                audioStatus.textContent = 'Sonido: Silenciado';
+                audioToggleBtn.style.opacity = '0.6';
+            } else {
+                audioIcon.className = 'fa-solid fa-volume-high';
+                audioStatus.textContent = 'Sonido: Activado';
+                audioToggleBtn.style.opacity = '1';
+            }
+        });
+    }
 
     function typeWriterEffect(text, element, speed = 20) {
         element.textContent = "";
@@ -768,6 +795,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (drawBtn && oracleCard) {
         drawBtn.addEventListener('click', () => {
+            // Reproducir el sonido de campanas si no está silenciado
+            if (!isAudioMuted) {
+                misticAudio.currentTime = 0; // Reiniciar por si se revela otra vez
+                misticAudio.play().catch(err => console.log("Audio play prevented:", err));
+            }
+
             const randomCard = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
             const isUpright = Math.random() >= 0.5;
 

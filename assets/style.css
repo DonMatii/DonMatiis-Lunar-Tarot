@@ -279,7 +279,8 @@ h4,
 .oracle-card {
     background-color: transparent;
     width: 100%;
-    height: 480px; /* Altura optimizada para dar espacio cómodo al texto completo */
+    height: 480px;
+    /* Altura optimizada para dar espacio cómodo al texto completo */
     border-radius: 16px;
 }
 
@@ -299,7 +300,8 @@ h4,
     transform: rotateY(180deg);
 }
 
-.oracle-card-front, .oracle-card-back {
+.oracle-card-front,
+.oracle-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -315,7 +317,8 @@ h4,
     color: var(--text-main);
 }
 
-.oracle-card-front h3, .oracle-card-back h3 {
+.oracle-card-front h3,
+.oracle-card-back h3 {
     color: var(--white);
     margin-bottom: 5px;
     font-size: 1.25rem;
@@ -331,11 +334,13 @@ h4,
     transform: rotateY(180deg);
     background: #160c28;
     justify-content: flex-start;
-    padding: 25px 30px; /* Padding equilibrado */
+    padding: 25px 30px;
+    /* Padding equilibrado */
 }
 
 .oracle-icon-wrapper {
-    font-size: 2.2rem; /* Icono un poco más estilizado para ganar espacio */
+    font-size: 2.2rem;
+    /* Icono un poco más estilizado para ganar espacio */
     color: var(--gold);
     margin-bottom: 4px;
 }
@@ -358,8 +363,10 @@ h4,
     color: var(--text-main) !important;
     line-height: 1.35;
     margin-bottom: 10px !important;
-    max-height: 150px; /* Evita que desborde la tarjeta */
-    overflow-y: auto;  /* Permite deslizar si el texto es muy rico y profundo */
+    max-height: 150px;
+    /* Evita que desborde la tarjeta */
+    overflow-y: auto;
+    /* Permite deslizar si el texto es muy rico y profundo */
     padding-right: 5px;
 }
 
@@ -367,6 +374,7 @@ h4,
 #card-meaning::-webkit-scrollbar {
     width: 4px;
 }
+
 #card-meaning::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.3);
     border-radius: 4px;
@@ -375,7 +383,8 @@ h4,
 /* Espacio número 2: Bloque inferior reubicado donde marcaste el 1 */
 .oracle-limit-msg {
     width: 100%;
-    margin-top: auto; /* Ocupa exactamente ese espacio vacío que señalaste */
+    margin-top: auto;
+    /* Ocupa exactamente ese espacio vacío que señalaste */
     padding-top: 10px;
     border-top: 1px solid rgba(212, 175, 55, 0.25);
     display: flex;
@@ -1391,4 +1400,29 @@ body.large-text a {
     border-color: var(--accent-light);
     box-shadow: 0 4px 15px var(--accent-glow);
     font-weight: 600;
+}
+
+/* Estilos para el botón de control de sonido del Oráculo */
+.audio-toggle-btn {
+    background: var(--bg-card);
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.audio-toggle-btn:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
 }
