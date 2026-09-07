@@ -815,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// MÓDULO DE MODAL DE AGENDAMIENTO WHATSAPP
+// MÓDULO DE MODAL DE AGENDAMIENTO WHATSAPP (Validado en Orden Correcto)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('booking-modal');
@@ -856,14 +856,52 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === modalOverlay) closeModal();
         });
 
+        // Función auxiliar para mostrar advertencias con el estilo de DonMatii
+        const showBookingError = (msg) => {
+            let errorDiv = document.getElementById('booking-error-msg');
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                errorDiv.id = 'booking-error-msg';
+                errorDiv.className = 'booking-error-msg';
+                bookingForm.prepend(errorDiv);
+            }
+            errorDiv.textContent = `🌙 DonMatii te recomienda: ${msg}`;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        };
+
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('client-name').value.trim();
+            const nameInput = document.getElementById('client-name');
             const service = serviceSelect.value;
-            const query = document.getElementById('client-query').value.trim();
+            const queryInput = document.getElementById('client-query');
 
-            if (!name || !service || !query) return;
+            const name = nameInput.value.trim();
+            const query = queryInput.value.trim();
+
+            // 1. Validación estricta para el Nombre primero
+            const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
+            if (!nameRegex.test(name)) {
+                showBookingError('Por favor ingresa un nombre válido (solo letras, sin números ni símbolos, mínimo 2 caracteres).');
+                nameInput.focus();
+                return;
+            }
+
+            // 2. Validación del Tipo de Lectura
+            if (!service) {
+                showBookingError('Por favor selecciona un tipo de lectura disponible.');
+                return;
+            }
+
+            // 3. Validación de la Inquietud al final (para que salte correctamente si es muy corta)
+            if (query.length < 15 || query.length > 250) {
+                showBookingError('Tu inquietud o temática principal debe tener entre 15 y 250 caracteres para poder entender bien tu caso.');
+                queryInput.focus();
+                return;
+            }
 
             const message = `Hola Matías, mi nombre es *${name}*. Me interesa agendar una *${service}*. Mi inquietud principal es: "${query}". ¿Cómo coordinamos?`;
             const encodedMessage = encodeURIComponent(message);
