@@ -66,6 +66,8 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Toast de bienvenida** — detecta plataforma (iOS/Android) y muestra instrucciones de instalación
 - **Manifest maskable** — ícono se adapta correctamente en Android (recorte circular)
 - **CSS concatenado** — 1 request en vez de 10 para el critical path
+- **Preload de fuentes críticas** — Cinzel + Plus Jakarta Sans precargadas
+- **Skeleton loading** en oráculo — placeholder animado mientras carga la carta
 - **Lazy loading** de imágenes below-the-fold
 - **Preconnect** a Supabase para carga más rápida
 - **Font Awesome** cacheado por SW (~90KB una sola vez)
@@ -88,6 +90,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Star rating** semántico con `role="radio"` y `aria-checked`
 - **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
 - **Botón "volver arriba"** — aparece al hacer scroll, accesible con teclado
+- **Counter animado** en "Sobre Mí" — números (+500, 100%, 24h) se animan al hacer scroll
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
 
@@ -130,7 +133,7 @@ DonMatiis-Lunar-Tarot/
 │   │   ├── forms.css            # Formulario + botones (dev)
 │   │   └── footer.css           # Pie de página + FAQ (dev)
 │   └── js/                      # Módulos de lógica (8 archivos)
-│       ├── main.js              # Coordinador + menú + scroll-to-top + event tracking
+│       ├── main.js              # Coordinador + menú + scroll-to-top + event tracking + counters
 │       ├── tarotData.js         # Datos de los 78 arcanos (lazy)
 │       ├── tarotLogic.js        # Lógica del oráculo
 │       ├── testimonials.js      # CRUD de testimonios (Supabase)

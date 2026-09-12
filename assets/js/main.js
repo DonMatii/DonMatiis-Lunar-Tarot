@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Tracking para GTM
     initEventTracking();
+
+    // Counter animado en stats
+    initCounters();
 });
 
 // Tracking de eventos clave para Google Tag Manager
@@ -112,4 +115,44 @@ function initEventTracking() {
             });
         });
     });
+}
+
+// Counter animado — se activa cuando los stats entran en viewport
+function initCounters() {
+    const counters = document.querySelectorAll('.stat .number[data-target]');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+
+    const timer = setInterval(() => {
+        step++;
+        current = Math.min(Math.round(increment * step), target);
+        el.textContent = prefix + current + suffix;
+
+        if (step >= steps) {
+            clearInterval(timer);
+            el.textContent = prefix + target + suffix;
+        }
+    }, duration / steps);
 }

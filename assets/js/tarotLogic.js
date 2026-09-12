@@ -84,10 +84,26 @@ export function initTarotOracle() {
             const currentDate = new Date().toISOString().split('T')[0];
             if (localStorage.getItem('lunarTarot_lastDate') === currentDate) return;
 
+            // Mostrar skeleton mientras se carga
+            const skeleton = document.getElementById('oracle-skeleton');
+            if (skeleton) {
+                skeleton.classList.add('active');
+                skeleton.setAttribute('aria-hidden', 'false');
+            }
+
             // Lazy load: importar tarotData solo cuando se necesita
             if (!tarotDeck) {
                 const { tarotDeck: deck } = await import('./tarotData.js');
                 tarotDeck = deck;
+            }
+
+            // Pequeña pausa para que se vea el skeleton (mínimo 400ms)
+            await new Promise(r => setTimeout(r, 400));
+
+            // Ocultar skeleton
+            if (skeleton) {
+                skeleton.classList.remove('active');
+                skeleton.setAttribute('aria-hidden', 'true');
             }
 
             if (!isAudioMuted) {
