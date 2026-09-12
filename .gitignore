@@ -12,3 +12,11 @@ desktop.ini
 
 # Registros o temporales
 *.log
+*.tmp
+
+# Variables de entorno
+.env
+.env.local
+
+# Dependencias (por si acaso)
+node_modules/

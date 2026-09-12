@@ -71,6 +71,7 @@ DonMatiis-Lunar-Tarot/
 │   ├── audio/              # Efectos de sonido (Campanillas)
 │   ├── css/                # Estilos modulares desacoplados
 │   └── js/                 # Módulos de lógica ES6 (incl. supabaseClient.js)
+├── .gitignore              # Archivos excluidos del control de versiones
 ├── index.html              # Página principal monolítica modular
 ├── manifest.json           # Configuración PWA
 ├── sw.js                   # Service Worker para caché y offline
@@ -87,5 +88,5 @@ DonMatiis-Lunar-Tarot/
 ---
 
 <p align="center">
-  <i>Desarrollado con dedicación para guiar y conectar a través de los arcanos. 🔮🌙</i>
+  <i>Desarrollado con 🌙 por <code style="color: #9d4edd;">8 Digital</code></i>
 </p>
