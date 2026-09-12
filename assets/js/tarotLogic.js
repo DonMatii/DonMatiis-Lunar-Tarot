@@ -38,7 +38,6 @@ export function initTarotOracle() {
     let typewriterTimer = null;
 
     function typeWriterEffect(text, element, speed = 20) {
-        // Cancelar typewriter anterior si existe
         if (typewriterTimer) clearTimeout(typewriterTimer);
         element.textContent = "";
         let i = 0;
@@ -82,6 +81,10 @@ export function initTarotOracle() {
             drawBtn.style.opacity = '0.5';
             drawBtn.style.cursor = 'not-allowed';
             drawBtn.textContent = "Oráculo ya consultado hoy 🌙";
+
+            // Share con datos guardados
+            const savedPosition = savedIsUpright === 'true' ? "Al Derecho" : "Invertida";
+            setupShareButtons(savedCardName, savedPosition, savedMeaning);
         }
 
         drawBtn.addEventListener('click', async () => {
@@ -150,6 +153,55 @@ export function initTarotOracle() {
             drawBtn.style.opacity = '0.5';
             drawBtn.style.cursor = 'not-allowed';
             drawBtn.textContent = "Oráculo ya consultado hoy 🌙";
+
+            // Configurar botones de compartir
+            setupShareButtons(randomCard.name, isUpright ? "Al Derecho" : "Invertida", meaningText);
+        });
+    }
+}
+
+function setupShareButtons(cardName, position, meaning) {
+    const shareWhatsapp = document.getElementById('share-whatsapp-btn');
+    const shareCopy = document.getElementById('share-copy-btn');
+    const copyConfirmation = document.getElementById('copy-confirmation');
+
+    const shareText = `🌙 Mi Oráculo del Día — DonMatii's Lunar Tarot\n\nCarta: ${cardName} (${position})\n${meaning}\n\nDescubre tu carta del día: https://donmatiis-lunar-tarot.vercel.app/`;
+
+    if (shareWhatsapp) {
+        shareWhatsapp.addEventListener('click', () => {
+            const encoded = encodeURIComponent(shareText);
+            window.open(`https://wa.me/?text=${encoded}`, '_blank', 'noopener');
+        });
+    }
+
+    if (shareCopy) {
+        shareCopy.addEventListener('click', async () => {
+            let copied = false;
+            try {
+                await navigator.clipboard.writeText(shareText);
+                copied = true;
+            } catch {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = shareText;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    copied = true;
+                } catch {
+                    copied = false;
+                }
+            }
+
+            if (copied) {
+                copyConfirmation.classList.add('show');
+                setTimeout(() => copyConfirmation.classList.remove('show'), 2000);
+            } else {
+                prompt('Copia este texto:', shareText);
+            }
         });
     }
 }

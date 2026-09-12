@@ -64,6 +64,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Notificación de actualización** — toast "Hay una nueva versión" con recarga automática
 - **Página offline** — fallback temático cuando no hay conexión a internet
 - **Toast de bienvenida** — detecta plataforma (iOS/Android) y muestra instrucciones de instalación
+- **Compartir oráculo** — botón post-revelación para compartir carta del día por WhatsApp o copiar
 - **Manifest maskable** — ícono se adapta correctamente en Android (recorte circular)
 - **CSS concatenado** — 1 request en vez de 10 para el critical path
 - **Preload de fuentes críticas** — Cinzel + Plus Jakarta Sans precargadas

@@ -659,6 +659,81 @@ section {
     opacity: 0.8;
 }
 
+/* ========== Oracle Share Buttons ========== */
+.oracle-share {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.oracle-card.flipped .oracle-share {
+    display: flex;
+}
+
+.oracle-share-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.oracle-share-btn:hover {
+    transform: translateY(-2px);
+}
+
+.oracle-share-whatsapp {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
+}
+
+.oracle-share-whatsapp:hover {
+    box-shadow: 0 6px 18px rgba(157, 78, 221, 0.5);
+}
+
+.oracle-share-copy {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.oracle-share-copy:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.copy-confirmation {
+    color: var(--accent-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s;
+    align-self: center;
+}
+
+.copy-confirmation.show {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .oracle-share {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .oracle-share-btn {
+        justify-content: center;
+    }
+}
+
 .audio-toggle-btn {
     background: var(--bg-card);
     color: var(--gold);
