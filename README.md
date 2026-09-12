@@ -85,10 +85,13 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 
 ### ♿ Accesibilidad (WCAG)
 - **Skip-to-content** para navegación por teclado
-- **ARIA completo**: `role="dialog"`, `aria-modal`, `aria-live`, `aria-expanded`, `aria-pressed`, `role="radiogroup"`
+- **`aria-controls`** correctamente vinculado en hamburger menu
+- **ARIA completo**: `role="dialog"`, `aria-modal`, `aria-live`, `aria-expanded`, `aria-pressed`, `role="radiogroup"` con estados correctos
 - **FAQ colapsables** con `<details>/<summary>` nativos (funcionan sin JS)
-- **Star rating** semántico con `role="radio"` y `aria-checked`
+- **Star rating** semántico con `role="radio"` y `aria-checked` dinámico
 - **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
+- **`:focus-visible`** en todos los botones y elementos interactivos
+- **Modal con focus trap** — Tab cicla dentro, Escape cierra, foco se devuelve al trigger
 - **Botón "volver arriba"** — aparece al hacer scroll, accesible con teclado
 - **Counter animado** en "Sobre Mí" — números se animan al hacer scroll
 - Botón flotante para alternar tamaños de texto (persistencia local)
@@ -159,8 +162,8 @@ DonMatiis-Lunar-Tarot/
 | :--- | :--- |
 | **Autenticación** | API key pública (anon) de Supabase — sin login de usuarios |
 | **RLS habilitado** | Lectura pública de todos los testimonios. Inserción pública controlada. |
-| **Privacidad** | Correos electrónicos enmascarados en la UI (ej: `ca****@****.cl`) |
-| **Service Worker** | Llamadas a Supabase van siempre a la red (nunca se cachean) |
+| **Privacidad** | Correos electrónicos enmascarados en la UI + no se transfieren al cliente |
+| **Service Worker** | Llamadas a Supabase van siempre a la red (nunca se cachean) + fallback 503 |
 | **Transparencia** | Testimonios publicados inmediatamente — sin censura ni moderación |
 
 ---

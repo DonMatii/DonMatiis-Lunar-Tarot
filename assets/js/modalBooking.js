@@ -9,6 +9,15 @@ export function initBookingModal() {
     const bookingTriggers = document.querySelectorAll('a[href*="wa.me"]');
 
     if (modalOverlay && bookingForm) {
+        let lastFocusedElement = null;
+
+        // Elementos focusables dentro del modal
+        const getFocusableElements = () => {
+            return modalOverlay.querySelectorAll(
+                'input, select, textarea, button, [href], [tabindex]:not([tabindex="-1"])'
+            );
+        };
+
         // Manejo de los chips rápidos de temáticas
         chipBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -20,6 +29,19 @@ export function initBookingModal() {
                 queryInput.focus();
             });
         });
+
+        const openModal = (trigger) => {
+            lastFocusedElement = trigger;
+            modalOverlay.classList.add('active');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            // Focus en el primer input del modal
+            const firstInput = modalOverlay.querySelector('input:not([type="hidden"]), select');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 100);
+            }
+        };
 
         bookingTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
@@ -36,9 +58,7 @@ export function initBookingModal() {
                     serviceSelect.value = 'Oráculo Diario';
                 }
 
-                modalOverlay.classList.add('active');
-                modalOverlay.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
+                openModal(trigger);
             });
         });
 
@@ -46,11 +66,42 @@ export function initBookingModal() {
             modalOverlay.classList.remove('active');
             modalOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
+
+            // Devolver foco al elemento que abrió el modal
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+                lastFocusedElement = null;
+            }
         };
 
         if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) closeModal();
+        });
+
+        // Escape para cerrar
+        modalOverlay.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                return;
+            }
+
+            // Focus trap: Tab cicla entre primer y último elemento focusable
+            if (e.key === 'Tab') {
+                const focusable = getFocusableElements();
+                if (focusable.length === 0) return;
+
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
 
         const showBookingError = (msg) => {
@@ -78,7 +129,7 @@ export function initBookingModal() {
             const name = nameInput.value.trim();
             const query = queryTextarea.value.trim();
 
-            const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
+            const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'.,-]{2,50}$/;
             if (!nameRegex.test(name)) {
                 showBookingError('Por favor ingresa un nombre válido (solo letras, sin números ni símbolos, mínimo 2 caracteres).');
                 nameInput.focus();

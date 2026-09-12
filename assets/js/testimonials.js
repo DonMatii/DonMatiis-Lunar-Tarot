@@ -90,11 +90,12 @@ export function initTestimonials() {
         }
 
         try {
-            // Consultar todos los testimonios desde Supabase
+            // Consultar testimonios desde Supabase (sin email por privacidad)
             const { data: testimonials, error } = await supabase
                 .from('testimonials')
-                .select('*')
-                .order('created_at', { ascending: false });
+                .select('id, name, rating, message, created_at')
+                .order('created_at', { ascending: false })
+                .limit(50);
 
             if (error) throw error;
 
@@ -178,7 +179,7 @@ export function initTestimonials() {
             }
 
             try {
-                // Insertar testimonio en Supabase con approved = false para moderación
+                // Insertar testimonio en Supabase — se publica inmediatamente (RLS controla acceso)
                 const { error } = await supabase
                     .from('testimonials')
                     .insert([

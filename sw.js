@@ -20,6 +20,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -48,11 +49,21 @@ self.addEventListener('message', event => {
 // - Navegación (HTML): network-first, fallback a offline.html
 // - Estáticos: cache-first, network fallback (se cachean on-demand)
 self.addEventListener('fetch', event => {
+  // Ignorar requests que no sean HTTP(S)
+  if (!event.request.url.startsWith('http')) return;
+
   const { hostname } = new URL(event.request.url);
 
-  // Supabase API → siempre red
+  // Supabase API → siempre red, con fallback si no hay conexión
   if (API_HOSTS.some(host => hostname.includes(host))) {
-    event.respondWith(fetch(event.request));
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        return new Response(JSON.stringify({ error: 'Sin conexión' }), {
+          status: 503,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      })
+    );
     return;
   }
 

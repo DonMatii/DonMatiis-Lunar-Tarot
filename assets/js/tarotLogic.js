@@ -35,14 +35,18 @@ export function initTarotOracle() {
         });
     }
 
+    let typewriterTimer = null;
+
     function typeWriterEffect(text, element, speed = 20) {
+        // Cancelar typewriter anterior si existe
+        if (typewriterTimer) clearTimeout(typewriterTimer);
         element.textContent = "";
         let i = 0;
         function type() {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
                 i++;
-                setTimeout(type, speed);
+                typewriterTimer = setTimeout(type, speed);
             }
         }
         type();

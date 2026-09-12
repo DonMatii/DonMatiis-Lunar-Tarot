@@ -6,7 +6,7 @@ export function initPWA() {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
             .then(reg => {
-                console.log('Service Worker registrado, Scope:', reg.scope);
+                if (location.hostname === 'localhost') console.log('Service Worker registrado, Scope:', reg.scope);
                 swRegistration = reg;
                 detectSWUpdate(reg);
             })

@@ -57,7 +57,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://donmatiis-lunar-tarot.vercel.app/" />
-    <meta name="twitter:title" content="DonMatii's Lunar Tarot | Guía Mística y Espiritual" />
+    <meta name="twitter:title" content="DonMatii's Lunar Tarot | Lecturas de Tarot, Péndulo y Cartomancia" />
     <meta name="twitter:description"
         content="Encuentra claridad y orientación espiritual bajo la luz de los arcanos. Sesiones confidenciales y cercanas." />
     <meta name="twitter:image" content="https://donmatiis-lunar-tarot.vercel.app/IMG/Logo-3.webp" />
@@ -82,8 +82,7 @@
             "@type": "Person",
             "name": "Matías Suazo",
             "jobTitle": "Lector Espiritual"
-        },
-        "sameAs": []
+        }
     }
     </script>
 
@@ -157,11 +156,11 @@
     <!-- Navegación -->
     <header class="header">
         <div class="nav-container">
-            <a href="#" class="logo-brand">
+            <a href="/" class="logo-brand">
                 <img src="IMG/Logo-3.webp" alt="DonMatii's Lunar Tarot Logo" />
                 <span>Lunar Tarot</span>
             </a>
-            <nav class="nav-menu" aria-label="Navegación principal">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navegación principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#lecturas">Lecturas</a>
                 <a href="#como-funciona">Cómo Funciona</a>
@@ -169,7 +168,7 @@
                 <a href="#faq">Preguntas Frecuentes</a>
                 <a href="#testimonios">Testimonios</a>
                 <a href="https://wa.me/56982128604?text=Hola%20Matías,%20quiero%20agendar%20una%20lectura"
-                    target="_blank" class="btn-nav">Agendar lectura</a>
+                    target="_blank" rel="noopener noreferrer" class="btn-nav">Agendar lectura</a>
             </nav>
             <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
                 <i class="fa-solid fa-bars"></i>
@@ -251,7 +250,7 @@
                             <div id="oracle-limit-msg" class="oracle-limit-msg">
                                 <p id="typed-message"></p>
                                 <a href="https://wa.me/56982128604?text=Hola%20Matías,%20vi%20mi%20oráculo%20diario%20y%20quiero%20agendar%20una%20lectura"
-                                    target="_blank" class="oracle-whatsapp-link">✨ Agendar lectura de Tarot, Péndulo o
+                                    target="_blank" rel="noopener noreferrer" class="oracle-whatsapp-link">✨ Agendar lectura de Tarot, Péndulo o
                                     Cartomancia</a>
                             </div>
                         </div>
@@ -292,7 +291,7 @@
                     </ul>
                     <p class="service-hint">¿Buscas orientación en un momento clave? Conversemos</p>
                     <a href="https://wa.me/56982128604?text=Hola%20Matías,%20me%20interesa%20una%20lectura%20de%20Tarot"
-                        target="_blank" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Resolvamos tus dudas</a>
+                        target="_blank" rel="noopener noreferrer" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Resolvamos tus dudas</a>
                 </div>
 
                 <!-- Péndulo -->
@@ -315,7 +314,7 @@
                     </ul>
                     <p class="service-hint">¿Tienes una pregunta específica? Pregúntame sin miedo</p>
                     <a href="https://wa.me/56982128604?text=Hola%20Matías,%20me%20interesa%20una%20lectura%20de%20Péndulo"
-                        target="_blank" class="btn-card">Consultar por WhatsApp</a>
+                        target="_blank" rel="noopener noreferrer" class="btn-card">Consultar por WhatsApp</a>
                 </div>
 
                 <!-- Cartomancia -->
@@ -343,7 +342,7 @@
                     <p class="service-hint">¿Quieres descubrir el mensaje que las cartas tienen para ti hoy? Escríbeme
                     </p>
                     <a href="https://wa.me/56982128604?text=Hola%20Matías,%20me%20interesa%20una%20lectura%20de%20Cartomancia"
-                        target="_blank" class="btn-card">Consultar por WhatsApp</a>
+                        target="_blank" rel="noopener noreferrer" class="btn-card">Consultar por WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -534,17 +533,17 @@
                     <div class="form-group">
                         <label>Tu Valoración *</label>
                     <div class="rating-stars" id="star-rating-container" role="radiogroup" aria-label="Valoración del testimonio">
-                        <input type="hidden" name="rating" id="rating-value" value="5" required />
-                        <button type="button" class="star-btn active" data-value="1" role="radio" aria-checked="true" aria-label="1 estrella">
+                        <input type="hidden" name="rating" id="rating-value" value="5" />
+                        <button type="button" class="star-btn active" data-value="1" role="radio" aria-checked="false" aria-label="1 estrella">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="2" role="radio" aria-checked="true" aria-label="2 estrellas">
+                            <button type="button" class="star-btn active" data-value="2" role="radio" aria-checked="false" aria-label="2 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="3" role="radio" aria-checked="true" aria-label="3 estrellas">
+                            <button type="button" class="star-btn active" data-value="3" role="radio" aria-checked="false" aria-label="3 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="4" role="radio" aria-checked="true" aria-label="4 estrellas">
+                            <button type="button" class="star-btn active" data-value="4" role="radio" aria-checked="false" aria-label="4 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
                             <button type="button" class="star-btn active" data-value="5" role="radio" aria-checked="true" aria-label="5 estrellas">
@@ -604,7 +603,7 @@
             <div class="footer-links">
                 <h4>Encuéntrame en</h4>
                 <div class="social-icons">
-                    <a href="https://www.tiktok.com/@donmatii8" target="_blank" title="TikTok"><i
+                    <a href="https://www.tiktok.com/@donmatii8" target="_blank" rel="noopener noreferrer" title="TikTok"><i
                             class="fa-brands fa-tiktok"></i> @donmatii8</a>
                 </div>
             </div>
@@ -625,7 +624,7 @@
     <div class="whatsapp-float-container">
         <div class="whatsapp-tooltip">¡Hablemos de tus arcanos! 🌙</div>
         <a href="https://wa.me/56982128604?text=Hola%20Matías,%20quiero%20consultar%20sobre%20tus%20lecturas"
-            target="_blank" class="whatsapp-float" title="Escríbeme por WhatsApp">
+            target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Escríbeme por WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
