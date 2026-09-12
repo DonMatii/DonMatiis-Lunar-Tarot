@@ -82,11 +82,11 @@ function showWelcomeToast() {
 
         let instruction = '';
         if (isIOS) {
-            instruction = 'Tocá el botón de compartir <i class="fa-solid fa-arrow-up-from-bracket"></i> y después "Agregar a pantalla de inicio"';
+            instruction = 'Toca el botón de compartir <i class="fa-solid fa-arrow-up-from-bracket"></i> y después "Agregar a pantalla de inicio"';
         } else if (isAndroid) {
-            instruction = 'Tocá los tres puntos <i class="fa-solid fa-ellipsis-vertical"></i> y después "Agregar a pantalla de inicio"';
+            instruction = 'Toca los tres puntos <i class="fa-solid fa-ellipsis-vertical"></i> y después "Agregar a pantalla de inicio"';
         } else {
-            instruction = 'Buscá el ícono de instalar en la barra de direcciones de tu navegador';
+            instruction = 'Busca el ícono de instalar en la barra de direcciones de tu navegador';
         }
 
         toast.innerHTML = `
@@ -94,7 +94,7 @@ function showWelcomeToast() {
                 <img src="IMG/Logo-3.webp" alt="Logo" class="welcome-toast-logo" />
                 <div>
                     <strong>✨ ¡Bienvenido!</strong>
-                    <p>Podés instalar Lunar Tarot en tu celular para tener los arcanos siempre a mano.</p>
+                    <p>Puedes instalar Lunar Tarot en tu celular para tener los arcanos siempre a mano.</p>
                     <small>${instruction}</small>
                 </div>
             </div>
