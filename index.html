@@ -560,9 +560,14 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="client-query">Tu Inquietud o Temática Principal *</label>
+                    <label for="client-query">¿Qué área de tu vida deseas consultar? *</label>
+                    <div class="query-chips" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <button type="button" class="chip-btn" data-topic="Amor y Relaciones sentimentales" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">❤️ Amor y Pareja</button>
+                        <button type="button" class="chip-btn" data-topic="Trabajo, proyectos y dinero" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">💼 Trabajo y Dinero</button>
+                        <button type="button" class="chip-btn" data-topic="Crecimiento personal y evolución espiritual" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">🌿 Crecimiento Personal</button>
+                    </div>
                     <textarea id="client-query" rows="3" required
-                        placeholder="Cuéntame brevemente qué te inquieta o sobre qué área del amor, trabajo o vida necesitas claridad..."></textarea>
+                        placeholder="Cuéntame brevemente qué te inquieta o sobre qué área necesitas claridad..."></textarea>
                 </div>
                 <button type="submit" class="btn-primary btn-submit-booking">
                     <i class="fa-brands fa-whatsapp"></i> Enviar y Coordinar por WhatsApp

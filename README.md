@@ -13,7 +13,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
   - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo, enmascaramiento seguro por privacidad y **filtro interactivo completo de 1 a 5 estrellas** para organizar y transparentar las experiencias de los consultantes.
 - **Interactividad y Canales de Contacto:**
-  - **Modal de Agendamiento Profesional:** Ventana emergente interactiva al solicitar una lectura, equipada con validación estricta en tiempo real (nombres de 2 a 50 caracteres sin símbolos, selectores obligatorios e inquietudes estructuradas de 15 a 250 caracteres), alertas personalizadas al estilo de DonMatii y generación automática de mensajes formales listos para enviar a WhatsApp.
+  - **Modal de Agendamiento Profesional:** Ventana emergente interactiva equipada con **botones rápidos de temáticas (chips de selección por áreas de vida)**, validación en tiempo real de nombres, selectores obligatorios e inquietudes estructuradas de 15 a 250 caracteres, y generación automática de mensajes formales listos para enviar a WhatsApp.
   - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas al instante.
   - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
   - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande mejorado (escala optimizada para mayor legibilidad y confort visual), con persistencia en almacenamiento local (`localStorage`).

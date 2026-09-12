@@ -3,10 +3,24 @@ export function initBookingModal() {
     const closeModalBtn = document.getElementById('close-modal-btn');
     const bookingForm = document.getElementById('booking-form');
     const serviceSelect = document.getElementById('service-type');
+    const queryInput = document.getElementById('client-query');
+    const chipBtns = document.querySelectorAll('.chip-btn');
 
     const bookingTriggers = document.querySelectorAll('a[href*="wa.me"]');
 
     if (modalOverlay && bookingForm) {
+        // Manejo de los chips rápidos de temáticas
+        chipBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                chipBtns.forEach(b => b.style.background = 'rgba(157, 78, 221, 0.2)');
+                btn.style.background = 'rgba(157, 78, 221, 0.6)';
+                
+                const topic = btn.getAttribute('data-topic');
+                queryInput.value = `Quiero consultar sobre: ${topic}. `;
+                queryInput.focus();
+            });
+        });
+
         bookingTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
