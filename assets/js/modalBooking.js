@@ -37,12 +37,14 @@ export function initBookingModal() {
                 }
 
                 modalOverlay.classList.add('active');
+                modalOverlay.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
             });
         });
 
         const closeModal = () => {
             modalOverlay.classList.remove('active');
+            modalOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
         };
 
@@ -71,10 +73,10 @@ export function initBookingModal() {
 
             const nameInput = document.getElementById('client-name');
             const service = serviceSelect.value;
-            const queryInput = document.getElementById('client-query');
+            const queryTextarea = document.getElementById('client-query');
 
             const name = nameInput.value.trim();
-            const query = queryInput.value.trim();
+            const query = queryTextarea.value.trim();
 
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
             if (!nameRegex.test(name)) {
@@ -90,7 +92,7 @@ export function initBookingModal() {
 
             if (query.length < 15 || query.length > 250) {
                 showBookingError('Tu inquietud o temática principal debe tener entre 15 y 250 caracteres para poder entender bien tu caso.');
-                queryInput.focus();
+                queryTextarea.focus();
                 return;
             }
 

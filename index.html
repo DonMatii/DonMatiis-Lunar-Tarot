@@ -7,9 +7,14 @@
     <title>
         DonMatii's Lunar Tarot | Lecturas de Tarot, Péndulo y Cartomancia
     </title>
+    <meta name="description"
+        content="Encuentra claridad y orientación espiritual con Matías Suazo. Lecturas de Tarot, Péndulo y Cartomancia online por WhatsApp. Sesiones confidenciales y cercanas." />
+    <link rel="canonical" href="https://donmatiis-lunar-tarot.vercel.app/" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preconnect a Supabase para carga más rápida -->
+    <link rel="preconnect" href="https://ynzcxucugrzlitremtus.supabase.co" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
@@ -45,6 +50,8 @@
     <meta property="og:description"
         content="Encuentra claridad y orientación espiritual bajo la luz de los arcanos. Sesiones confidenciales y cercanas con Matías Suazo." />
     <meta property="og:image" content="https://donmatiis-lunar-tarot.vercel.app/IMG/Logo-3.webp" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="DonMatii's Lunar Tarot" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -53,9 +60,70 @@
     <meta name="twitter:description"
         content="Encuentra claridad y orientación espiritual bajo la luz de los arcanos. Sesiones confidenciales y cercanas." />
     <meta name="twitter:image" content="https://donmatiis-lunar-tarot.vercel.app/IMG/Logo-3.webp" />
+
+    <!-- JSON-LD: FAQPage para rich snippets en Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Qué es una lectura de Tarot?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es una herramienta de autoconocimiento y guía espiritual basada en arcanos mayores y menores. Te permite comprender tu situación presente, entender lecciones del pasado y visualizar caminos posibles para tu futuro."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué es una lectura de Péndulo?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es un arte de radiestesia mediante el cual, a través de movimientos sutiles de un péndulo sobre tablas o gráficos, se obtienen respuestas directas y precisas (sí/no) además de medir y orientar energías bloqueadas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué es una lectura de Cartomancia?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es el arte tradicional de interpretar naipes comunes u otros mazos simbólicos. Ofrece mensajes muy certeros y cercanos sobre los acontecimientos cotidianos y situaciones a corto plazo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo se realizan las lecturas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Las lecturas son online a través de WhatsApp. Te envío fotos detalladas de tu tirada junto con audios o explicaciones profundas para que puedas escucharlas las veces que necesites."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo agendo y realizo el pago?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es muy fácil. Me escribes directamente al botón de WhatsApp, coordinamos el tipo de lectura que necesitas y te indico los métodos de pago disponibles."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué necesito para empezar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Solo necesitas tener una pregunta clara en mente o la disposición de recibir el mensaje general que el universo tenga para ti en este momento de tu vida."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Skip to content (accessibilidad) -->
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
     <!-- Navegación -->
     <header class="header">
         <div class="nav-container">
@@ -63,7 +131,7 @@
                 <img src="IMG/Logo-3.webp" alt="DonMatii's Lunar Tarot Logo" />
                 <span>Lunar Tarot</span>
             </a>
-            <nav class="nav-menu">
+            <nav class="nav-menu" aria-label="Navegación principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#lecturas">Lecturas</a>
                 <a href="#como-funciona">Cómo Funciona</a>
@@ -73,12 +141,13 @@
                 <a href="https://wa.me/56982128604?text=Hola%20Matías,%20quiero%20agendar%20una%20lectura"
                     target="_blank" class="btn-nav">Agendar lectura</a>
             </nav>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
                 <i class="fa-solid fa-bars"></i>
-            </div>
+            </button>
         </div>
     </header>
 
+    <main id="main-content">
     <!-- Sección de Inicio / Hero -->
     <section id="inicio" class="hero">
         <div class="hero-image-container">
@@ -118,7 +187,7 @@
                 <p>Permite que los arcanos guíen tu energía en este momento</p>
                 <!-- Botón de Mute/Unmute para el sonido místico -->
                 <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Activar o silenciar sonido"
-                    style="margin-top: 15px;">
+                    aria-pressed="false" style="margin-top: 15px;">
                     <i id="audio-icon" class="fa-solid fa-volume-high"></i> <span id="audio-status">Sonido:
                         Activado</span>
                 </button>
@@ -135,7 +204,7 @@
                             <button id="draw-card-btn" class="cta-button">Revelar Carta</button>
                         </div>
                         <!-- Dorso de la carta (Resultado revelado) -->
-                        <div class="oracle-card-back" id="oracle-result">
+                        <div class="oracle-card-back" id="oracle-result" aria-live="polite" role="region" aria-label="Resultado del oráculo diario">
                             <div class="oracle-icon-wrapper">
                                 <i id="card-icon" class="fa-solid fa-sun"></i>
                             </div>
@@ -291,7 +360,7 @@
         <div class="container about-container">
             <div class="about-image">
                 <div class="image-frame">
-                    <img src="IMG/Foto-Matias-Suazo.webp" alt="Matías Suazo - DonMatii's Lunar Tarot" />
+                    <img src="IMG/Foto-Matias-Suazo.webp" alt="Matías Suazo - DonMatii's Lunar Tarot" loading="lazy" />
                 </div>
             </div>
             <div class="about-text">
@@ -435,21 +504,21 @@
 
                     <div class="form-group">
                         <label>Tu Valoración *</label>
-                        <div class="rating-stars" id="star-rating-container">
-                            <input type="hidden" name="rating" id="rating-value" value="5" required />
-                            <button type="button" class="star-btn active" data-value="1" aria-label="1 estrella">
+                    <div class="rating-stars" id="star-rating-container" role="radiogroup" aria-label="Valoración del testimonio">
+                        <input type="hidden" name="rating" id="rating-value" value="5" required />
+                        <button type="button" class="star-btn active" data-value="1" role="radio" aria-checked="true" aria-label="1 estrella">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="2" aria-label="2 estrellas">
+                            <button type="button" class="star-btn active" data-value="2" role="radio" aria-checked="true" aria-label="2 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="3" aria-label="3 estrellas">
+                            <button type="button" class="star-btn active" data-value="3" role="radio" aria-checked="true" aria-label="3 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="4" aria-label="4 estrellas">
+                            <button type="button" class="star-btn active" data-value="4" role="radio" aria-checked="true" aria-label="4 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
-                            <button type="button" class="star-btn active" data-value="5" aria-label="5 estrellas">
+                            <button type="button" class="star-btn active" data-value="5" role="radio" aria-checked="true" aria-label="5 estrellas">
                                 <i class="fa-solid fa-star"></i>
                             </button>
                             <span class="rating-text" id="rating-text">5 de 5 estrellas</span>
@@ -472,18 +541,16 @@
 
             <!-- Lista de Testimonios Reales -->
             <div class="testimonials-display">
-                <div class="testimonials-filter-container"
-                    style="flex-direction: column; align-items: center; gap: 10px;">
-                    <p class="filter-label"
-                        style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 2px;">✨
+                <div class="testimonials-filter-container">
+                    <p class="filter-label">✨
                         Ordena los testimonios por valoración:</p>
-                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                        <button type="button" class="filter-btn active" data-filter="all">Todas</button>
-                        <button type="button" class="filter-btn" data-filter="5">⭐⭐⭐⭐⭐</button>
-                        <button type="button" class="filter-btn" data-filter="4">⭐⭐⭐⭐</button>
-                        <button type="button" class="filter-btn" data-filter="3">⭐⭐⭐</button>
-                        <button type="button" class="filter-btn" data-filter="2">⭐⭐</button>
-                        <button type="button" class="filter-btn" data-filter="1">⭐</button>
+                    <div class="filter-buttons-row">
+                        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Todas</button>
+                        <button type="button" class="filter-btn" data-filter="5" aria-pressed="false">⭐⭐⭐⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="4" aria-pressed="false">⭐⭐⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="3" aria-pressed="false">⭐⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="2" aria-pressed="false">⭐⭐</button>
+                        <button type="button" class="filter-btn" data-filter="1" aria-pressed="false">⭐</button>
                     </div>
                 </div>
 
@@ -495,12 +562,13 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer / Pie de página -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-brand">
-                <img src="IMG/Logo-3.webp" alt="Logo DonMatii's Lunar Tarot" />
+                <img src="IMG/Logo-3.webp" alt="Logo DonMatii's Lunar Tarot" loading="lazy" />
                 <h3>DonMatii's Lunar Tarot</h3>
                 <p>Iluminando caminos a través de la magia y la intuición.</p>
             </div>
@@ -534,12 +602,12 @@
     </div>
 
     <!-- Modal de Agendamiento Profesional para WhatsApp -->
-    <div id="booking-modal" class="booking-modal-overlay">
+    <div id="booking-modal" class="booking-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" aria-hidden="true">
         <div class="booking-modal-container">
             <button id="close-modal-btn" class="close-modal-btn" aria-label="Cerrar ventana">&times;</button>
             <div class="booking-modal-header">
                 <i class="fa-solid fa-moon-astral"></i>
-                <h3>Agendar Lectura Espiritual</h3>
+                <h3 id="booking-modal-title">Agendar Lectura Espiritual</h3>
                 <p>Completa tus datos para coordinar la sesión con Matías Suazo</p>
             </div>
             <form id="booking-form" class="booking-form">
@@ -561,10 +629,10 @@
                 </div>
                 <div class="form-group">
                     <label for="client-query">¿Qué área de tu vida deseas consultar? *</label>
-                    <div class="query-chips" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <button type="button" class="chip-btn" data-topic="Amor y Relaciones sentimentales" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">❤️ Amor y Pareja</button>
-                        <button type="button" class="chip-btn" data-topic="Trabajo, proyectos y dinero" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">💼 Trabajo y Dinero</button>
-                        <button type="button" class="chip-btn" data-topic="Crecimiento personal y evolución espiritual" style="background: rgba(157, 78, 221, 0.2); border: 1px solid var(--accent-light); color: #fff; padding: 6px 12px; border-radius: 15px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">🌿 Crecimiento Personal</button>
+                    <div class="query-chips">
+                        <button type="button" class="chip-btn" data-topic="Amor y Relaciones sentimentales">❤️ Amor y Pareja</button>
+                        <button type="button" class="chip-btn" data-topic="Trabajo, proyectos y dinero">💼 Trabajo y Dinero</button>
+                        <button type="button" class="chip-btn" data-topic="Crecimiento personal y evolución espiritual">🌿 Crecimiento Personal</button>
                     </div>
                     <textarea id="client-query" rows="3" required
                         placeholder="Cuéntame brevemente qué te inquieta o sobre qué área necesitas claridad..."></textarea>

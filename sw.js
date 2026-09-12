@@ -1,60 +1,73 @@
-const CACHE_NAME = 'lunar-tarot-v2';
-const urlsToCache = [
+const CACHE_NAME = 'lunar-tarot-v3';
+
+// Archivos críticos para la primera carga (solo lo que existe)
+const PRECACHE_URLS = [
   '/',
   '/index.html',
-  '/assets/style.css',
-  '/assets/main.js',
-  '/IMG/Logo-3.png',
   '/IMG/Logo-3.webp',
+  '/assets/css/variables.css',
+  '/assets/css/base.css',
+  '/assets/css/animations.css',
+  '/assets/css/navigation.css',
+  '/assets/css/cards.css',
+  '/assets/css/hero.css',
+  '/assets/css/oraculo.css',
+  '/assets/css/modals.css',
+  '/assets/css/forms.css',
+  '/assets/css/footer.css',
+  '/assets/js/main.js',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'
 ];
 
-// Dominios de API que NUNCA se cachean
+// Dominios de API que NUNCA se cachean (siempre ir a la red)
 const API_HOSTS = ['ynzcxucugrzlitremtus.supabase.co'];
 
-// Instalación del Service Worker y almacenamiento en caché
+// Instalación: pre-cache de archivos críticos
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Caché abierta exitosamente');
-        return cache.addAll(urlsToCache);
-      })
+      .then(cache => cache.addAll(PRECACHE_URLS))
   );
 });
 
-// Activación y limpieza de cachés antiguas
+// Activación: limpiar cachés antiguas
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Borrando caché antigua:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then(cacheNames =>
+      Promise.all(
+        cacheNames
+          .filter(name => name !== CACHE_NAME)
+          .map(name => caches.delete(name))
+      )
+    )
   );
 });
 
-// Interceptar peticiones
+// Estrategia de fetch:
+// - API (Supabase): SIEMPRE red (nunca cachear)
+// - Estáticos: cache-first, network fallback (se cachean on-demand)
 self.addEventListener('fetch', event => {
-  const requestUrl = new URL(event.request.url);
+  const { hostname } = new URL(event.request.url);
 
-  // Para llamadas a Supabase: SIEMPRE ir a la red (nunca cachear)
-  if (API_HOSTS.some(host => requestUrl.hostname.includes(host))) {
+  // Supabase API → siempre red
+  if (API_HOSTS.some(host => hostname.includes(host))) {
     event.respondWith(fetch(event.request));
     return;
   }
 
-  // Para estáticos: cache first, network fallback
+  // Estáticos → cache-first, network fallback
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+      return fetch(event.request).then(response => {
+        // Cache on-demand solo GET requests成功的
+        if (event.request.method === 'GET' && response.ok) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        }
+        return response;
+      });
+    })
   );
 });

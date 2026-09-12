@@ -59,9 +59,19 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 
 ### ⚡ PWA & Accesibilidad
 - **Modo instalable** como app nativa en dispositivos móviles
-- Service Worker con estrategia **network-first** para APIs y **cache-first** para estáticos
+- Service Worker con estrategia **network-first** para APIs y **cache-first** para estáticos (cache-on-demand)
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
+- **Skip-to-content** para navegación por teclado
+- ARIA completo: `role="dialog"`, `aria-modal`, `aria-live`, `aria-expanded`, `aria-pressed`, `role="radiogroup"`
+- Respeto a `prefers-reduced-motion` — animaciones se desactivan automáticamente
+
+### 🔍 SEO & Marketing
+- **JSON-LD** estructurado (FAQPage) para rich snippets en Google
+- **Meta description** y **canonical URL** optimizados
+- **Open Graph** completo (`og:locale`, `og:site_name`) + Twitter Card
+- **robots.txt** + **sitemap.xml** para crawlers
+- **Preconnect** a Supabase para carga más rápida
 
 ---
 
@@ -69,12 +79,12 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 
 | Capa | Tecnologías |
 | :--- | :--- |
-| **Estructura** | HTML5 Semántico (SEO + Open Graph) |
+| **Estructura** | HTML5 Semántico (SEO + Open Graph + JSON-LD) |
 | **Estilos** | CSS3 Modular (10 archivos por dominio funcional) |
 | **Lógica** | JavaScript Moderno (ES Modules, 8 módulos) |
 | **Base de Datos** | Supabase Cloud (PostgreSQL + RLS) |
 | **Despliegue** | Vercel (deploy automático desde GitHub) |
-| **Rendimiento** | Imágenes WebP, fuentes Cinzel + Plus Jakarta Sans |
+| **Rendimiento** | Imágenes WebP, lazy loading, preconnect, cache-on-demand |
 
 ---
 
@@ -90,28 +100,29 @@ DonMatiis-Lunar-Tarot/
 │   ├── audio/                   # Efectos de sonido (campanillas)
 │   ├── css/                     # Estilos modulares (10 archivos)
 │   │   ├── variables.css        # Paleta de colores y design tokens
-│   │   ├── base.css             # Reset y tipografía base
+│   │   ├── base.css             # Reset, tipografía base y prefers-reduced-motion
 │   │   ├── animations.css       # Transiciones y keyframes
 │   │   ├── navigation.css       # Header y menú responsive
 │   │   ├── hero.css             # Sección principal
 │   │   ├── cards.css            # Tarjetas de servicios
 │   │   ├── oraculo.css          # Mini-oráculo interactivo
 │   │   ├── modals.css           # Modal de agendamiento
-│   │   ├── forms.css            # Formulario de testimonios
-│   │   └── footer.css           # Pie de página
-│   ├── js/                      # Módulos de lógica (8 archivos)
-│   │   ├── main.js              # Coordinador principal
-│   │   ├── tarotData.js         # Datos de los 78 arcanos
-│   │   ├── tarotLogic.js        # Lógica del oráculo
-│   │   ├── testimonials.js      # CRUD de testimonios (Supabase)
-│   │   ├── supabaseClient.js    # Cliente Supabase (conexión)
-│   │   ├── modalBooking.js      # Modal + chips + WhatsApp
-│   │   ├── accessibility.js     # Control de tamaño de texto
-│   │   └── pwa.js               # Registro del Service Worker
-│   └── style.css                # Archivo CSS base (compatibilidad)
+│   │   ├── forms.css            # Formulario de testimonios + botones globales
+│   │   └── footer.css           # Pie de página + accesibilidad de texto
+│   └── js/                      # Módulos de lógica (8 archivos)
+│       ├── main.js              # Coordinador principal + menú + scroll animations
+│       ├── tarotData.js         # Datos de los 78 arcanos
+│       ├── tarotLogic.js        # Lógica del oráculo
+│       ├── testimonials.js      # CRUD de testimonios (Supabase)
+│       ├── supabaseClient.js    # Cliente Supabase (conexión)
+│       ├── modalBooking.js      # Modal + chips + WhatsApp
+│       ├── accessibility.js     # Control de tamaño de texto
+│       └── pwa.js               # Registro del Service Worker
 ├── .gitignore                   # Archivos excluidos del repo
 ├── index.html                   # Página principal (SPA monolítica)
 ├── manifest.json                # Configuración PWA
+├── robots.txt                   # Instrucciones para crawlers
+├── sitemap.xml                  # Mapa del sitio para buscadores
 ├── sw.js                        # Service Worker (caché + offline)
 └── README.md                    # Esta documentación
 ```

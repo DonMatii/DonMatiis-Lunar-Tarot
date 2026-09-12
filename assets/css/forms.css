@@ -45,6 +45,13 @@
 }
 
 /* Estilo para los chips de selección rápida de temáticas */
+.query-chips {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
 .chip-btn {
     background: rgba(157, 78, 221, 0.2);
     border: 1px solid var(--accent-light);
@@ -104,11 +111,12 @@
 .btn-primary, 
 .btn-secondary, 
 .btn-card, 
+.btn-nav,
 .cta-button, 
 .btn-submit-review, 
 .btn-submit-booking {
     background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
-    color: var(--white) !important;
+    color: var(--white);
     border: none;
     padding: 12px 24px;
     border-radius: 30px;
@@ -267,9 +275,23 @@
 
 .testimonials-filter-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 2px;
+}
+
+.filter-buttons-row {
+    display: flex;
     gap: 12px;
     justify-content: center;
-    margin-bottom: 35px;
     flex-wrap: wrap;
 }
 

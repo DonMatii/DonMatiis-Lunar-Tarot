@@ -75,11 +75,11 @@
     font-size: 0.75rem;
 }
 
-#card-meaning {
-    font-size: 0.82rem !important;
-    color: var(--text-main) !important;
+.oracle-card-back #card-meaning {
+    font-size: 0.82rem;
+    color: var(--text-main);
     line-height: 1.35;
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
     max-height: 150px;
     overflow-y: auto;
     padding-right: 5px;
@@ -105,12 +105,12 @@
     align-items: center;
 }
 
-#typed-message {
-    font-size: 0.76rem !important;
-    color: var(--text-muted) !important;
+.oracle-card-back #typed-message {
+    font-size: 0.76rem;
+    color: var(--text-muted);
     font-style: italic;
     line-height: 1.3;
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
     min-height: 30px;
 }
 

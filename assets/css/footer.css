@@ -267,7 +267,7 @@
     font-size: 0.85rem;
 }
 
-/* Accesibilidad y Responsive general */
+/* Accesibilidad — override de tamaño de texto (necesita !important paraforzar sobre estilos base) */
 body.large-text {
     font-size: 1.25rem !important;
 }

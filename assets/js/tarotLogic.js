@@ -21,6 +21,7 @@ export function initTarotOracle() {
     if (audioToggleBtn) {
         audioToggleBtn.addEventListener('click', () => {
             isAudioMuted = !isAudioMuted;
+            audioToggleBtn.setAttribute('aria-pressed', isAudioMuted);
             if (isAudioMuted) {
                 audioIcon.className = 'fa-solid fa-volume-xmark';
                 audioStatus.textContent = 'Sonido: Silenciado';

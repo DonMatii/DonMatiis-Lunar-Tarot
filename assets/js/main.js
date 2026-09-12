@@ -12,11 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
         });
 
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }

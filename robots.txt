@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://donmatiis-lunar-tarot.vercel.app/sitemap.xml

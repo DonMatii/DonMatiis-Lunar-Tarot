@@ -54,11 +54,9 @@ export function initTestimonials() {
 
                 starButtons.forEach(btn => {
                     const btnVal = parseInt(btn.getAttribute('data-value'));
-                    if (btnVal <= selectedVal) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
+                    const isActive = btnVal <= selectedVal;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-checked', isActive);
                 });
             });
 
@@ -226,9 +224,11 @@ export function initTestimonials() {
                 filterButtons.forEach(b => {
                     b.classList.remove('active');
                     b.style.background = 'var(--bg-card)';
+                    b.setAttribute('aria-pressed', 'false');
                 });
                 btn.classList.add('active');
                 btn.style.background = 'var(--accent-purple)';
+                btn.setAttribute('aria-pressed', 'true');
 
                 currentStarFilter = btn.getAttribute('data-filter');
                 renderTestimonials(currentStarFilter);
