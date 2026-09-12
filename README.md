@@ -61,6 +61,8 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 ### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
 - Service Worker v3 con **cache-on-demand** para estáticos
+- **Notificación de actualización** — toast "Hay una nueva versión" con recarga en 1 clic
+- **Manifest maskable** — ícono se adapta correctamente en Android (recorte circular)
 - **CSS concatenado** — 1 request en vez de 10 para el critical path
 - **Lazy loading** de imágenes below-the-fold
 - **Preconnect** a Supabase para carga más rápida

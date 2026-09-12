@@ -22,7 +22,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activación: limpiar cachés antiguas
+// Activación: limpiar cachés antiguas y tomar control
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames =>
@@ -31,8 +31,15 @@ self.addEventListener('activate', event => {
           .filter(name => name !== CACHE_NAME)
           .map(name => caches.delete(name))
       )
-    )
+    ).then(() => self.clients.claim())
   );
+});
+
+// Escuchar SKIP_WAITING del cliente para activar nueva versión
+self.addEventListener('message', event => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // Estrategia de fetch:
