@@ -701,13 +701,13 @@ section {
 }
 
 .oracle-share-copy {
-    background: rgba(157, 78, 221, 0.2);
-    color: var(--accent-light);
-    border: 1px solid var(--accent-light);
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
 }
 
 .oracle-share-copy:hover {
-    background: rgba(157, 78, 221, 0.4);
+    box-shadow: 0 6px 18px rgba(157, 78, 221, 0.5);
 }
 
 .copy-confirmation {
