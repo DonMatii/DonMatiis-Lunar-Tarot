@@ -181,6 +181,6 @@ DonMatiis-Lunar-Tarot/
 
 <div align="center">
 
-Desarrollado con 🌙 por <code style="color: #9d4edd;">**8 Digital**</code>
+Desarrollado con 🌙 por <a href="https://8-digital.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #9d4edd;">**8 Digital**</a>
 
 </div>
