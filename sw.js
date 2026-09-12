@@ -1,9 +1,10 @@
-const CACHE_NAME = 'lunar-tarot-v3';
+const CACHE_NAME = 'lunar-tarot-v4';
 
-// Archivos críticos para la primera carga (solo lo que existe)
+// Archivos críticos para la primera carga
 const PRECACHE_URLS = [
   '/',
   '/index.html',
+  '/offline.html',
   '/IMG/Logo-3.webp',
   '/assets/css/style.css',
   '/assets/js/main.js',
@@ -44,6 +45,7 @@ self.addEventListener('message', event => {
 
 // Estrategia de fetch:
 // - API (Supabase): SIEMPRE red (nunca cachear)
+// - Navegación (HTML): network-first, fallback a offline.html
 // - Estáticos: cache-first, network fallback (se cachean on-demand)
 self.addEventListener('fetch', event => {
   const { hostname } = new URL(event.request.url);
@@ -54,12 +56,28 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Navegación (requests de página) → network-first, offline fallback
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // Guardar la página principal en caché
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          return response;
+        })
+        .catch(() => {
+          return caches.match('/offline.html');
+        })
+    );
+    return;
+  }
+
   // Estáticos → cache-first, network fallback
   event.respondWith(
     caches.match(event.request).then(cached => {
       if (cached) return cached;
       return fetch(event.request).then(response => {
-        // Cache on-demand solo GET requests成功的
         if (event.request.method === 'GET' && response.ok) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));

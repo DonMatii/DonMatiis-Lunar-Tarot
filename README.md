@@ -60,13 +60,22 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 
 ### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
-- Service Worker v3 con **cache-on-demand** para estáticos
+- Service Worker v4 con **cache-on-demand** para estáticos
 - **Notificación de actualización** — toast "Hay una nueva versión" con recarga en 1 clic
+- **Página offline** — fallback temático cuando no hay conexión a internet
+- **Toast de bienvenida** — detecta plataforma (iOS/Android) y muestra instrucciones de instalación
 - **Manifest maskable** — ícono se adapta correctamente en Android (recorte circular)
 - **CSS concatenado** — 1 request en vez de 10 para el critical path
 - **Lazy loading** de imágenes below-the-fold
 - **Preconnect** a Supabase para carga más rápida
 - **Font Awesome** cacheado por SW (~90KB una sola vez)
+
+### 🔍 SEO & Analytics
+- **JSON-LD** estructurado (FAQPage) para rich snippets en Google
+- **Meta description** y **canonical URL** optimizados
+- **Open Graph** completo (`og:locale`, `og:site_name`) + Twitter Card
+- **robots.txt** + **sitemap.xml** para crawlers
+- **Google Tag Manager** (GTM-NZSNV7HN) — tracking de visitas y eventos
 
 ### ♿ Accesibilidad (WCAG)
 - **Skip-to-content** para navegación por teclado
@@ -76,12 +85,6 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
-
-### 🔍 SEO & Marketing
-- **JSON-LD** estructurado (FAQPage) para rich snippets en Google
-- **Meta description** y **canonical URL** optimizados
-- **Open Graph** completo (`og:locale`, `og:site_name`) + Twitter Card
-- **robots.txt** + **sitemap.xml** para crawlers
 
 ---
 
@@ -93,8 +96,9 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 | **Estilos** | CSS3 Concatenado (10 módulos → 1 archivo) |
 | **Lógica** | JavaScript Moderno (ES Modules, lazy loading) |
 | **Base de Datos** | Supabase Cloud (PostgreSQL + RLS) |
+| **Analytics** | Google Tag Manager (GTM-NZSNV7HN) |
 | **Despliegue** | Vercel (deploy automático desde GitHub) |
-| **Rendimiento** | WebP, lazy loading, preconnect, cache-on-demand |
+| **Rendimiento** | WebP, lazy loading, preconnect, cache-on-demand, offline fallback |
 
 ---
 
@@ -131,10 +135,11 @@ DonMatiis-Lunar-Tarot/
 │       └── pwa.js               # Registro del Service Worker
 ├── .gitignore                   # Archivos excluidos del repo
 ├── index.html                   # Página principal (SPA monolítica)
-├── manifest.json                # Configuración PWA
+├── offline.html                 # Fallback offline (temático)
+├── manifest.json                # Configuración PWA (maskable)
 ├── robots.txt                   # Instrucciones para crawlers
 ├── sitemap.xml                  # Mapa del sitio para buscadores
-├── sw.js                        # Service Worker v3 (cache-on-demand)
+├── sw.js                        # Service Worker v4 (offline + update detection)
 └── README.md                    # Esta documentación
 ```
 

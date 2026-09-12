@@ -1456,3 +1456,96 @@ body.large-text a {
         transform: translateX(0) translateY(0);
     }
 }
+
+/* ========== Welcome Toast ========== */
+#welcome-toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--bg-card);
+    border: 1px solid var(--accent-light);
+    color: var(--text-main);
+    padding: 16px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.88rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 420px;
+}
+
+#welcome-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.welcome-toast-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.welcome-toast-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-light);
+    flex-shrink: 0;
+}
+
+.welcome-toast-content strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.welcome-toast-content p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.welcome-toast-content small {
+    color: var(--accent-light);
+    font-size: 0.78rem;
+    font-style: italic;
+}
+
+#welcome-dismiss-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+#welcome-dismiss-btn:hover {
+    color: var(--white);
+}
+
+@media (max-width: 600px) {
+    #welcome-toast {
+        bottom: 90px;
+        left: 16px;
+        right: 16px;
+        transform: translateX(0) translateY(20px);
+        max-width: none;
+    }
+
+    #welcome-toast.show {
+        transform: translateX(0) translateY(0);
+    }
+}
