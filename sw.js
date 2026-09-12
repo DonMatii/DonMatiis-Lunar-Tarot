@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lunar-tarot-v1';
+const CACHE_NAME = 'lunar-tarot-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,6 +9,9 @@ const urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'
 ];
+
+// Dominios de API que NUNCA se cachean
+const API_HOSTS = ['ynzcxucugrzlitremtus.supabase.co'];
 
 // Instalación del Service Worker y almacenamiento en caché
 self.addEventListener('install', event => {
@@ -37,12 +40,20 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Interceptar peticiones para funcionamiento offline
+// Interceptar peticiones
 self.addEventListener('fetch', event => {
+  const requestUrl = new URL(event.request.url);
+
+  // Para llamadas a Supabase: SIEMPRE ir a la red (nunca cachear)
+  if (API_HOSTS.some(host => requestUrl.hostname.includes(host))) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Para estáticos: cache first, network fallback
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Retorna desde la caché si existe, sino hace la petición a la red
         return response || fetch(event.request);
       })
   );
