@@ -3,7 +3,7 @@
 # 🌙✨ DonMatii's Lunar Tarot
 
 <p align="center">
-  <b>Plataforma web mística, profesional y de alta conversión para lecturas espirituales de Tarot, Péndulo y Cartomancia.</b>
+  <b>Plataforma web mística, profesional y de alta conversión desarrollada por <a href="https://github.com/DonMatii">Matías Suazo</a> bajo el sello de ingeniería <code style="color: #9d4edd;">8 Digital</code>.</b>
 </p>
 
 <p align="center">

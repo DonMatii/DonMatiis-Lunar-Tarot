@@ -44,6 +44,24 @@
     margin-bottom: 8px;
 }
 
+/* Estilo para los chips de selección rápida de temáticas */
+.chip-btn {
+    background: rgba(157, 78, 221, 0.2);
+    border: 1px solid var(--accent-light);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chip-btn:hover {
+    background: rgba(157, 78, 221, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
 .form-group input,
 .form-group textarea,
 .booking-form input,

@@ -85,6 +85,12 @@ export function initTestimonials() {
     async function renderTestimonials(filter = 'all') {
         if (!testimonialsList) return;
 
+        // Mostrar indicador de carga sutil
+        if (noTestimonialsMsg) {
+            noTestimonialsMsg.textContent = '🌙 Consultando experiencias en los arcanos...';
+            noTestimonialsMsg.style.display = 'block';
+        }
+
         try {
             // Consultar testimonios aprobados directo desde Supabase
             const { data: testimonials, error } = await supabase
