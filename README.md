@@ -1,35 +1,91 @@
-# DonMatii's Lunar Tarot 🌙✨
+<div align="center">
 
-Página web mística, profesional y optimizada para la promoción de lecturas espirituales de **Tarot, Péndulo y Cartomancia** guiadas por **Matías Suazo**.
+# 🌙✨ DonMatii's Lunar Tarot
 
-## ✨ Características Principales
-- **Diseño Místico y Elegante:** Paleta de colores en tonos morados, lilas profundos y acentos dorados inspirados en la energía lunar y la claridad espiritual.
-- **Secciones Integradas:**
-  - **Portada (Hero):** Logo principal (`Logo-3.webp`) destacado en formato WebP de alta velocidad, bienvenida cálida, enlace gancho interactivo hacia los arcanos y botones de llamada a la acción (CTA).
-  - **Mini-Oráculo Diario:** Baraja completa de los 78 arcanos (Mayores y Menores) con animación 3D de volteo, selección aleatoria de carta al derecho o invertida, descripciones místicas profundas de alto nivel profesional, **sistema de bloqueo diario por fecha (`localStorage`)** para garantizar una única consulta genuina por día, **efecto de sonido ambiental de campanillas místicas al revelar la carta** (con su respectivo botón interactivo para silenciar/activar el sonido a gusto del usuario) y un mensaje de cierre interactivo con efecto de máquina de escribir (*typewriter*) que invita a volver al día siguiente o agendar una lectura.
-  - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con llamadas a la acción optimizadas (*"Resolvamos tus dudas"*), complementados con sutiles invitaciones empáticas.
-  - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
-  - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
-  - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
-  - **Testimonios:** Sistema interactivo de reseñas con valoración de 1 a 5 estrellas, validación de correo, enmascaramiento seguro por privacidad, **filtro interactivo completo de 1 a 5 estrellas** y **persistencia en la nube en tiempo real mediante Supabase** para la moderación y visualización de experiencias reales de los consultantes.
-- **Interactividad y Canales de Contacto:**
-  - **Modal de Agendamiento Profesional:** Ventana emergente interactiva equipada con **botones rápidos de temáticas (chips de selección por áreas de vida)**, validación en tiempo real de nombres, selectores obligatorios e inquietudes estructuradas de 15 a 250 caracteres, y generación automática de mensajes formales listos para enviar a WhatsApp.
-  - **Botón de Agendamiento Superior:** Acceso directo en la barra de navegación para agendar lecturas al instante.
-  - **Botón Flotante de WhatsApp:** Chat directo equipado con un *tooltip* interactivo y animado al pasar el cursor.
-  - **Botón Flotante de Accesibilidad:** Control interactivo en la esquina inferior izquierda para alternar dinámicamente entre tamaño de texto normal y grande mejorado (escala optimizada para mayor legibilidad y confort visual), con persistencia en almacenamiento local (`localStorage`).
-  - **Enlace a TikTok:** Conexión directa con la comunidad (`@donmatii8`).
-  - **Optimización Social (Open Graph):** Metadatos configurados con rutas absolutas limpias y estandarizadas en formato *kebab-case* para generar tarjetas de previsualización profesionales y veloces en WhatsApp y redes sociales.
-  - **Capacidad PWA (Progressive Web App):** Integración completa con manifiesto (`manifest.json`) y Service Worker (`sw.js`) para permitir la instalación de la aplicación directamente en la pantalla de inicio de dispositivos móviles y asegurar funcionamiento offline.
-  - **Diseño Responsivo:** Adaptabilidad total en celulares, tablets y computadores.
-  - **Animaciones al Scroll:** Efectos visuales de aparición dinámica construidos mediante ES Modules y observadores de intersección.
+<p align="center">
+  <b>Plataforma web mística, profesional y de alta conversión para lecturas espirituales de Tarot, Péndulo y Cartomancia.</b>
+</p>
 
-## 🛠️ Tecnologías y Arquitectura Modular
-- **HTML5 Semántico**
-- **CSS3 Modular:** Arquitectura de estilos desacoplada y limpia organizada por dominios funcionales (*variables.css*, *base.css*, *animations.css*, *navigation.css*, *cards.css*, *modals.css*, *hero.css*, *oraculo.css*, *forms.css*, *footer.css*), empleando variables personalizadas, Grid, Flexbox, perspectiva 3D, scroll personalizado, modales interactivos y transiciones suaves.
-- **JavaScript Moderno (ES Modules & Supabase Cloud):** Código desacoplado en componentes especializados (`main.js`, `tarotData.js`, `tarotLogic.js`, `testimonials.js`, `modalBooking.js`, `accessibility.js`, `pwa.js`, `supabaseClient.js`) para el manejo eficiente del menú móvil, almacenamiento local, integración con Supabase Cloud DB para testimonios, registro y control de Service Worker, baraja completa de 78 arcanos, efectos de sonido multimedia con control de mute, tipeo progresivo, validaciones estrictas y observadores de intersección.
-- **Arquitectura PWA:** `manifest.json` y `sw.js` (Service Worker) para gestión avanzada de caché y experiencia nativa en dispositivos móviles.
-- **Optimización de Rendimiento:** Estructura de activos estandarizada en nomenclatura **kebab-case** (guiones medios), imágenes procesadas en formato moderno **WebP** y recursos multimedia optimizados para garantizar una carga ultrarrápida.
-- **Librerías externas:** FontAwesome (iconos) y Google Fonts (Cinzel y Plus Jakarta Sans).
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-En%20Producci%C3%B3n-success?style=for-the-badge&logo=vercel" alt="Status" />
+  <img src="https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JS%20(ESM)-purple?style=for-the-badge&logo=javascript" alt="Tech" />
+  <img src="https://img.shields.io/badge/Backend-Supabase%20Cloud-blue?style=for-the-badge&logo=supabase" alt="Supabase" />
+  <img src="https://img.shields.io/badge/PWA-Ready-orange?style=for-the-badge&logo=pwa" alt="PWA" />
+</p>
+
+[🌐 **Ver Sitio en Producción (Vercel)**](https://donmatiis-lunar-tarot.vercel.app/)
+
+</div>
 
 ---
-*Desarrollado con dedicación para guiar y conectar a través de los arcanos.* 🔮
+
+## 🔮 Sobre el Proyecto
+
+**DonMatii's Lunar Tarot** es un proyecto web moderno desarrollado por **Matías Suazo** para ofrecer un espacio seguro, místico y profesional de orientación espiritual. 
+
+Diseñado con un enfoque de **alta conversión de clientes**, el sitio no solo transmite una estética refinada inspirada en la energía lunar, sino que guía de forma fluida y sin fricciones al consultante desde la exploración de los arcanos hasta el agendamiento directo y personalizado por **WhatsApp**.
+
+---
+
+## ✨ Características Principales
+
+### 🌌 1. Mini-Oráculo Diario Interactivo
+- **Baraja Completa:** Integración de los 78 arcanos (Mayores y Menores) con animación 3D de volteo y selección aleatoria (al derecho o invertida).
+- **Restricción Diaria Inteligente:** Control por fechas mediante `localStorage` para garantizar una única consulta genuina por día.
+- **Efecto Sensorial y Tipeo:** Sonido ambiental de campanillas místicas (con botón de silencio/activación) y mensajes de cierre con efecto de máquina de escribir (*typewriter*).
+
+### 📱 2. Agendamiento Rápido hacia WhatsApp (UX Optimizada)
+- **Modal Profesional con Chips de Temáticas:** Botones rápidos interactivos para seleccionar el área de vida de consulta (*Amor y Pareja*, *Trabajo y Dinero*, *Crecimiento Personal*).
+- **Mensaje Automatizado:** Redirección directa a WhatsApp con una plantilla formal pre-escrita, lista para coordinar disponibilidad y pagos con cero fricción.
+
+### 🌟 3. Testimonios en Tiempo Real (Supabase Cloud)
+- **Base de Datos Cloud:** Conectado a **Supabase (PostgreSQL)** para recibir valoraciones de 1 a 5 estrellas y reseñas reales.
+- **Privacidad y Filtros:** Enmascaramiento seguro de correos electrónicos y sistema de filtrado interactivo por estrellas para los visitantes.
+
+### ⚡ 4. Experiencia Progresiva (PWA & Accesibilidad)
+- **Modo Instalable (PWA):** Configurado con `manifest.json` y Service Worker (`sw.js`) para funcionar offline e instalarse como app nativa en dispositivos móviles.
+- **Control de Accesibilidad:** Botón flotante para alternar tamaños de texto con persistencia local.
+
+---
+
+## 🛠️ Tecnologías y Arquitectura Modular
+
+El proyecto evita dependencias innecesarias de frameworks pesados, apostando por una arquitectura estática modular de alto rendimiento:
+
+| Capa | Tecnologías / Estructura |
+| :--- | :--- |
+| **Estructura** | HTML5 Semántico (Accesible, SEO optimizado y Open Graph) |
+| **Estilos** | CSS3 Modular por dominios funcionales (`variables.css`, `base.css`, `animations.css`, `navigation.css`, `cards.css`, `modals.css`, `hero.css`, `oraculo.css`, `forms.css`, `footer.css`) |
+| **Lógica Frontend** | JavaScript Moderno (ES Modules: `main.js`, `tarotData.js`, `tarotLogic.js`, `testimonials.js`, `modalBooking.js`, `accessibility.js`, `pwa.js`) |
+| **Base de Datos / Cloud** | **Supabase JS Client** (`supabaseClient.js`) para gestión de testimonios en la nube |
+| **Rendimiento** | Activos en nomenclatura *kebab-case*, imágenes comprimidas en **WebP** y tipografías *Cinzel* & *Plus Jakarta Sans* |
+
+---
+
+## 📂 Estructura del Repositorio
+
+```text
+DonMatiis-Lunar-Tarot/
+├── IMG/                    # Imágenes optimizadas en WebP
+├── assets/
+│   ├── audio/              # Efectos de sonido (Campanillas)
+│   ├── css/                # Estilos modulares desacoplados
+│   └── js/                 # Módulos de lógica ES6 (incl. supabaseClient.js)
+├── index.html              # Página principal monolítica modular
+├── manifest.json           # Configuración PWA
+├── sw.js                   # Service Worker para caché y offline
+└── README.md               # Documentación oficial del proyecto
+```
+
+---
+
+## 🚀 Despliegue e Infraestructura
+
+- **Hosting & CDN:** Desplegado de forma continua en **Vercel** mediante integración directa con GitHub.
+- **Base de Datos:** PostgreSQL alojada en la nube mediante **Supabase**.
+
+---
+
+<p align="center">
+  <i>Desarrollado con dedicación para guiar y conectar a través de los arcanos. 🔮🌙</i>
+</p>
