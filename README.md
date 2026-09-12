@@ -61,7 +61,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 ### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
 - Service Worker v4 con **cache-on-demand** para estáticos
-- **Notificación de actualización** — toast "Hay una nueva versión" con recarga en 1 clic
+- **Notificación de actualización** — toast "Hay una nueva versión" con recarga automática
 - **Página offline** — fallback temático cuando no hay conexión a internet
 - **Toast de bienvenida** — detecta plataforma (iOS/Android) y muestra instrucciones de instalación
 - **Manifest maskable** — ícono se adapta correctamente en Android (recorte circular)
@@ -132,7 +132,7 @@ DonMatiis-Lunar-Tarot/
 │       ├── supabaseClient.js    # Cliente Supabase (conexión)
 │       ├── modalBooking.js      # Modal + chips + WhatsApp
 │       ├── accessibility.js     # Control de tamaño de texto
-│       └── pwa.js               # Registro del Service Worker
+│       └── pwa.js               # SW + update toast + welcome toast
 ├── .gitignore                   # Archivos excluidos del repo
 ├── index.html                   # Página principal (SPA monolítica)
 ├── offline.html                 # Fallback offline (temático)

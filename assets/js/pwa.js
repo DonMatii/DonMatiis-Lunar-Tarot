@@ -1,10 +1,13 @@
 export function initPWA() {
     if (!('serviceWorker' in navigator)) return;
 
+    let swRegistration = null;
+
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
             .then(reg => {
                 console.log('Service Worker registrado, Scope:', reg.scope);
+                swRegistration = reg;
                 detectSWUpdate(reg);
             })
             .catch(err => {
@@ -14,7 +17,7 @@ export function initPWA() {
         // Toast de bienvenida (primera visita)
         showWelcomeToast();
 
-        // Cuando el usuario recarga, limpiar el controlador viejo
+        // Cuando el SW nuevo toma control, recargar la página
         let refreshing = false;
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (!refreshing) {
@@ -22,6 +25,9 @@ export function initPWA() {
                 window.location.reload();
             }
         });
+
+        // Exponer el botón de actualización para que pueda usar swRegistration
+        window._swRegistration = () => swRegistration;
     });
 }
 
@@ -33,14 +39,14 @@ function detectSWUpdate(reg) {
 
         newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                showUpdateToast();
+                showUpdateToast(reg);
             }
         });
     });
 }
 
 // Toast de actualización del SW
-function showUpdateToast() {
+function showUpdateToast(reg) {
     if (document.getElementById('sw-update-toast')) return;
 
     const toast = document.createElement('div');
@@ -55,7 +61,13 @@ function showUpdateToast() {
     requestAnimationFrame(() => toast.classList.add('show'));
 
     document.getElementById('sw-update-btn').addEventListener('click', () => {
-        navigator.serviceWorker.controller?.postMessage({ type: 'SKIP_WAITING' });
+        // Enviar SKIP_WAITING al SW NUEVO (el que está en waiting), no al controlador actual
+        if (reg?.waiting) {
+            reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        } else {
+            // Fallback: recargar directamente
+            window.location.reload();
+        }
     });
 
     document.getElementById('sw-dismiss-btn').addEventListener('click', () => {
