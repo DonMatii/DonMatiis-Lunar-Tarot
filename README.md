@@ -38,8 +38,9 @@ Diseñado con un enfoque de **alta conversión de clientes**, el sitio no solo t
 - **Modal Profesional con Chips de Temáticas:** Botones rápidos interactivos para seleccionar el área de vida de consulta (*Amor y Pareja*, *Trabajo y Dinero*, *Crecimiento Personal*).
 - **Mensaje Automatizado:** Redirección directa a WhatsApp con una plantilla formal pre-escrita, lista para coordinar disponibilidad y pagos con cero fricción.
 
-### 🌟 3. Testimonios en Tiempo Real (Supabase Cloud)
-- **Base de Datos Cloud:** Conectado a **Supabase (PostgreSQL)** para recibir valoraciones de 1 a 5 estrellas y reseñas reales.
+### 🌟 3. Testimonios con Moderación (Supabase Cloud)
+- **Base de Datos Cloud:** Conectado a **Supabase (PostgreSQL)** con políticas **RLS** (Row Level Security) para lectura pública solo de testimonios aprobados e inserción pública controlada.
+- **Flujo de Moderación:** Los testimonios se insertan con `approved: false` y solo se muestran públicamente tras aprobación manual del administrador.
 - **Privacidad y Filtros:** Enmascaramiento seguro de correos electrónicos y sistema de filtrado interactivo por estrellas para los visitantes.
 
 ### ⚡ 4. Experiencia Progresiva (PWA & Accesibilidad)
