@@ -165,7 +165,7 @@ function setupShareButtons(cardName, position, meaning) {
     const shareCopy = document.getElementById('share-copy-btn');
     const copyConfirmation = document.getElementById('copy-confirmation');
 
-    const shareText = `🌙 Mi Oráculo del Día — DonMatii's Lunar Tarot\n\nCarta: ${cardName} (${position})\n${meaning}\n\nDescubre tu carta del día: https://donmatiis-lunar-tarot.vercel.app/`;
+    const shareText = `Mi Oráculo del Día — DonMatii's Lunar Tarot\n\nCarta: ${cardName} (${position})\n${meaning}\n\nhttps://donmatiis-lunar-tarot.vercel.app/`;
 
     if (shareWhatsapp) {
         shareWhatsapp.addEventListener('click', () => {
