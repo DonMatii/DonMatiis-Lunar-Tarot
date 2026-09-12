@@ -90,7 +90,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Star rating** semántico con `role="radio"` y `aria-checked`
 - **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
 - **Botón "volver arriba"** — aparece al hacer scroll, accesible con teclado
-- **Counter animado** en "Sobre Mí" — números (+500, 100%, 24h) se animan al hacer scroll
+- **Counter animado** en "Sobre Mí" — números se animan al hacer scroll
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
 

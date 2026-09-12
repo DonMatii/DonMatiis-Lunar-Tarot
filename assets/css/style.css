@@ -1598,10 +1598,10 @@ body.large-text a {
     display: flex;
 }
 
-.oracle-skeleton ~ .oracle-logo-icon,
-.oracle-skeleton ~ h3,
-.oracle-skeleton ~ p,
-.oracle-skeleton ~ .cta-button {
+.oracle-skeleton.active ~ .oracle-logo-icon,
+.oracle-skeleton.active ~ h3,
+.oracle-skeleton.active ~ p,
+.oracle-skeleton.active ~ .cta-button {
     display: none;
 }
 
