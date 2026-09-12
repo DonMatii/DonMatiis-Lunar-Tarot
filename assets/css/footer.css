@@ -30,7 +30,7 @@
     transform: scale(1.1) rotate(5deg);
 }
 
-.service-card h3, .step-card h3, .faq-item h3 {
+.service-card h3, .step-card h3 {
     font-size: 1.3rem;
     color: var(--white);
     margin-bottom: 12px;
@@ -169,9 +169,61 @@
     background-color: var(--bg-main);
 }
 
-.faq-item h3 i {
+.faq-item {
+    cursor: pointer;
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    font-size: 1.3rem;
+    color: var(--white);
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Ocultar marker por defecto en todos los navegadores */
+.faq-item summary::-webkit-details-marker,
+.faq-item summary::marker {
+    display: none;
+    content: "";
+}
+
+/* Icono de expandir/colapsar */
+.faq-item summary::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.faq-item summary:hover {
+    color: var(--accent-light);
+}
+
+.faq-item summary i {
     color: var(--accent-light);
     font-size: 0.9rem;
+}
+
+.faq-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 12px;
+    padding-bottom: 8px;
 }
 
 /* Testimonios sección general */

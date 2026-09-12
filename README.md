@@ -41,6 +41,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Restricción de **una consulta diaria** por visitante
 - Sonido ambiental de campanillas místicas (con control de silencio)
 - Mensajes de cierre con efecto **typewriter**
+- **Lazy loading** de datos de arcanos (solo se cargan al consultar)
 
 ### 📱 Agendamiento por WhatsApp
 - Modal profesional con **chips de temáticas** interactivos:
@@ -57,21 +58,28 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Filtrado interactivo por valoración (1–5 estrellas)
 - Enmascaramiento automático de correos electrónicos por privacidad
 
-### ⚡ PWA & Accesibilidad
+### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
-- Service Worker con estrategia **network-first** para APIs y **cache-first** para estáticos (cache-on-demand)
+- Service Worker v3 con **cache-on-demand** para estáticos
+- **CSS concatenado** — 1 request en vez de 10 para el critical path
+- **Lazy loading** de imágenes below-the-fold
+- **Preconnect** a Supabase para carga más rápida
+- **Font Awesome** cacheado por SW (~90KB una sola vez)
+
+### ♿ Accesibilidad (WCAG)
+- **Skip-to-content** para navegación por teclado
+- **ARIA completo**: `role="dialog"`, `aria-modal`, `aria-live`, `aria-expanded`, `aria-pressed`, `role="radiogroup"`
+- **FAQ colapsables** con `<details>/<summary>` nativos (funcionan sin JS)
+- **Star rating** semántico con `role="radio"` y `aria-checked`
+- **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
-- **Skip-to-content** para navegación por teclado
-- ARIA completo: `role="dialog"`, `aria-modal`, `aria-live`, `aria-expanded`, `aria-pressed`, `role="radiogroup"`
-- Respeto a `prefers-reduced-motion` — animaciones se desactivan automáticamente
 
 ### 🔍 SEO & Marketing
 - **JSON-LD** estructurado (FAQPage) para rich snippets en Google
 - **Meta description** y **canonical URL** optimizados
 - **Open Graph** completo (`og:locale`, `og:site_name`) + Twitter Card
 - **robots.txt** + **sitemap.xml** para crawlers
-- **Preconnect** a Supabase para carga más rápida
 
 ---
 
@@ -80,11 +88,11 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 | Capa | Tecnologías |
 | :--- | :--- |
 | **Estructura** | HTML5 Semántico (SEO + Open Graph + JSON-LD) |
-| **Estilos** | CSS3 Modular (10 archivos por dominio funcional) |
-| **Lógica** | JavaScript Moderno (ES Modules, 8 módulos) |
+| **Estilos** | CSS3 Concatenado (10 módulos → 1 archivo) |
+| **Lógica** | JavaScript Moderno (ES Modules, lazy loading) |
 | **Base de Datos** | Supabase Cloud (PostgreSQL + RLS) |
 | **Despliegue** | Vercel (deploy automático desde GitHub) |
-| **Rendimiento** | Imágenes WebP, lazy loading, preconnect, cache-on-demand |
+| **Rendimiento** | WebP, lazy loading, preconnect, cache-on-demand |
 
 ---
 
@@ -98,20 +106,21 @@ DonMatiis-Lunar-Tarot/
 │   └── Foto-Matias-Suazo.webp   # Foto personal (sección Sobre Mí)
 ├── assets/
 │   ├── audio/                   # Efectos de sonido (campanillas)
-│   ├── css/                     # Estilos modulares (10 archivos)
-│   │   ├── variables.css        # Paleta de colores y design tokens
-│   │   ├── base.css             # Reset, tipografía base y prefers-reduced-motion
-│   │   ├── animations.css       # Transiciones y keyframes
-│   │   ├── navigation.css       # Header y menú responsive
-│   │   ├── hero.css             # Sección principal
-│   │   ├── cards.css            # Tarjetas de servicios
-│   │   ├── oraculo.css          # Mini-oráculo interactivo
-│   │   ├── modals.css           # Modal de agendamiento
-│   │   ├── forms.css            # Formulario de testimonios + botones globales
-│   │   └── footer.css           # Pie de página + accesibilidad de texto
+│   ├── css/
+│   │   ├── style.css            # CSS concatenado (10 módulos en 1 archivo)
+│   │   ├── variables.css        # Paleta de colores (dev)
+│   │   ├── base.css             # Reset y tipografía (dev)
+│   │   ├── animations.css       # Transiciones y keyframes (dev)
+│   │   ├── navigation.css       # Header y menú (dev)
+│   │   ├── hero.css             # Sección principal (dev)
+│   │   ├── cards.css            # Tarjetas de servicios (dev)
+│   │   ├── oraculo.css          # Mini-oráculo interactivo (dev)
+│   │   ├── modals.css           # Modal de agendamiento (dev)
+│   │   ├── forms.css            # Formulario + botones (dev)
+│   │   └── footer.css           # Pie de página + FAQ (dev)
 │   └── js/                      # Módulos de lógica (8 archivos)
-│       ├── main.js              # Coordinador principal + menú + scroll animations
-│       ├── tarotData.js         # Datos de los 78 arcanos
+│       ├── main.js              # Coordinador principal + menú
+│       ├── tarotData.js         # Datos de los 78 arcanos (lazy)
 │       ├── tarotLogic.js        # Lógica del oráculo
 │       ├── testimonials.js      # CRUD de testimonios (Supabase)
 │       ├── supabaseClient.js    # Cliente Supabase (conexión)
@@ -123,7 +132,7 @@ DonMatiis-Lunar-Tarot/
 ├── manifest.json                # Configuración PWA
 ├── robots.txt                   # Instrucciones para crawlers
 ├── sitemap.xml                  # Mapa del sitio para buscadores
-├── sw.js                        # Service Worker (caché + offline)
+├── sw.js                        # Service Worker v3 (cache-on-demand)
 └── README.md                    # Esta documentación
 ```
 

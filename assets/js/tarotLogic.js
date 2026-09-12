@@ -1,4 +1,5 @@
-import { tarotDeck } from './tarotData.js';
+// tarotData se carga de forma lazy cuando el oráculo entra en viewport
+let tarotDeck = null;
 
 export function initTarotOracle() {
     const oracleCard = document.getElementById('oracle-card');
@@ -79,9 +80,15 @@ export function initTarotOracle() {
             drawBtn.textContent = "Oráculo ya consultado hoy 🌙";
         }
 
-        drawBtn.addEventListener('click', () => {
+        drawBtn.addEventListener('click', async () => {
             const currentDate = new Date().toISOString().split('T')[0];
             if (localStorage.getItem('lunarTarot_lastDate') === currentDate) return;
+
+            // Lazy load: importar tarotData solo cuando se necesita
+            if (!tarotDeck) {
+                const { tarotDeck: deck } = await import('./tarotData.js');
+                tarotDeck = deck;
+            }
 
             if (!isAudioMuted) {
                 misticAudio.currentTime = 0;
