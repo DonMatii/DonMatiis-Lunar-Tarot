@@ -80,7 +80,11 @@ export function initBookingModal() {
                 return;
             }
 
-            const message = `Hola Matías, mi nombre es *${name}*. Me interesa agendar una *${service}*. Mi inquietud principal es: "${query}". ¿Cómo coordinamos?`;
+            const message = `Hola Matías, mi nombre es *${name}*. Vengo de tu web y me interesa agendar una *${service}*. 
+
+Mi inquietud principal es: "${query}". 
+
+¿Qué disponibilidad tienes y cómo coordinamos el pago? Quedo atento/a. ¡Muchas gracias!`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/56982128604?text=${encodedMessage}`;
 
