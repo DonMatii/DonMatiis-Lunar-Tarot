@@ -92,8 +92,7 @@ export function initTestimonials() {
         }
 
         try {
-            // Consultar testimonios aprobados directo desde Supabase
-            // La política RLS ya filtra por approved = true
+            // Consultar todos los testimonios desde Supabase
             const { data: testimonials, error } = await supabase
                 .from('testimonials')
                 .select('*')
@@ -111,7 +110,7 @@ export function initTestimonials() {
             if (filteredTestimonials.length === 0) {
                 if (noTestimonialsMsg) {
                     noTestimonialsMsg.textContent = (testimonials || []).length === 0
-                        ? 'Aún no hay testimonios aprobados. ¡Sé el primero en compartir tu experiencia!'
+                        ? 'Aún no hay testimonios. ¡Sé el primero en compartir tu experiencia!'
                         : 'No hay testimonios con esta valoración todavía.';
                     noTestimonialsMsg.style.display = 'block';
                 }
@@ -190,7 +189,7 @@ export function initTestimonials() {
                             email,
                             rating,
                             message: comment,
-                            approved: false
+                            approved: true
                         }
                     ]);
 
@@ -201,7 +200,7 @@ export function initTestimonials() {
                 ratingText.textContent = '5 de 5 estrellas';
                 starButtons.forEach(btn => btn.classList.add('active'));
 
-                showFeedback('¡Muchas gracias! Tu testimonio fue enviado y será publicado muy pronto tras una revisión.', 'success');
+                showFeedback('¡Muchas gracias! Tu testimonio ya está publicado.', 'success');
             } catch (err) {
                 console.error('Error al guardar testimonio:', err);
                 showFeedback('Hubo un error al enviar tu testimonio. Inténtalo de nuevo más tarde.', 'error');

@@ -50,10 +50,10 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Mensaje automatizado pre-escrito con un clic
 - Cero fricción: del oráculo a la consulta en segundos
 
-### 🌟 Testimonios con Moderación
+### 🌟 Testimonios en Tiempo Real
 - Base de datos **Supabase (PostgreSQL)** en la nube
 - Políticas **RLS** (Row Level Security) para seguridad
-- Flujo de moderación: los testimonios se publican tras aprobación manual
+- Los testimonios se publican **inmediatamente** al enviarlos — transparencia total
 - Filtrado interactivo por valoración (1–5 estrellas)
 - Enmascaramiento automático de correos electrónicos por privacidad
 
@@ -123,10 +123,10 @@ DonMatiis-Lunar-Tarot/
 | Aspecto | Implementación |
 | :--- | :--- |
 | **Autenticación** | API key pública (anon) de Supabase — sin login de usuarios |
-| **RLS habilitado** | Lectura: solo testimonios aprobados. Inserción: pública con `approved: false` |
+| **RLS habilitado** | Lectura pública de todos los testimonios. Inserción pública controlada. |
 | **Privacidad** | Correos electrónicos enmascarados en la UI (ej: `ca****@****.cl`) |
 | **Service Worker** | Llamadas a Supabase van siempre a la red (nunca se cachean) |
-| **Moderación** | Testimonios requieren aprobación manual antes de publicarse |
+| **Transparencia** | Testimonios publicados inmediatamente — sin censura ni moderación |
 
 ---
 
