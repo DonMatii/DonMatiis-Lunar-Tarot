@@ -197,7 +197,10 @@ export function initTestimonials() {
                 testimonialForm.reset();
                 ratingInput.value = '5';
                 ratingText.textContent = '5 de 5 estrellas';
-                starButtons.forEach(btn => btn.classList.add('active'));
+                starButtons.forEach(btn => {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-checked', 'true');
+                });
 
                 showFeedback('¡Muchas gracias! Tu testimonio ya está publicado.', 'success');
             } catch (err) {

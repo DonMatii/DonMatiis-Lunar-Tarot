@@ -1,15 +1,13 @@
 const CACHE_NAME = 'lunar-tarot-v4';
 
-// Archivos críticos para la primera carga
+// Archivos críticos para la primera carga (solo locales)
 const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/offline.html',
   '/IMG/Logo-3.webp',
   '/assets/css/style.css',
-  '/assets/js/main.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'
+  '/assets/js/main.js'
 ];
 
 // Dominios de API que NUNCA se cachean (siempre ir a la red)
