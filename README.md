@@ -7,7 +7,7 @@ Página web mística, profesional y optimizada para la promoción de lecturas es
 - **Secciones Integradas:**
   - **Portada (Hero):** Logo principal (`Logo-3.webp`) destacado en formato WebP de alta velocidad, bienvenida cálida, enlace gancho interactivo hacia los arcanos y botones de llamada a la acción (CTA).
   - **Mini-Oráculo Diario:** Baraja completa de los 78 arcanos (Mayores y Menores) con animación 3D de volteo, selección aleatoria de carta al derecho o invertida, descripciones místicas profundas de alto nivel profesional, **sistema de bloqueo diario por fecha (`localStorage`)** para garantizar una única consulta genuina por día, **efecto de sonido ambiental de campanillas místicas al revelar la carta** (con su respectivo botón interactivo para silenciar/activar el sonido a gusto del usuario) y un mensaje de cierre interactivo con efecto de máquina de escribir (*typewriter*) que invita a volver al día siguiente o agendar una lectura.
-  - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con enlace directo de contratación, complementados con sutiles invitaciones empáticas.
+  - **Catálogo de Lecturas:** Desglose detallado de los servicios de Tarot, Péndulo y Cartomancia con llamadas a la acción optimizadas (*"Resolvamos tus dudas"*), complementados con sutiles invitaciones empáticas.
   - **Cómo Funciona:** Guía visual paso a paso para orientar a los nuevos consultantes de forma simple y transparente.
   - **Sobre Mí:** Presentación personal de Matías Suazo, lector especializado, destacando el compromiso con la confidencialidad.
   - **Preguntas Frecuentes:** Resolución de dudas comunes sobre modalidad, pagos y preparación.
