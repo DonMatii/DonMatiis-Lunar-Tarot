@@ -663,7 +663,7 @@ section {
 .oracle-share {
     display: none;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 16px;
     justify-content: center;
     margin-top: 16px;
 }
