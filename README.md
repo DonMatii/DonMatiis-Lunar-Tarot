@@ -1,19 +1,25 @@
 <div align="center">
 
-# 🌙✨ DonMatii's Lunar Tarot
+# 🌙 DonMatii's Lunar Tarot
+
+### Lecturas de Tarot, Péndulo y Cartomancia
+
+Plataforma web mística, profesional y de alta conversión para consultas espirituales en línea.
+
+Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> bajo el sello de ingeniería <code style="color: #9d4edd;">**8 Digital**</code>.
 
 <p align="center">
-  <b>Plataforma web mística, profesional y de alta conversión desarrollada por <a href="https://github.com/DonMatii">Matías Suazo</a> bajo el sello de ingeniería <code style="color: #9d4edd;">8 Digital</code>.</b>
+  <img src="https://img.shields.io/badge/Status-En%20Producci%C3%B3n-00c853?style=for-the-badge&logo=vercel&logoColor=white" alt="Status" />
+  <img src="https://img.shields.io/badge/Vercel-Deploy-success?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Supabase-Cloud-3ecf8e?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  <img src="https://img.shields.io/badge/PWA-Instalable-ff6f00?style=for-the-badge&logo=pwa&logoColor=white" alt="PWA" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-En%20Producci%C3%B3n-success?style=for-the-badge&logo=vercel" alt="Status" />
-  <img src="https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JS%20(ESM)-purple?style=for-the-badge&logo=javascript" alt="Tech" />
-  <img src="https://img.shields.io/badge/Backend-Supabase%20Cloud-blue?style=for-the-badge&logo=supabase" alt="Supabase" />
-  <img src="https://img.shields.io/badge/PWA-Ready-orange?style=for-the-badge&logo=pwa" alt="PWA" />
+  <a href="https://donmatiis-lunar-tarot.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Ver_Sitio_en_Producción-7c3aed?style=for-the-badge&labelColor=1a1a2e" alt="Ver sitio en producción" />
+  </a>
 </p>
-
-[🌐 **Ver Sitio en Producción (Vercel)**](https://donmatiis-lunar-tarot.vercel.app/)
 
 </div>
 
@@ -21,45 +27,54 @@
 
 ## 🔮 Sobre el Proyecto
 
-**DonMatii's Lunar Tarot** es un proyecto web moderno desarrollado por **Matías Suazo** para ofrecer un espacio seguro, místico y profesional de orientación espiritual. 
+**DonMatii's Lunar Tarot** es una plataforma web moderna diseñada para ofrecer un espacio seguro, místico y profesional de orientación espiritual. Cada detalle está pensado con un enfoque de **alta conversión de clientes**: desde la estética lunar hasta el agendamiento directo por **WhatsApp** sin fricciones.
 
-Diseñado con un enfoque de **alta conversión de clientes**, el sitio no solo transmite una estética refinada inspirada en la energía lunar, sino que guía de forma fluida y sin fricciones al consultante desde la exploración de los arcanos hasta el agendamiento directo y personalizado por **WhatsApp**.
-
----
-
-## ✨ Características Principales
-
-### 🌌 1. Mini-Oráculo Diario Interactivo
-- **Baraja Completa:** Integración de los 78 arcanos (Mayores y Menores) con animación 3D de volteo y selección aleatoria (al derecho o invertida).
-- **Restricción Diaria Inteligente:** Control por fechas mediante `localStorage` para garantizar una única consulta genuina por día.
-- **Efecto Sensorial y Tipeo:** Sonido ambiental de campanillas místicas (con botón de silencio/activación) y mensajes de cierre con efecto de máquina de escribir (*typewriter*).
-
-### 📱 2. Agendamiento Rápido hacia WhatsApp (UX Optimizada)
-- **Modal Profesional con Chips de Temáticas:** Botones rápidos interactivos para seleccionar el área de vida de consulta (*Amor y Pareja*, *Trabajo y Dinero*, *Crecimiento Personal*).
-- **Mensaje Automatizado:** Redirección directa a WhatsApp con una plantilla formal pre-escrita, lista para coordinar disponibilidad y pagos con cero fricción.
-
-### 🌟 3. Testimonios con Moderación (Supabase Cloud)
-- **Base de Datos Cloud:** Conectado a **Supabase (PostgreSQL)** con políticas **RLS** (Row Level Security) para lectura pública solo de testimonios aprobados e inserción pública controlada.
-- **Flujo de Moderación:** Los testimonios se insertan con `approved: false` y solo se muestran públicamente tras aprobación manual del administrador.
-- **Privacidad y Filtros:** Enmascaramiento seguro de correos electrónicos y sistema de filtrado interactivo por estrellas para los visitantes.
-
-### ⚡ 4. Experiencia Progresiva (PWA & Accesibilidad)
-- **Modo Instalable (PWA):** Configurado con `manifest.json` y Service Worker (`sw.js`) para funcionar offline e instalarse como app nativa en dispositivos móviles.
-- **Control de Accesibilidad:** Botón flotante para alternar tamaños de texto con persistencia local.
+> *"Mi misión es entregarte un espacio seguro, libre de juzios y lleno de luz para ayudarte a descifrar los mensajes que el universo tiene preparados para ti."* — Matías Suazo
 
 ---
 
-## 🛠️ Tecnologías y Arquitectura Modular
+## ✨ Características
 
-El proyecto evita dependencias innecesarias de frameworks pesados, apostando por una arquitectura estática modular de alto rendimiento:
+### 🌌 Mini-Oráculo Diario
+- **78 arcanos** (Mayores y Menores) con animación 3D de volteo
+- Selección aleatoria: al derecho o **invertida** (carta cruzada)
+- Restricción de **una consulta diaria** por visitante
+- Sonido ambiental de campanillas místicas (con control de silencio)
+- Mensajes de cierre con efecto **typewriter**
 
-| Capa | Tecnologías / Estructura |
+### 📱 Agendamiento por WhatsApp
+- Modal profesional con **chips de temáticas** interactivos:
+  - 💜 Amor y Pareja
+  - 💰 Trabajo y Dinero
+  - 🌿 Crecimiento Personal
+- Mensaje automatizado pre-escrito con un clic
+- Cero fricción: del oráculo a la consulta en segundos
+
+### 🌟 Testimonios con Moderación
+- Base de datos **Supabase (PostgreSQL)** en la nube
+- Políticas **RLS** (Row Level Security) para seguridad
+- Flujo de moderación: los testimonios se publican tras aprobación manual
+- Filtrado interactivo por valoración (1–5 estrellas)
+- Enmascaramiento automático de correos electrónicos por privacidad
+
+### ⚡ PWA & Accesibilidad
+- **Modo instalable** como app nativa en dispositivos móviles
+- Service Worker con estrategia **network-first** para APIs y **cache-first** para estáticos
+- Botón flotante para alternar tamaños de texto (persistencia local)
+- Completamente **responsive**: escritorio, tablet y móvil
+
+---
+
+## 🛠️ Stack Tecnológico
+
+| Capa | Tecnologías |
 | :--- | :--- |
-| **Estructura** | HTML5 Semántico (Accesible, SEO optimizado y Open Graph) |
-| **Estilos** | CSS3 Modular por dominios funcionales (`variables.css`, `base.css`, `animations.css`, `navigation.css`, `cards.css`, `modals.css`, `hero.css`, `oraculo.css`, `forms.css`, `footer.css`) |
-| **Lógica Frontend** | JavaScript Moderno (ES Modules: `main.js`, `tarotData.js`, `tarotLogic.js`, `testimonials.js`, `modalBooking.js`, `accessibility.js`, `pwa.js`) |
-| **Base de Datos / Cloud** | **Supabase JS Client** (`supabaseClient.js`) para gestión de testimonios en la nube |
-| **Rendimiento** | Activos en nomenclatura *kebab-case*, imágenes comprimidas en **WebP** y tipografías *Cinzel* & *Plus Jakarta Sans* |
+| **Estructura** | HTML5 Semántico (SEO + Open Graph) |
+| **Estilos** | CSS3 Modular (10 archivos por dominio funcional) |
+| **Lógica** | JavaScript Moderno (ES Modules, 8 módulos) |
+| **Base de Datos** | Supabase Cloud (PostgreSQL + RLS) |
+| **Despliegue** | Vercel (deploy automático desde GitHub) |
+| **Rendimiento** | Imágenes WebP, fuentes Cinzel + Plus Jakarta Sans |
 
 ---
 
@@ -67,27 +82,78 @@ El proyecto evita dependencias innecesarias de frameworks pesados, apostando por
 
 ```text
 DonMatiis-Lunar-Tarot/
-├── IMG/                    # Imágenes optimizadas en WebP
+├── IMG/                         # Imágenes optimizadas en WebP
+│   ├── Logo-3.webp              # Logo principal (favicon + nav + footer)
+│   ├── Logo-0/1/2.webp          # Variantes del logo
+│   └── Foto-Matias-Suazo.webp   # Foto personal (sección Sobre Mí)
 ├── assets/
-│   ├── audio/              # Efectos de sonido (Campanillas)
-│   ├── css/                # Estilos modulares desacoplados
-│   └── js/                 # Módulos de lógica ES6 (incl. supabaseClient.js)
-├── .gitignore              # Archivos excluidos del control de versiones
-├── index.html              # Página principal monolítica modular
-├── manifest.json           # Configuración PWA
-├── sw.js                   # Service Worker para caché y offline
-└── README.md               # Documentación oficial del proyecto
+│   ├── audio/                   # Efectos de sonido (campanillas)
+│   ├── css/                     # Estilos modulares (10 archivos)
+│   │   ├── variables.css        # Paleta de colores y design tokens
+│   │   ├── base.css             # Reset y tipografía base
+│   │   ├── animations.css       # Transiciones y keyframes
+│   │   ├── navigation.css       # Header y menú responsive
+│   │   ├── hero.css             # Sección principal
+│   │   ├── cards.css            # Tarjetas de servicios
+│   │   ├── oraculo.css          # Mini-oráculo interactivo
+│   │   ├── modals.css           # Modal de agendamiento
+│   │   ├── forms.css            # Formulario de testimonios
+│   │   └── footer.css           # Pie de página
+│   ├── js/                      # Módulos de lógica (8 archivos)
+│   │   ├── main.js              # Coordinador principal
+│   │   ├── tarotData.js         # Datos de los 78 arcanos
+│   │   ├── tarotLogic.js        # Lógica del oráculo
+│   │   ├── testimonials.js      # CRUD de testimonios (Supabase)
+│   │   ├── supabaseClient.js    # Cliente Supabase (conexión)
+│   │   ├── modalBooking.js      # Modal + chips + WhatsApp
+│   │   ├── accessibility.js     # Control de tamaño de texto
+│   │   └── pwa.js               # Registro del Service Worker
+│   └── style.css                # Archivo CSS base (compatibilidad)
+├── .gitignore                   # Archivos excluidos del repo
+├── index.html                   # Página principal (SPA monolítica)
+├── manifest.json                # Configuración PWA
+├── sw.js                        # Service Worker (caché + offline)
+└── README.md                    # Esta documentación
 ```
 
 ---
 
-## 🚀 Despliegue e Infraestructura
+## 🔒 Seguridad y Datos
 
-- **Hosting & CDN:** Desplegado de forma continua en **Vercel** mediante integración directa con GitHub.
-- **Base de Datos:** PostgreSQL alojada en la nube mediante **Supabase**.
+| Aspecto | Implementación |
+| :--- | :--- |
+| **Autenticación** | API key pública (anon) de Supabase — sin login de usuarios |
+| **RLS habilitado** | Lectura: solo testimonios aprobados. Inserción: pública con `approved: false` |
+| **Privacidad** | Correos electrónicos enmascarados en la UI (ej: `ca****@****.cl`) |
+| **Service Worker** | Llamadas a Supabase van siempre a la red (nunca se cachean) |
+| **Moderación** | Testimonios requieren aprobación manual antes de publicarse |
 
 ---
 
-<p align="center">
-  <i>Desarrollado con 🌙 por <code style="color: #9d4edd;">8 Digital</code></i>
-</p>
+## 🚀 Despliegue
+
+- **Hosting:** [Vercel](https://vercel.com/) — deploy automático al hacer `push` a `main`
+- **CDN:** Assets servidos desde la edge de Vercel
+- **Base de datos:** [Supabase](https://supabase.com/) — PostgreSQL en la nube (región US West)
+- **CI/CD:** Integración directa con GitHub (sin configuración adicional)
+
+---
+
+## 👨‍💻 Autor
+
+**Matías Suazo** — Lector de tarot, péndulo y cartomancia
+
+<a href="https://github.com/DonMatii" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-DonMatii-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</a>
+<a href="https://www.tiktok.com/@donmatii8" target="_blank">
+  <img src="https://img.shields.io/badge/TikTok-@donmatii8-000000?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok" />
+</a>
+
+---
+
+<div align="center">
+
+Desarrollado con 🌙 por <code style="color: #9d4edd;">**8 Digital**</code>
+
+</div>

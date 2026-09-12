@@ -93,10 +93,10 @@ export function initTestimonials() {
 
         try {
             // Consultar testimonios aprobados directo desde Supabase
+            // La política RLS ya filtra por approved = true
             const { data: testimonials, error } = await supabase
                 .from('testimonials')
                 .select('*')
-                .eq('approved', true)
                 .order('created_at', { ascending: false });
 
             if (error) throw error;
@@ -153,7 +153,7 @@ export function initTestimonials() {
                 testimonialsList.appendChild(card);
             });
         } catch (err) {
-            console.error('Error cargando testimonios:', err);
+            console.error('Error cargando testimonios:', err.message || err);
             if (noTestimonialsMsg) {
                 noTestimonialsMsg.textContent = 'Error al conectar con la base de datos de testimonios.';
                 noTestimonialsMsg.style.display = 'block';
