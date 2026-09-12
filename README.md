@@ -71,11 +71,15 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Font Awesome** cacheado por SW (~90KB una sola vez)
 
 ### 🔍 SEO & Analytics
-- **JSON-LD** estructurado (FAQPage) para rich snippets en Google
+- **JSON-LD** estructurado (FAQPage + ProfessionalService) para rich snippets
 - **Meta description** y **canonical URL** optimizados
 - **Open Graph** completo (`og:locale`, `og:site_name`) + Twitter Card
 - **robots.txt** + **sitemap.xml** para crawlers
-- **Google Tag Manager** (GTM-NZSNV7HN) — tracking de visitas y eventos
+- **Google Tag Manager** (GTM-NZSNV7HN) con event tracking:
+  - Clicks en CTA WhatsApp (hero, oráculo, modal, cta-final)
+  - Click en botón flotante de WhatsApp
+  - Revelación del oráculo diario
+  - Selección de temas en chips de servicios
 
 ### ♿ Accesibilidad (WCAG)
 - **Skip-to-content** para navegación por teclado
@@ -83,6 +87,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **FAQ colapsables** con `<details>/<summary>` nativos (funcionan sin JS)
 - **Star rating** semántico con `role="radio"` y `aria-checked`
 - **`prefers-reduced-motion`** — animaciones se desactivan automáticamente
+- **Botón "volver arriba"** — aparece al hacer scroll, accesible con teclado
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
 
@@ -125,7 +130,7 @@ DonMatiis-Lunar-Tarot/
 │   │   ├── forms.css            # Formulario + botones (dev)
 │   │   └── footer.css           # Pie de página + FAQ (dev)
 │   └── js/                      # Módulos de lógica (8 archivos)
-│       ├── main.js              # Coordinador principal + menú
+│       ├── main.js              # Coordinador + menú + scroll-to-top + event tracking
 │       ├── tarotData.js         # Datos de los 78 arcanos (lazy)
 │       ├── tarotLogic.js        # Lógica del oráculo
 │       ├── testimonials.js      # CRUD de testimonios (Supabase)

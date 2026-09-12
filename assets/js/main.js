@@ -47,4 +47,69 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonials();
     initBookingModal();
     initPWA();
+
+    // Botón volver arriba
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Event Tracking para GTM
+    initEventTracking();
 });
+
+// Tracking de eventos clave para Google Tag Manager
+function initEventTracking() {
+    // Solo trackear si GTM está activo
+    if (typeof window.dataLayer === 'undefined') return;
+
+    // Click en "Agendar lectura" (CTA principal)
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            const context = link.closest('.hero-cta') ? 'hero' :
+                           link.closest('.oracle-whatsapp-link') ? 'oraculo' :
+                           link.closest('.btn-submit-booking') ? 'modal' :
+                           link.closest('.cta-section') ? 'cta-final' : 'other';
+            window.dataLayer.push({
+                event: 'cta_whatsapp_click',
+                cta_location: context
+            });
+        });
+    });
+
+    // Click en botón flotante de WhatsApp
+    const whatsappFloat = document.querySelector('.whatsapp-float a, .whatsapp-float');
+    if (whatsappFloat) {
+        whatsappFloat.addEventListener('click', () => {
+            window.dataLayer.push({
+                event: 'whatsapp_float_click'
+            });
+        });
+    }
+
+    // Revelación del oráculo diario
+    const oracleCard = document.querySelector('.oracle-card');
+    if (oracleCard) {
+        oracleCard.addEventListener('click', () => {
+            window.dataLayer.push({
+                event: 'oracle_card_reveal'
+            });
+        });
+    }
+
+    // Click en chips de servicios (interés del usuario)
+    document.querySelectorAll('.chip-btn').forEach(chip => {
+        chip.addEventListener('click', () => {
+            window.dataLayer.push({
+                event: 'service_topic_select',
+                topic: chip.textContent.trim()
+            });
+        });
+    });
+}
