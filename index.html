@@ -571,6 +571,12 @@
                             placeholder="Cuéntanos cómo fue tu lectura, qué sentiste y qué claridad te aportó..."></textarea>
                     </div>
 
+                    <!-- Honeypot anti-spam — oculto a usuarios reales, bots lo llenan -->
+                    <div class="form-group" aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden;" tabindex="-1" autocomplete="off">
+                        <label for="review-website">Website</label>
+                        <input type="text" id="review-website" name="website" autocomplete="off" tabindex="-1">
+                    </div>
+
                     <button type="submit" class="btn-primary btn-submit-review">
                         <i class="fa-solid fa-paper-plane"></i> Publicar Testimonio
                     </button>

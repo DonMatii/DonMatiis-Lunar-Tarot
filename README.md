@@ -40,6 +40,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Selección aleatoria: al derecho o **invertida** (carta cruzada)
 - Restricción de **una consulta diaria** por visitante
 - Sonido ambiental de campanillas místicas (con control de silencio)
+- **Animación de entrada** en elementos del hero con efecto `animate-fade`
 - Mensajes de cierre con efecto **typewriter**
 - **Lazy loading** de datos de arcanos (solo se cargan al consultar)
 
@@ -57,6 +58,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Los testimonios se publican **inmediatamente** al enviarlos — transparencia total
 - Filtrado interactivo por valoración (1–5 estrellas)
 - Enmascaramiento automático de correos electrónicos por privacidad
+- **Anti-spam honeypot**: campo oculto que atrapa bots sin afectar usuarios reales
 
 ### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
@@ -96,6 +98,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - **Modal con focus trap** — Tab cicla dentro, Escape cierra, foco se devuelve al trigger
 - **Botón "volver arriba"** — aparece al hacer scroll, accesible con teclado
 - **Counter animado** en "Sobre Mí" — números se animan al hacer scroll
+- **Tooltip WhatsApp** visible con teclado (`:focus-within`) además de hover
 - Botón flotante para alternar tamaños de texto (persistencia local)
 - Completamente **responsive**: escritorio, tablet y móvil
 
@@ -121,7 +124,6 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 DonMatiis-Lunar-Tarot/
 ├── IMG/                         # Imágenes optimizadas en WebP
 │   ├── Logo-3.webp              # Logo principal (favicon + nav + footer)
-│   ├── Logo-0/1/2.webp          # Variantes del logo
 │   └── Foto-Matias-Suazo.webp   # Foto personal (sección Sobre Mí)
 ├── assets/
 │   ├── audio/                   # Efectos de sonido (campanillas)
@@ -204,6 +206,12 @@ DonMatiis-Lunar-Tarot/
 - **Compartir oráculo**: botón post-revelación para compartir carta del día por WhatsApp o copiar
 - **Apple Touch Icon**: ícono PNG para iOS
 - **Google Tag Manager**: event tracking en clicks WhatsApp, revelación oráculo, selección de temas
+- **Anti-spam honeypot**: campo oculto en formulario de testimonios que atrapa bots sin afectar usuarios reales
+- **Animación hero**: elementos del hero ahora tienen entrada animada con `animate-fade`
+- **Tooltip WhatsApp accesible**: tooltip visible con teclado (`:focus-within`) además de hover
+- **Grids responsivos**: `minmax` ajustado para evitar overflow en pantallas menores a 340px
+- **Logos limpiados**: eliminados Logo-0, Logo-1, Logo-2 no utilizados (ahorra ~500KB en el repo)
+- **.gitignore actualizado**: agregado `dist/` para builds
 
 ---
 

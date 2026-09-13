@@ -20,3 +20,6 @@ desktop.ini
 
 # Dependencias (por si acaso)
 node_modules/
+
+# build
+dist/

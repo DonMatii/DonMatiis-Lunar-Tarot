@@ -163,6 +163,15 @@ export function initTestimonials() {
         testimonialForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            // Anti-spam honeypot — si el campo oculto tiene valor, es un bot
+            const honeypot = document.getElementById('review-website');
+            if (honeypot && honeypot.value) {
+                // Fingir éxito para no alertar al bot
+                showFeedback('¡Muchas gracias! Tu testimonio ya está publicado.', 'success');
+                testimonialForm.reset();
+                return;
+            }
+
             const name = document.getElementById('review-name').value.trim();
             const email = document.getElementById('review-email').value.trim();
             const rating = parseInt(ratingInput.value) || 5;

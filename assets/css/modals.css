@@ -53,7 +53,8 @@
     pointer-events: none;
 }
 
-.whatsapp-float-container:hover .whatsapp-tooltip {
+.whatsapp-float-container:hover .whatsapp-tooltip,
+.whatsapp-float-container:focus-within .whatsapp-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);

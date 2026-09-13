@@ -107,6 +107,22 @@ section {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Animación de entrada para elementos del hero */
+@keyframes animateFadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+    animation: animateFadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-fade:nth-child(1) { animation-delay: 0.1s; }
+.animate-fade:nth-child(2) { animation-delay: 0.25s; }
+.animate-fade:nth-child(3) { animation-delay: 0.4s; }
+.animate-fade:nth-child(4) { animation-delay: 0.55s; }
+
 .fade-in-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -276,7 +292,7 @@ section {
 
 .services-grid, .steps-grid, .faq-grid, .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
     gap: 30px;
 }
 
@@ -370,7 +386,8 @@ section {
     pointer-events: none;
 }
 
-.whatsapp-float-container:hover .whatsapp-tooltip {
+.whatsapp-float-container:hover .whatsapp-tooltip,
+.whatsapp-float-container:focus-within .whatsapp-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
