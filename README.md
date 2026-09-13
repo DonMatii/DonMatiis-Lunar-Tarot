@@ -216,6 +216,10 @@ DonMatiis-Lunar-Tarot/
 - **robots.txt actualizado**: `/admin.html` bloqueado para buscadores
 - **Accesibilidad**: star rating `aria-checked` corregido, Escape cierra menú móvil
 - **UX mejorada**: scroll bloqueado cuando menú móvil está abierto
+- **Admin - Diseño místico**: estrellas decorativas, gradientes, glow effects, animación flotante en luna
+- **Admin - Favicon**: ícono de luna visible en la pestaña del navegador
+- **Admin - Toast notifications**: feedback visual para todas las operaciones (guardar, borrar, error)
+- **Admin - Responsive**: panel funciona desde el celular para moderar sobre la marcha
 
 ### v1.1 — Agosto 2026
 - **Hamburger menu mejorado**: reemplazado ícono FontAwesome por diseño CSS puro de tres líneas con animación a X al abrir el menú
