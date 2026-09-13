@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Admin — DonMatii's Lunar Tarot</title>
+    <link rel="icon" type="image/webp" href="./IMG/Logo-3.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,49 +23,104 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative stars background */
+        .admin-container::before {
+            content: '✦ ✧ ★ ✦ ✧ ★ ✦ ✧';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            color: rgba(199, 125, 255, 0.2);
+            letter-spacing: 20px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .admin-container::after {
+            content: '✦ ✧ ★ ✦ ✧ ★ ✦ ✧';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            color: rgba(199, 125, 255, 0.2);
+            letter-spacing: 20px;
+            white-space: nowrap;
+            pointer-events: none;
         }
 
         .admin-login-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 400px;
+            background: linear-gradient(145deg, var(--bg-card) 0%, #1a0f2e 100%);
+            border: 1px solid rgba(157, 78, 221, 0.4);
+            border-radius: 24px;
+            padding: 48px 40px;
+            max-width: 420px;
             width: 100%;
             text-align: center;
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.2), 0 0 100px rgba(157, 78, 221, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-login-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(199, 125, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .admin-logo {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .admin-login-card h1 {
             font-family: 'Cinzel', serif;
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
         }
 
         .admin-login-card p {
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
         }
 
         .admin-login-card input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 16px 18px;
             margin-bottom: 16px;
-            background: var(--bg-secondary);
+            background: rgba(26, 16, 46, 0.8);
             border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 12px;
+            border-radius: 14px;
             color: var(--text-main);
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .admin-login-card input:focus {
             border-color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+            background: rgba(26, 16, 46, 1);
         }
 
         .admin-login-card input::placeholder {
@@ -73,26 +129,32 @@
 
         .admin-login-card button[type="submit"] {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             color: var(--white);
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
         }
 
         .admin-login-card button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px var(--accent-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--accent-glow);
         }
 
         .error-msg {
             color: #ff6b6b;
-            margin-top: 16px;
+            margin-top: 20px;
             display: none;
+            padding: 12px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
         }
 
         /* Dashboard */
@@ -110,12 +172,15 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
         }
 
         .admin-header h1 {
             font-family: 'Cinzel', serif;
             color: var(--text-main);
             font-size: 1.5rem;
+            letter-spacing: 0.5px;
         }
 
         .admin-user-info {
@@ -127,21 +192,26 @@
         .admin-user-info span {
             color: var(--text-muted);
             font-size: 0.9rem;
+            padding: 8px 16px;
+            background: rgba(157, 78, 221, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
         }
 
         #logout-btn {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: transparent;
-            border: 1px solid var(--accent-purple);
-            border-radius: 8px;
-            color: var(--accent-light);
+            border: 1px solid rgba(255, 107, 107, 0.5);
+            border-radius: 10px;
+            color: #ff6b6b;
             cursor: pointer;
             transition: all 0.2s;
+            font-weight: 500;
         }
 
         #logout-btn:hover {
-            background: var(--accent-purple);
-            color: var(--white);
+            background: rgba(255, 107, 107, 0.1);
+            border-color: #ff6b6b;
         }
 
         .admin-stats {
@@ -153,25 +223,34 @@
         }
 
         .stat-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            border-radius: 16px;
-            padding: 24px;
+            background: linear-gradient(145deg, var(--bg-card) 0%, #1a0f2e 100%);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 20px;
+            padding: 28px;
             flex: 1;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(157, 78, 221, 0.15);
         }
 
         .stat-card span {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--accent-light);
             font-family: 'Cinzel', serif;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .stat-card p {
             color: var(--text-muted);
-            margin-top: 8px;
             font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
         .admin-testimonials {
@@ -179,20 +258,22 @@
             max-width: 900px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
             padding-bottom: 40px;
         }
 
         .admin-testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            border-radius: 16px;
-            padding: 20px;
-            transition: border-color 0.3s;
+            background: linear-gradient(145deg, var(--bg-card) 0%, #1a0f2e 100%);
+            border: 1px solid rgba(157, 78, 221, 0.25);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .admin-testimonial-card:hover {
-            border-color: rgba(157, 78, 221, 0.4);
+            border-color: rgba(157, 78, 221, 0.5);
+            box-shadow: 0 12px 36px rgba(157, 78, 221, 0.15);
         }
 
         .admin-testimonial-header {
@@ -205,28 +286,47 @@
         .admin-testimonial-name {
             font-weight: 600;
             color: var(--text-main);
+            font-size: 1.05rem;
         }
 
         .admin-testimonial-date {
             color: var(--text-muted);
             font-size: 0.85rem;
+            padding: 4px 12px;
+            background: rgba(157, 78, 221, 0.1);
+            border-radius: 6px;
         }
 
         .admin-testimonial-email {
             color: var(--text-muted);
             font-size: 0.85rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-testimonial-email i {
+            color: var(--accent-light);
+            font-size: 0.8rem;
         }
 
         .admin-testimonial-stars {
             color: var(--gold);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
 
         .admin-testimonial-message {
             color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(26, 16, 46, 0.5);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-purple);
+            font-style: italic;
         }
 
         .admin-testimonial-actions {
@@ -235,58 +335,78 @@
         }
 
         .admin-testimonial-actions button {
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 10px;
             border: none;
             cursor: pointer;
             font-weight: 500;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-edit {
-            background: rgba(157, 78, 221, 0.2);
+            background: rgba(157, 78, 221, 0.15);
             color: var(--accent-light);
-            border: 1px solid var(--accent-purple) !important;
+            border: 1px solid rgba(157, 78, 221, 0.4) !important;
         }
 
         .btn-edit:hover {
             background: var(--accent-purple);
             color: var(--white);
+            transform: translateY(-2px);
         }
 
         .btn-delete {
-            background: rgba(255, 107, 107, 0.2);
+            background: rgba(255, 107, 107, 0.1);
             color: #ff6b6b;
-            border: 1px solid #ff6b6b !important;
+            border: 1px solid rgba(255, 107, 107, 0.3) !important;
         }
 
         .btn-delete:hover {
             background: #ff6b6b;
             color: var(--white);
+            transform: translateY(-2px);
         }
 
         /* Edit mode */
         .edit-textarea {
             width: 100%;
-            min-height: 80px;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--accent-purple);
-            border-radius: 8px;
+            min-height: 100px;
+            padding: 16px;
+            background: rgba(26, 16, 46, 0.8);
+            border: 1px solid rgba(157, 78, 221, 0.4);
+            border-radius: 12px;
             color: var(--text-main);
             font-family: inherit;
             resize: vertical;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+            transition: all 0.2s;
+        }
+
+        .edit-textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.15);
         }
 
         .edit-rating-select {
-            padding: 8px 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--accent-purple);
-            border-radius: 8px;
+            padding: 12px 16px;
+            background: rgba(26, 16, 46, 0.8);
+            border: 1px solid rgba(157, 78, 221, 0.4);
+            border-radius: 12px;
             color: var(--text-main);
             font-size: 1rem;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .edit-rating-select:focus {
+            outline: none;
+            border-color: var(--accent-purple);
         }
 
         .edit-actions {
@@ -295,23 +415,40 @@
         }
 
         .btn-save {
-            padding: 8px 16px;
-            background: var(--accent-purple);
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
             color: var(--white);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
         }
 
         .btn-cancel {
-            padding: 8px 16px;
+            padding: 12px 24px;
             background: transparent;
             color: var(--text-muted);
-            border: 1px solid var(--text-muted);
-            border-radius: 8px;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 10px;
             cursor: pointer;
             font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(157, 78, 221, 0.1);
         }
 
         /* Toast notifications */
