@@ -136,18 +136,21 @@ DonMatiis-Lunar-Tarot/
 ├── assets/
 │   ├── audio/                   # Efectos de sonido (campanillas)
 │   ├── css/
-│   │   ├── style.css            # CSS concatenado (10 módulos en 1 archivo)
-│   │   ├── admin.css            # CSS exclusivo del panel de administración
-│   │   ├── variables.css        # Paleta de colores (dev)
-│   │   ├── base.css             # Reset y tipografía (dev)
-│   │   ├── animations.css       # Transiciones y keyframes (dev)
-│   │   ├── navigation.css       # Header y menú (dev)
-│   │   ├── hero.css             # Sección principal (dev)
-│   │   ├── cards.css            # Tarjetas de servicios (dev)
-│   │   ├── oraculo.css          # Mini-oráculo interactivo (dev)
-│   │   ├── modals.css           # Modal de agendamiento (dev)
-│   │   ├── forms.css            # Formulario + botones (dev)
-│   │   └── footer.css           # Pie de página + FAQ (dev)
+│   │   ├── variables.css        # Paleta de colores y tokens de diseño
+│   │   ├── base.css             # Reset, tipografía y estilos globales
+│   │   ├── animations.css       # Transiciones y keyframes
+│   │   ├── navigation.css       # Header y menú responsive
+│   │   ├── hero.css             # Sección principal (oráculo hero)
+│   │   ├── cards.css            # Tarjetas de servicios y lecturas
+│   │   ├── oraculo.css          # Mini-oráculo interactivo + compartir
+│   │   ├── modals.css           # Modal de agendamiento
+│   │   ├── forms.css            # Formulario + botones
+│   │   ├── footer.css           # Pie de página + FAQ
+│   │   ├── toasts.css           # Notificaciones toast (SW update + welcome)
+│   │   ├── accessibility.css    # Focus-visible + controles de accesibilidad
+│   │   ├── scroll-top.css       # Botón scroll-to-top
+│   │   ├── skeleton.css         # Skeleton loading del oráculo
+│   │   └── admin.css            # CSS exclusivo del panel de administración
 │   └── js/                      # Módulos de lógica (9 archivos)
 │       ├── main.js              # Coordinador + menú + scroll-to-top + event tracking + counters
 │       ├── tarotData.js         # Datos de los 78 arcanos (lazy)
@@ -211,6 +214,7 @@ DonMatiis-Lunar-Tarot/
 ## 📝 Cambios Recientes
 
 ### v1.3 — Agosto 2026
+- **CSS modularizado**: eliminado `style.css` (1801 líneas) → 14 archivos modulares por responsabilidad (estándar de industria)
 - **Bug fixes**: corregido typo "plans" → "planes" en carta de tarot, puntuación en texto del oráculo
 - **Badge de posición con color**: "Al Derecho" en verde, "Invertida" en morado — distinción visual clara
 - **Accesibilidad estrellas**: flechas del teclado ←→ para navegar entre opciones de valoración (WCAG)

@@ -1,0 +1,49 @@
+/* ========== Oracle Skeleton Loading ========== */
+.oracle-skeleton {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+}
+
+.oracle-skeleton.active {
+    display: flex;
+}
+
+.oracle-skeleton.active ~ .oracle-logo-icon,
+.oracle-skeleton.active ~ h3,
+.oracle-skeleton.active ~ p,
+.oracle-skeleton.active ~ .cta-button {
+    display: none;
+}
+
+.skeleton-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--bg-card) 25%, rgba(157, 78, 221, 0.15) 50%, var(--bg-card) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(90deg, var(--bg-card) 25%, rgba(157, 78, 221, 0.15) 50%, var(--bg-card) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line--short {
+    width: 120px;
+}
+
+.skeleton-line--long {
+    width: 200px;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
