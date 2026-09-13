@@ -93,7 +93,7 @@ export function initTestimonials() {
             // Consultar testimonios desde Supabase (sin email por privacidad)
             const { data: testimonials, error } = await supabase
                 .from('testimonials')
-                .select('id, name, rating, message, created_at')
+                .select('id, name, email, rating, message, created_at')
                 .order('created_at', { ascending: false })
                 .limit(50);
 

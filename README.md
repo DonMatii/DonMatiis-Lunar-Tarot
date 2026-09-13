@@ -192,6 +192,21 @@ DonMatiis-Lunar-Tarot/
 
 ---
 
+## 📝 Cambios Recientes
+
+### v1.1 — Agosto 2026
+- **Hamburger menu mejorado**: reemplazado ícono FontAwesome por diseño CSS puro de tres líneas con animación a X al abrir el menú
+- **Testimonios — email en query**: corregido SELECT de Supabase para incluir campo `email` y mostrar enmascaramiento correcto
+- **Español neutro**: eliminados modismos argentinos ("pincha aquí" → "haz clic aquí", "Podés" → "Puedes")
+- **Service Worker v4**: precache solo de archivos locales, sin CDN externos
+- **Página offline temática**: fallback con estética mística cuando no hay conexión
+- **Welcome toast PWA**: detecta plataforma iOS/Android y muestra instrucciones de instalación
+- **Compartir oráculo**: botón post-revelación para compartir carta del día por WhatsApp o copiar
+- **Apple Touch Icon**: ícono PNG para iOS
+- **Google Tag Manager**: event tracking en clicks WhatsApp, revelación oráculo, selección de temas
+
+---
+
 <div align="center">
 
 Desarrollado con 🌙 por <a href="https://8-digital.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #9d4edd;">**8 Digital**</a>
