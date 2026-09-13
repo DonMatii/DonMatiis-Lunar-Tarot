@@ -54,9 +54,8 @@ export function initTestimonials() {
 
                 starButtons.forEach(btn => {
                     const btnVal = parseInt(btn.getAttribute('data-value'));
-                    const isActive = btnVal <= selectedVal;
-                    btn.classList.toggle('active', isActive);
-                    btn.setAttribute('aria-checked', isActive);
+                    btn.classList.toggle('active', btnVal <= selectedVal);
+                    btn.setAttribute('aria-checked', btnVal === selectedVal);
                 });
             });
 
@@ -207,8 +206,9 @@ export function initTestimonials() {
                 ratingInput.value = '5';
                 ratingText.textContent = '5 de 5 estrellas';
                 starButtons.forEach(btn => {
+                    const btnVal = parseInt(btn.getAttribute('data-value'));
                     btn.classList.add('active');
-                    btn.setAttribute('aria-checked', 'true');
+                    btn.setAttribute('aria-checked', btnVal === 5);
                 });
 
                 showFeedback('¡Muchas gracias! Tu testimonio ya está publicado.', 'success');
@@ -236,11 +236,9 @@ export function initTestimonials() {
             btn.addEventListener('click', () => {
                 filterButtons.forEach(b => {
                     b.classList.remove('active');
-                    b.style.background = 'var(--bg-card)';
                     b.setAttribute('aria-pressed', 'false');
                 });
                 btn.classList.add('active');
-                btn.style.background = 'var(--accent-purple)';
                 btn.setAttribute('aria-pressed', 'true');
 
                 currentStarFilter = btn.getAttribute('data-filter');

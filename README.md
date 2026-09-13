@@ -29,7 +29,7 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 
 **DonMatii's Lunar Tarot** es una plataforma web moderna diseñada para ofrecer un espacio seguro, místico y profesional de orientación espiritual. Cada detalle está pensado con un enfoque de **alta conversión de clientes**: desde la estética lunar hasta el agendamiento directo por **WhatsApp** sin fricciones.
 
-> *"Mi misión es entregarte un espacio seguro, libre de juzios y lleno de luz para ayudarte a descifrar los mensajes que el universo tiene preparados para ti."* — Matías Suazo
+> *"Mi misión es entregarte un espacio seguro, libre de juicios y lleno de luz para ayudarte a descifrar los mensajes que el universo tiene preparados para ti."* — Matías Suazo
 
 ---
 

@@ -102,10 +102,6 @@ section {
 
 /* ========== animations.css ========== */
 /* Animaciones y Transiciones 3D */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 /* Animación de entrada para elementos del hero */
 @keyframes animateFadeIn {
@@ -637,6 +633,7 @@ section {
     background: #160c28;
     justify-content: flex-start;
     padding: 25px 30px;
+    overflow-y: auto;
 }
 
 .oracle-icon-wrapper {

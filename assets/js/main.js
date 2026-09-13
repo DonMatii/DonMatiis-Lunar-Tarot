@@ -14,13 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
             const isExpanded = navMenu.classList.contains('active');
             hamburger.setAttribute('aria-expanded', isExpanded);
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
         });
 
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                hamburger.focus();
+            }
         });
     }
 
@@ -35,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .faq-item, .testimonial-card, .about-container, .testimonial-form-wrapper').forEach(el => {
+    document.querySelectorAll('.service-card, .step-card, .faq-item, .testimonial-card, .about-container, .testimonial-form-wrapper').forEach(el => {
         if (!el.classList.contains('fade-in-scroll')) {
             el.classList.add('fade-in-scroll');
             observer.observe(el);
