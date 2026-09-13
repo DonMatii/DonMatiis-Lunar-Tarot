@@ -70,11 +70,43 @@
     box-shadow: 0 4px 15px var(--accent-glow);
 }
 
+/* Hamburger Button */
 .hamburger {
     display: none;
-    font-size: 1.5rem;
-    color: var(--text-main);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
     cursor: pointer;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación X cuando el menú está abierto */
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Responsivo para menú móvil */
@@ -97,6 +129,6 @@
     }
 
     .hamburger {
-        display: block;
+        display: flex;
     }
 }
