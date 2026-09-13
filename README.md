@@ -60,6 +60,14 @@ Desarrollada por <a href="https://github.com/DonMatii">**Matías Suazo**</a> baj
 - Enmascaramiento automático de correos electrónicos por privacidad
 - **Anti-spam honeypot**: campo oculto que atrapa bots sin afectar usuarios reales
 
+### 🔐 Panel de Administración
+- Página oculta en `/admin.html` — no aparece en navegación ni Google
+- **Supabase Auth** — login con email + contraseña para administradores
+- **Gestión de testimonios** — ver, editar y borrar cualquier testimonio
+- **Dashboard** — total de testimonios y promedio de estrellas
+- **Responsive** — funciona desde el celular para moderar sobre la marcha
+- **Feedback visual** — toast notifications para todas las operaciones
+
 ### ⚡ PWA & Rendimiento
 - **Modo instalable** como app nativa en dispositivos móviles
 - Service Worker v4 con **cache-on-demand** para estáticos + precache solo local
@@ -139,7 +147,7 @@ DonMatiis-Lunar-Tarot/
 │   │   ├── modals.css           # Modal de agendamiento (dev)
 │   │   ├── forms.css            # Formulario + botones (dev)
 │   │   └── footer.css           # Pie de página + FAQ (dev)
-│   └── js/                      # Módulos de lógica (8 archivos)
+│   └── js/                      # Módulos de lógica (9 archivos)
 │       ├── main.js              # Coordinador + menú + scroll-to-top + event tracking + counters
 │       ├── tarotData.js         # Datos de los 78 arcanos (lazy)
 │       ├── tarotLogic.js        # Lógica del oráculo
@@ -147,12 +155,14 @@ DonMatiis-Lunar-Tarot/
 │       ├── supabaseClient.js    # Cliente Supabase (conexión)
 │       ├── modalBooking.js      # Modal + chips + WhatsApp
 │       ├── accessibility.js     # Control de tamaño de texto
-│       └── pwa.js               # SW + update toast + welcome toast
+│       ├── pwa.js               # SW + update toast + welcome toast
+│       └── admin.js             # Panel admin — autenticación + gestión de testimonios
 ├── .gitignore                   # Archivos excluidos del repo
+├── admin.html                   # Panel de administración (oculto — no indexado)
 ├── index.html                   # Página principal (SPA monolítica)
 ├── offline.html                 # Fallback offline (temático)
 ├── manifest.json                # Configuración PWA (maskable)
-├── robots.txt                   # Instrucciones para crawlers
+├── robots.txt                   # Instrucciones para crawlers (bloquea /admin.html)
 ├── sitemap.xml                  # Mapa del sitio para buscadores
 ├── sw.js                        # Service Worker v4 (offline + update detection)
 └── README.md                    # Esta documentación
@@ -164,11 +174,14 @@ DonMatiis-Lunar-Tarot/
 
 | Aspecto | Implementación |
 | :--- | :--- |
-| **Autenticación** | API key pública (anon) de Supabase — sin login de usuarios |
+| **Autenticación** | API key pública (anon) de Supabase — sin login de usuarios públicos |
 | **RLS habilitado** | Lectura pública de todos los testimonios. Inserción pública controlada. |
 | **Privacidad** | Correos electrónicos enmascarados en la UI + no se transfieren al cliente |
 | **Service Worker** | Llamadas a Supabase van siempre a la red (nunca se cachean) + fallback 503 |
 | **Transparencia** | Testimonios publicados inmediatamente — sin censura ni moderación |
+| **Admin oculto** | Panel en `/admin.html` — bloqueado en `robots.txt`, sin links públicos |
+| **Admin auth** | Supabase Auth con email + contraseña — solo administradores autorizados |
+| **Admin RLS** | Solo usuarios autenticados pueden modificar testimonios |
 
 ---
 
@@ -195,6 +208,14 @@ DonMatiis-Lunar-Tarot/
 ---
 
 ## 📝 Cambios Recientes
+
+### v1.2 — Agosto 2026
+- **Panel de administración**: página oculta en `/admin.html` con login Supabase Auth
+- **Gestión de testimonios**: ver, editar y borrar testimonios desde el panel admin
+- **Dashboard**: total de testimonios y promedio de estrellas en tiempo real
+- **robots.txt actualizado**: `/admin.html` bloqueado para buscadores
+- **Accesibilidad**: star rating `aria-checked` corregido, Escape cierra menú móvil
+- **UX mejorada**: scroll bloqueado cuando menú móvil está abierto
 
 ### v1.1 — Agosto 2026
 - **Hamburger menu mejorado**: reemplazado ícono FontAwesome por diseño CSS puro de tres líneas con animación a X al abrir el menú
