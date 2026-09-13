@@ -144,7 +144,7 @@ export const tarotDeck = [
         name: "2 de Bastos",
         icon: "fa-compass",
         upright: "Te hallas contemplando nuevos horizontes desde una posición de poder y planificación estratégica. Es el momento de trazar el mapa definitivo para tus próximas grandes decisiones, evaluando con inteligencia qué caminos expandirán tu destino.",
-        reversed: "El miedo paralizante a lo desconocido y la ausencia de una estrategia clara te condenan a la indecisión crónica. Tus plans se quedan en meras intenciones abstractas por temor a arriesgar tu aparente comodidad actual."
+        reversed: "El miedo paralizante a lo desconocido y la ausencia de una estrategia clara te condenan a la indecisión crónica. Tus planes se quedan en meras intenciones abstractas por temor a arriesgar tu aparente comodidad actual."
     },
     {
         name: "3 de Bastos",

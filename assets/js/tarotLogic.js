@@ -115,7 +115,7 @@ export function initTarotOracle() {
 
             if (!isAudioMuted) {
                 misticAudio.currentTime = 0;
-                misticAudio.play().catch(err => console.log("Audio play prevented:", err));
+                misticAudio.play().catch(() => {});
             }
 
             const randomCard = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
@@ -144,7 +144,7 @@ export function initTarotOracle() {
 
             oracleCard.classList.add('flipped');
 
-            const exactPhrase = "Regresa mañana para ver nuevamente tu Oráculo Diario!, mientras tanto, puedes agendar una lectura de Tarot, Péndulo o Cartomancia si necesitas más";
+            const exactPhrase = "¡Regresa mañana para ver nuevamente tu Oráculo Diario! Mientras tanto, puedes agendar una lectura de Tarot, Péndulo o Cartomancia si necesitas más";
             setTimeout(() => {
                 typeWriterEffect(exactPhrase, typedMessage, 18);
             }, 500);

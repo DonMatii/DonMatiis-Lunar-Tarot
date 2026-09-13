@@ -137,6 +137,7 @@ DonMatiis-Lunar-Tarot/
 │   ├── audio/                   # Efectos de sonido (campanillas)
 │   ├── css/
 │   │   ├── style.css            # CSS concatenado (10 módulos en 1 archivo)
+│   │   ├── admin.css            # CSS exclusivo del panel de administración
 │   │   ├── variables.css        # Paleta de colores (dev)
 │   │   ├── base.css             # Reset y tipografía (dev)
 │   │   ├── animations.css       # Transiciones y keyframes (dev)
@@ -208,6 +209,15 @@ DonMatiis-Lunar-Tarot/
 ---
 
 ## 📝 Cambios Recientes
+
+### v1.3 — Agosto 2026
+- **Bug fixes**: corregido typo "plans" → "planes" en carta de tarot, puntuación en texto del oráculo
+- **Botón WhatsApp verde**: botón de compartir oráculo ahora usa color WhatsApp (#25d366) para mejor reconocimiento
+- **Badge de posición con color**: "Al Derecho" en verde, "Invertida" en morado — distinción visual clara
+- **Accesibilidad estrellas**: flechas del teclado ←→ para navegar entre opciones de valoración (WCAG)
+- **Código limpio**: eliminado `console.log` en producción, quitado inline style del botón de audio
+- **Admin optimizado**: CSS separado en `admin.css` (reduce carga en ~95%), cliente Supabase consolidado
+- **OG Image PNG**: imagen de Open Graph cambiada de WebP a PNG para mejor compatibilidad
 
 ### v1.2 — Agosto 2026
 - **Panel de administración**: página oculta en `/admin.html` con login Supabase Auth

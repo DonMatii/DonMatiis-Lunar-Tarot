@@ -74,6 +74,25 @@ export function initTestimonials() {
             button.addEventListener('mouseleave', () => {
                 starButtons.forEach(btn => btn.classList.remove('hover'));
             });
+
+            // Arrow key navigation for accessibility (WCAG)
+            button.addEventListener('keydown', (e) => {
+                const currentIndex = Array.from(starButtons).indexOf(button);
+                let newIndex = currentIndex;
+
+                if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    newIndex = Math.min(currentIndex + 1, starButtons.length - 1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    newIndex = Math.max(currentIndex - 1, 0);
+                }
+
+                if (newIndex !== currentIndex) {
+                    starButtons[newIndex].focus();
+                    starButtons[newIndex].click();
+                }
+            });
         });
     }
 
