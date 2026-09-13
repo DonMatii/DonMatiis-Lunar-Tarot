@@ -65,7 +65,7 @@ export function initBookingModal() {
         const closeModal = () => {
             modalOverlay.classList.remove('active');
             modalOverlay.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
 
             // Devolver foco al elemento que abrió el modal
             if (lastFocusedElement) {
