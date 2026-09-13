@@ -212,7 +212,6 @@ DonMatiis-Lunar-Tarot/
 
 ### v1.3 — Agosto 2026
 - **Bug fixes**: corregido typo "plans" → "planes" en carta de tarot, puntuación en texto del oráculo
-- **Botón WhatsApp verde**: botón de compartir oráculo ahora usa color WhatsApp (#25d366) para mejor reconocimiento
 - **Badge de posición con color**: "Al Derecho" en verde, "Invertida" en morado — distinción visual clara
 - **Accesibilidad estrellas**: flechas del teclado ←→ para navegar entre opciones de valoración (WCAG)
 - **Código limpio**: eliminado `console.log` en producción, quitado inline style del botón de audio

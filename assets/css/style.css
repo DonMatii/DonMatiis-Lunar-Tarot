@@ -751,13 +751,13 @@ section {
 }
 
 .oracle-share-whatsapp {
-    background: linear-gradient(135deg, #25d366, #128c7e);
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
     color: #fff;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
 }
 
 .oracle-share-whatsapp:hover {
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 6px 18px rgba(157, 78, 221, 0.5);
 }
 
 .oracle-share-copy {
